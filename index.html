@@ -3,661 +3,976 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MegaLogistics · kilos.mx — Mockup v4 Dark Amber</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<title>MegaLogistics — Mockup v6</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --ink:#0F172A;--ink2:#1E293B;--ink3:#334155;--ink4:#475569;
-  --am:#F59E0B;--am2:#D97706;--am3:#92400E;--am0:#FEF3C7;--am1:#FDE68A;
-  --sl:#64748B;--mu:#94A3B8;--brd:#E2E8F0;--sur:#F8FAFC;--wh:#FFFFFF;
-  --ok:#059669;--ok0:#D1FAE5;
-  --wa:#22C55E;
-  --wr:#B45309;--wr0:#FEF3C7;
-  --er:#DC2626;--er0:#FEE2E2;
-  --bl:#2563EB;--bl0:#EFF6FF;
-  --font:'DM Sans',system-ui,sans-serif;
-  --mono:'DM Mono',monospace;
-}
-body{font-family:var(--font);background:#E2E8F0;color:var(--ink);-webkit-font-smoothing:antialiased;min-height:100vh}
+:root{--ink:#0F172A;--ink2:#1E293B;--am:#F59E0B;--am2:#D97706;--am3:#92400E;--am0:#FEF9EE;--am1:#FDE68A;--sl:#64748B;--brd:#E2E8F0;--sur:#F8FAFC;--wh:#FFFFFF;--ok:#059669;--ok0:#ECFDF5;--ok1:#A7F3D0;--er:#DC2626;--er0:#FFF1F1;--bl:#2563EB;--bl0:#EFF6FF;--bl1:#BFDBFE;--pu:#7C3AED;--pu0:#F5F3FF;--wa:#22C55E;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:#080C14;font-family:'DM Sans',sans-serif;min-height:100vh;padding:48px 28px 80px;background-image:radial-gradient(ellipse 900px 600px at 10% 20%,rgba(245,158,11,.06) 0%,transparent 70%),radial-gradient(ellipse 700px 500px at 90% 80%,rgba(37,99,235,.05) 0%,transparent 70%);}
 
 /* HEADER */
-.hdr{background:var(--ink);padding:18px 32px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
-.hdr-logo{display:flex;align-items:center;gap:10px}
-.hdr-sq{width:32px;height:32px;border-radius:9px;background:var(--am);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:var(--ink)}
-.hdr-txt{font-size:16px;font-weight:600;color:#fff}
-.hdr-txt em{color:var(--am);font-style:normal}
-.hdr-badge{font-size:10px;font-weight:500;background:rgba(255,255,255,.07);color:rgba(255,255,255,.4);padding:5px 14px;border-radius:20px;border:0.5px solid rgba(255,255,255,.1);text-transform:uppercase;letter-spacing:.06em}
+.header{text-align:center;margin-bottom:72px;}
+.hdr-logo{display:inline-flex;align-items:center;gap:12px;margin-bottom:18px;}
+.logo-mark{width:44px;height:44px;border-radius:14px;background:var(--am);color:var(--ink);font-family:'Syne',sans-serif;font-weight:800;font-size:20px;display:flex;align-items:center;justify-content:center;}
+h1{font-family:'Syne',sans-serif;font-weight:800;font-size:36px;color:#fff;letter-spacing:-1.5px;line-height:1;}
+h1 span{color:var(--am);}
+.hdr-sub{font-size:13px;color:rgba(255,255,255,.3);margin-top:10px;letter-spacing:.08em;text-transform:uppercase;font-weight:500;}
+.vpill{display:inline-block;background:rgba(245,158,11,.12);border:1px solid rgba(245,158,11,.25);color:var(--am);font-size:11px;font-weight:700;padding:4px 14px;border-radius:20px;margin-top:14px;text-transform:uppercase;letter-spacing:.08em;}
 
-/* LAYOUT */
-.stage{padding:40px 24px 64px;max-width:1500px;margin:0 auto}
-.row-label{font-size:11px;font-weight:500;color:var(--sl);text-transform:uppercase;letter-spacing:.08em;margin:0 0 20px;display:flex;align-items:center;gap:10px}
-.row-label::after{content:'';flex:1;height:0.5px;background:var(--brd)}
-.phones{display:flex;gap:22px;overflow-x:auto;padding-bottom:12px;margin-bottom:48px;scrollbar-width:thin;scrollbar-color:var(--brd) transparent}
-.pw{flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:12px}
-.pc{font-size:11px;font-weight:500;color:var(--sl);text-align:center;max-width:200px;line-height:1.4}
+/* SECTION */
+.sec-title{font-family:'Syne',sans-serif;font-weight:700;font-size:11px;color:rgba(255,255,255,.22);text-transform:uppercase;letter-spacing:.15em;margin-bottom:24px;margin-top:64px;display:flex;align-items:center;gap:12px;}
+.sec-title::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.05);}
+.sec-pill{background:rgba(245,158,11,.15);border:1px solid rgba(245,158,11,.2);color:var(--am);padding:2px 10px;border-radius:20px;font-size:10px;}
 
-/* PHONE FRAME */
-.phone{width:360px;background:var(--wh);border-radius:44px;border:6px solid var(--ink2);box-shadow:0 0 0 1px var(--ink3),0 24px 48px rgba(15,23,42,.22),0 8px 16px rgba(15,23,42,.1);overflow:hidden}
-.notch{background:var(--ink2);height:34px;display:flex;align-items:center;justify-content:center}
-.notch-pill{width:88px;height:22px;background:var(--ink);border-radius:11px}
-.status-bar{background:var(--wh);display:flex;align-items:center;justify-content:space-between;padding:6px 20px 4px;font-size:11px;font-weight:500;color:var(--ink)}
-.screen{background:var(--sur);min-height:700px}
+/* PHONES */
+.phones-row{display:flex;gap:24px;flex-wrap:wrap;justify-content:center;align-items:flex-start;}
+.phone-wrap{display:flex;flex-direction:column;align-items:center;gap:12px;}
+.phone-label{font-size:10px;font-weight:600;color:rgba(255,255,255,.28);text-transform:uppercase;letter-spacing:.09em;max-width:240px;text-align:center;line-height:1.5;}
+.phone{width:256px;background:#0F172A;border-radius:38px;padding:12px;box-shadow:0 0 0 1px rgba(255,255,255,.06),0 40px 80px rgba(0,0,0,.8),0 0 0 9px #0a0e18,0 0 0 10px rgba(255,255,255,.04);position:relative;}
+.phone::before{content:'';position:absolute;top:22px;left:50%;transform:translateX(-50%);width:72px;height:5px;background:rgba(255,255,255,.07);border-radius:3px;}
+.screen{background:var(--sur);border-radius:26px;overflow:hidden;min-height:520px;}
 
-/* APP NAV */
-.app-nav{background:var(--wh);border-bottom:0.5px solid var(--brd);display:flex;align-items:center;justify-content:space-between;padding:0 15px;height:52px}
-.nav-logo{display:flex;align-items:center;gap:7px}
-.nav-sq{width:28px;height:28px;border-radius:7px;background:var(--ink);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--am)}
-.nav-txt{font-size:14px;font-weight:600;color:var(--ink)}
-.nav-txt em{color:var(--am);font-style:normal}
-.nav-switch{display:flex;gap:2px;background:#F1F5F9;padding:2px;border-radius:10px}
-.ns{padding:4px 10px;border-radius:8px;font-size:10px;font-weight:500;color:var(--sl);border:none;background:transparent;cursor:pointer;font-family:var(--font)}
-.ns.on{background:var(--ink);color:var(--am)}
-.stock{display:flex;align-items:center;gap:4px;font-size:9px;font-weight:500;color:var(--sl)}
-.stock-dot{width:6px;height:6px;border-radius:50%;background:var(--am)}
+/* NAV */
+.nav{background:var(--ink);display:flex;align-items:center;justify-content:space-between;padding:0 13px;height:44px;}
+.nav-logo{display:flex;align-items:center;gap:7px;}
+.nav-mark{width:24px;height:24px;border-radius:7px;background:var(--am);color:var(--ink);font-family:'Syne',sans-serif;font-weight:800;font-size:10px;display:flex;align-items:center;justify-content:center;}
+.nav-name{font-family:'Syne',sans-serif;font-weight:700;font-size:12px;color:#fff;letter-spacing:-.3px;}
+.nav-name em{color:var(--am);font-style:normal;}
+.nav-sw{display:flex;gap:1px;background:rgba(255,255,255,.12);padding:2px;border-radius:7px;}
+.sw{padding:3px 10px;border-radius:5px;font-size:9px;font-weight:700;text-transform:uppercase;color:rgba(255,255,255,.55);}
+.sw.on{background:var(--am);color:var(--ink);}
+.nav-kg{font-size:9px;font-weight:700;color:rgba(255,255,255,.35);display:flex;align-items:center;gap:3px;}
+.kd{width:5px;height:5px;border-radius:50%;background:var(--am);}
 
 /* TABS */
-.tabs{display:flex;gap:2px;padding:3px;background:#F1F5F9;border-radius:10px;margin:10px 14px}
-.tab{flex:1;padding:7px 3px;border-radius:8px;font-size:10px;font-weight:500;color:var(--sl);border:none;background:transparent;text-align:center;cursor:pointer;font-family:var(--font)}
-.tab.on{background:var(--ink);color:var(--am)}
+.tabs{display:flex;gap:2px;padding:3px;background:#fff;border:0.5px solid var(--brd);border-radius:9px;margin:9px 11px 0;}
+.tab{flex:1;padding:6px 3px;border-radius:6px;font-size:8.5px;font-weight:700;text-align:center;text-transform:uppercase;color:var(--sl);}
+.tab.on{background:var(--ink);color:var(--am);}
 
 /* CONTENT */
-.content{padding:4px 14px 28px}
+.sc{padding:9px 11px 18px;}
 
 /* HERO */
-.hero{background:var(--ink);border-radius:18px;padding:16px;margin-bottom:11px;display:flex;justify-content:space-between;align-items:center}
-.hero-lbl{font-size:9px;font-weight:500;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px}
-.hero-val{font-size:26px;font-weight:600;color:#fff}
-.hero-bar{margin-top:8px;background:rgba(255,255,255,.1);border-radius:3px;height:4px;width:110px}
-.hero-bar-fill{background:var(--am);border-radius:3px;height:4px}
+.hero{background:var(--ink);border-radius:14px;padding:13px;display:flex;justify-content:space-between;align-items:center;margin-bottom:9px;}
+.hl .lbl{font-size:7.5px;font-weight:700;color:rgba(255,255,255,.3);text-transform:uppercase;margin-bottom:3px;}
+.hl .val{font-family:'Syne',sans-serif;font-size:24px;font-weight:800;color:#fff;letter-spacing:-1px;}
+.hbar{background:rgba(255,255,255,.1);border-radius:3px;height:3px;width:90px;margin-top:7px;}
+.hbarf{background:var(--am);border-radius:3px;height:3px;}
+.hr{text-align:right;}
+.hr .lbl{font-size:7.5px;font-weight:700;color:rgba(255,255,255,.3);text-transform:uppercase;margin-bottom:3px;}
+.hr .val{font-family:'Syne',sans-serif;font-size:24px;font-weight:800;color:var(--am);letter-spacing:-1px;}
+.hr .tm{font-size:8px;color:rgba(255,255,255,.22);margin-top:3px;}
 
 /* CARD */
-.card{background:var(--wh);border:0.5px solid var(--brd);border-radius:16px;overflow:hidden;margin-bottom:10px}
-.card-head{padding:10px 14px;border-bottom:0.5px solid #F8FAFC;display:flex;align-items:center;justify-content:space-between}
-.card-title{font-size:12px;font-weight:600;color:var(--ink)}
+.card{background:#fff;border:0.5px solid var(--brd);border-radius:13px;overflow:hidden;margin-bottom:8px;}
+.ch{padding:8px 11px;border-bottom:0.5px solid var(--brd);background:var(--sur);display:flex;align-items:center;justify-content:space-between;}
+.ct{font-size:9.5px;font-weight:700;color:var(--ink);text-transform:uppercase;letter-spacing:.04em;}
+.bdg{font-size:7.5px;font-weight:700;padding:2px 7px;border-radius:18px;text-transform:uppercase;white-space:nowrap;}
+.b-am{background:var(--am0);color:var(--am3);}
+.b-ok{background:var(--ok0);color:#065F46;}
+.b-er{background:var(--er0);color:var(--er);}
+.b-bl{background:var(--bl0);color:var(--bl);}
+.b-sl{background:#F1F5F9;color:#475569;}
+.b-pu{background:var(--pu0);color:var(--pu);}
+.new-pill{display:inline-block;background:rgba(34,197,94,.15);border:1px solid rgba(34,197,94,.3);color:#22C55E;font-size:7.5px;font-weight:700;padding:1px 7px;border-radius:9px;text-transform:uppercase;margin-left:4px;vertical-align:middle;}
 
-/* TIPO ENTREGA */
-.tipo-row{display:flex;gap:8px;padding:10px 14px}
-.tipo{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:10px 6px;border-radius:12px;border:1.5px solid var(--brd);background:var(--sur);cursor:pointer}
-.tipo.on{border-color:var(--am);background:var(--am0)}
-.tipo-lbl{font-size:10px;font-weight:600;color:var(--ink);text-transform:uppercase}
-.tipo-sub{font-size:9px;color:var(--sl);text-transform:uppercase}
+/* MODOS */
+.modos{display:flex;gap:5px;padding:9px 11px;}
+.modo{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:10px 3px;border-radius:11px;border:2px solid var(--brd);background:var(--sur);text-align:center;}
+.modo.on{border-color:var(--am);background:var(--am0);}
+.modo .ico{font-size:19px;}
+.modo .lbl{font-size:9px;font-weight:700;color:var(--ink);text-transform:uppercase;}
+.modo.on .lbl{color:var(--am3);}
+.modo .sub{font-size:7.5px;color:var(--sl);}
 
-/* AMOUNT */
-.amount-box{background:var(--sur);border-radius:14px;padding:14px;margin-bottom:10px}
-.amount-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
-.amt{font-size:34px;font-weight:600;color:var(--ink)}
-.qty-btn{width:36px;height:36px;border-radius:10px;border:0.5px solid var(--brd);background:var(--wh);font-size:20px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--ink)}
-.equiv{background:var(--am0);border-radius:10px;padding:8px 11px;display:flex;justify-content:space-between}
-.eq-lbl{font-size:9px;color:var(--am3);text-transform:uppercase;font-weight:600}
-.eq-val{font-size:14px;font-weight:600;color:var(--am3)}
+/* ENTREGA — lista item */
+.ei{display:flex;align-items:center;gap:11px;padding:11px 13px;border-bottom:0.5px solid var(--brd);cursor:pointer;}
+.ei:last-child{border-bottom:none;}
+.ei.on{background:var(--am0);}
+.er2{width:17px;height:17px;border-radius:50%;border:2.5px solid var(--brd);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.er2.on{border-color:var(--am);}
+.erdot{width:8px;height:8px;border-radius:50%;background:var(--am);}
+.eico{font-size:21px;flex-shrink:0;}
+.einfo{flex:1;min-width:0;}
+.elbl{font-size:11.5px;font-weight:700;color:var(--ink);}
+.ei.on .elbl{color:var(--am3);}
+.esub{font-size:8.5px;color:var(--sl);margin-top:1px;}
+.ebdg{display:inline-block;font-size:8px;font-weight:700;padding:2px 7px;border-radius:8px;margin-top:4px;text-transform:uppercase;}
 
-/* PAY */
-.pay-opt{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:0.5px solid #F8FAFC;cursor:pointer}
-.pay-opt:last-child{border-bottom:none}
-.radio{width:16px;height:16px;border-radius:50%;border:2px solid var(--brd);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.radio.on{border-color:var(--am)}
-.rdot{width:7px;height:7px;border-radius:50%;background:var(--am)}
-.pay-lbl{font-size:12px;font-weight:600;color:var(--ink)}
-.pay-sub{font-size:10px;color:var(--sl)}
+/* ADDR + GPS */
+.addr-box{padding:10px 11px 12px;}
+.addr-lbl{font-size:7.5px;font-weight:700;color:var(--sl);text-transform:uppercase;margin-bottom:4px;}
+.addr-inp{width:100%;padding:7px 9px;background:var(--sur);border:1.5px solid var(--brd);border-radius:8px;font-size:9.5px;color:var(--sl);margin-bottom:7px;}
+.geo-btn{width:100%;padding:9px;background:var(--bl0);border:1.5px solid var(--bl1);border-radius:9px;color:var(--bl);font-size:9px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:5px;text-transform:uppercase;}
+.geo-btn.ok{background:var(--ok0);border-color:var(--ok1);color:var(--ok);}
+.geo-res{margin-top:6px;background:var(--ok0);border:1px solid var(--ok1);border-radius:9px;padding:7px 9px;display:flex;align-items:flex-start;gap:6px;}
+.geo-coords{font-size:8.5px;font-weight:700;color:var(--ok);font-family:monospace;}
+.geo-link{font-size:8.5px;font-weight:700;color:var(--bl);text-decoration:none;display:block;margin-top:2px;}
+.geo-hint{font-size:7.5px;color:var(--sl);text-align:center;margin-top:5px;}
+
+/* MONTO */
+.chips{display:flex;gap:4px;flex-wrap:wrap;padding:9px 11px 0;}
+.chip{padding:4px 10px;border-radius:16px;border:1.5px solid var(--brd);background:#fff;font-size:9.5px;font-weight:700;color:var(--sl);}
+.chip.on{border-color:var(--am);background:var(--am);color:var(--ink);}
+.monto-wrap{display:flex;align-items:center;background:var(--sur);border:2px solid var(--ok);border-radius:11px;padding:0 13px;margin:7px 11px 3px;}
+.mp{font-size:22px;font-weight:700;color:var(--ok);margin-right:3px;}
+.mv{font-size:26px;font-weight:700;color:var(--ink);letter-spacing:-1px;padding:10px 0;}
+.mhint{font-size:8.5px;font-weight:600;color:var(--ok);padding:0 11px 9px;}
+
+/* EXTRAS */
+.xrow{display:flex;align-items:center;gap:9px;padding:9px 11px;border-bottom:0.5px solid var(--brd);}
+.xrow:last-child{border-bottom:none;}
+.xrow.on{background:var(--am0);}
+.ckbox{width:19px;height:19px;border-radius:6px;border:2.5px solid var(--am);background:var(--am);color:var(--ink);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.ckbox.off{border-color:var(--brd);background:#fff;}
+.xstep{display:flex;align-items:center;gap:5px;padding:6px 11px;background:var(--am0);border-top:0.5px solid var(--am1);}
+.xsl{font-size:8.5px;font-weight:700;color:var(--am3);text-transform:uppercase;flex:1;}
+.xsb{width:26px;height:26px;border-radius:7px;border:1.5px solid var(--am1);background:#fff;font-size:15px;font-weight:700;color:var(--ink);display:flex;align-items:center;justify-content:center;}
+.xsv{font-size:16px;font-weight:700;color:var(--ink);width:28px;text-align:center;}
+.xst{font-size:11px;font-weight:700;color:var(--am2);}
+
+/* PAGO */
+.popt{display:flex;align-items:center;gap:8px;padding:7px 11px;border-bottom:0.5px solid var(--brd);}
+.popt:last-child{border-bottom:none;}
+.rdo{width:14px;height:14px;border-radius:50%;border:2px solid var(--brd);display:flex;align-items:center;justify-content:center;}
+.rdo.on{border-color:var(--am);}
+.rdot2{width:7px;height:7px;border-radius:50%;background:var(--am);}
+.plbl{font-size:10.5px;font-weight:600;color:var(--ink);}
+.psub{font-size:8.5px;color:var(--sl);}
 
 /* CTA */
-.cta-bar{background:var(--ink);border-radius:18px;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;margin-top:4px}
-.cta-lbl{font-size:9px;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.06em;margin-bottom:2px}
-.cta-val{font-size:28px;font-weight:600;color:#fff}
-.cta-sub{font-size:9px;color:rgba(255,255,255,.35);text-transform:uppercase;margin-top:1px}
-.cta-btn{width:48px;height:48px;border-radius:14px;background:var(--am);color:var(--ink);border:none;font-size:22px;font-weight:700;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;transition:transform .15s}
-.cta-btn:hover{transform:scale(1.07)}
-.cta-btn:active{transform:scale(.95)}
+.cta{background:var(--ink);border-radius:14px;padding:12px 13px;display:flex;justify-content:space-between;align-items:center;margin-top:4px;}
+.cl .clbl{font-size:7.5px;color:rgba(255,255,255,.3);text-transform:uppercase;margin-bottom:2px;}
+.cl .ctot{font-family:'Syne',sans-serif;font-size:24px;font-weight:800;color:#fff;letter-spacing:-1px;}
+.cl .csumm{font-size:7.5px;color:rgba(255,255,255,.28);text-transform:uppercase;margin-top:1px;}
+.carr{width:42px;height:42px;border-radius:12px;background:var(--am);color:var(--ink);font-size:18px;font-weight:900;display:flex;align-items:center;justify-content:center;}
 
-/* CONFIRM */
-.confirm-box{background:var(--am0);border:0.5px solid var(--am1);border-radius:16px;padding:20px;text-align:center;margin-bottom:12px}
-.confirm-icon{font-size:34px;margin-bottom:8px}
-.confirm-title{font-size:15px;font-weight:600;color:var(--am3)}
-.confirm-sub{font-size:11px;color:var(--wr);margin-top:3px}
-.saving{display:flex;align-items:center;justify-content:center;gap:5px;margin-top:7px}
-.saving-dot{width:5px;height:5px;border-radius:50%;background:var(--am2);animation:pulse 1.2s infinite}
-.saving-txt{font-size:9px;color:var(--wr);font-weight:500;text-transform:uppercase}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.2}}
+/* CONFIRMACIÓN */
+.conf-banner{background:var(--am0);border:1.5px solid var(--am1);border-radius:13px;padding:18px;text-align:center;margin-bottom:9px;}
+.cc{font-size:30px;margin-bottom:6px;}
+.ctitle{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;color:var(--am3);}
+.cdetail{font-size:9px;color:var(--sl);margin-top:2px;}
+.hconf{background:var(--ink);border-radius:11px;padding:11px 13px;margin-bottom:9px;}
+.hclbl{font-size:7.5px;color:rgba(255,255,255,.3);text-transform:uppercase;margin-bottom:4px;}
+.hcrange{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;color:var(--am);}
+.hcsub{font-size:8.5px;color:rgba(255,255,255,.35);margin-top:2px;}
 
-/* WARN */
-.warn-bar{display:flex;align-items:flex-start;gap:8px;background:var(--wr0);border:0.5px solid var(--am1);border-radius:10px;padding:9px 11px;margin-bottom:9px}
-.warn-txt{font-size:10px;font-weight:500;color:var(--wr);text-transform:uppercase;line-height:1.45}
+/* SEGUIMIENTO */
+.trkcard{background:#fff;border:0.5px solid var(--brd);border-radius:12px;overflow:hidden;margin-bottom:8px;}
+.trkh{padding:9px 11px;display:flex;justify-content:space-between;align-items:flex-start;gap:6px;}
+.trktot{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;color:var(--ink);}
+.trkd{font-size:8.5px;color:var(--sl);margin-top:1px;}
+.trkgeo{font-size:8.5px;font-weight:700;color:var(--bl);margin-top:1px;}
+.trkhor{display:inline-block;padding:2px 7px;border-radius:7px;font-size:7.5px;font-weight:700;text-transform:uppercase;margin-top:3px;}
+.trkstat{padding:6px 11px;font-size:8.5px;font-weight:700;display:flex;align-items:center;gap:5px;}
 
-/* BANK */
-.bank-box{background:var(--am0);border-radius:10px;padding:10px 12px;margin-bottom:10px}
-.bank-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
-.bank-row:last-child{margin-bottom:0}
-.bank-lbl{font-size:9px;color:var(--am2);text-transform:uppercase;font-weight:600}
-.bank-val{font-size:12px;font-weight:600;color:var(--am3)}
-.copy-btn{font-size:9px;font-weight:500;padding:3px 8px;background:var(--wh);border:0.5px solid var(--brd);border-radius:6px;color:var(--sl);cursor:pointer;flex-shrink:0;font-family:var(--font)}
+/* ADMIN tabs */
+.atabs{display:flex;gap:3px;flex-wrap:wrap;margin-bottom:11px;}
+.at{padding:4px 8px;border-radius:16px;border:1.5px solid var(--brd);background:#fff;font-size:8.5px;font-weight:700;color:var(--sl);text-transform:uppercase;}
+.at.on{background:var(--ink);color:var(--am);border-color:var(--ink);}
+.at.an{background:var(--pu0);color:var(--pu);border-color:#DDD6FE;}
 
-/* UPLOAD + WA */
-.upload-btn{width:100%;padding:11px;background:var(--ink);color:var(--am);border:none;border-radius:12px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;display:flex;align-items:center;justify-content:center;gap:6px;cursor:pointer;font-family:var(--font)}
-.wa-btn{width:100%;padding:11px;background:var(--wa);color:#fff;border:none;border-radius:12px;font-size:11px;font-weight:500;display:flex;align-items:center;justify-content:center;gap:6px;cursor:pointer;font-family:var(--font);margin-top:8px;text-decoration:none}
+/* PEDIDO COL */
+.pcl{font-size:8.5px;font-weight:700;color:var(--sl);text-transform:uppercase;margin-bottom:5px;line-height:1.4;}
+.pcard{background:#fff;border:0.5px solid var(--brd);border-radius:10px;padding:7px 9px;margin-bottom:6px;}
+.pname{font-size:10px;font-weight:700;color:var(--ink);}
+.pdet{font-size:8px;color:var(--sl);margin-top:1px;}
+.pgeo{font-size:7.5px;font-weight:700;color:var(--bl);margin-top:1px;}
+.pbdgs{display:flex;gap:3px;margin-top:3px;flex-wrap:wrap;}
+.phor{font-size:7.5px;font-weight:700;color:var(--am3);margin-top:2px;}
 
-/* BADGES */
-.badge{font-size:9px;font-weight:500;padding:2px 8px;border-radius:20px;white-space:nowrap;display:inline-block}
-.b-ok{background:var(--ok0);color:#065F46}
-.b-am{background:var(--am0);color:var(--am3)}
-.b-wa{background:var(--wr0);color:var(--wr)}
-.b-er{background:var(--er0);color:var(--er)}
-.b-bl{background:var(--bl0);color:var(--bl)}
-.b-sl{background:#F1F5F9;color:#475569}
+/* CONFIG HORARIOS */
+.hbloque{border-radius:11px;padding:10px 11px;margin:7px 11px;display:flex;align-items:center;gap:9px;}
+.hbloque.am{background:var(--am0);border:1.5px solid var(--am1);}
+.hbloque.bl{background:var(--bl0);border:1.5px solid var(--bl1);}
+.hbico{font-size:17px;flex-shrink:0;}
+.hbtitle{font-size:10px;font-weight:700;color:var(--am3);}
+.hbloque.bl .hbtitle{color:var(--bl);}
+.hbrange{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:var(--am2);margin-top:1px;}
+.hbloque.bl .hbrange{color:var(--bl);}
+.hbsub{font-size:7.5px;color:var(--sl);margin-top:1px;}
+.timeinps{display:flex;align-items:center;gap:7px;padding:0 11px 9px;}
+.tinp{flex:1;padding:7px 8px;background:var(--sur);border:1.5px solid var(--brd);border-radius:8px;font-size:10px;font-weight:700;color:var(--ink);text-align:center;}
+.tdash{font-size:13px;color:var(--sl);font-weight:700;}
+.sbtn{margin:0 11px 11px;padding:8px;background:var(--ink);color:var(--am);border-radius:9px;font-size:9px;font-weight:700;text-transform:uppercase;text-align:center;}
 
-/* METRICS */
-.metrics-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:14px}
-.metric{background:var(--wh);border:0.5px solid var(--brd);border-radius:12px;padding:10px 11px}
-.metric-lbl{font-size:8px;font-weight:500;color:var(--sl);text-transform:uppercase;letter-spacing:.06em;margin-bottom:3px}
-.metric-val{font-size:16px;font-weight:600;color:var(--ink)}
+/* ANALÍTICAS */
+.anh{background:var(--pu0);border:1px solid #DDD6FE;border-radius:12px;padding:11px 12px;margin-bottom:11px;display:flex;align-items:center;gap:10px;}
+.anico{width:36px;height:36px;border-radius:10px;background:var(--pu);color:#fff;font-size:17px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.antitle{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;color:var(--pu);}
+.ansub{font-size:8.5px;color:var(--sl);margin-top:1px;}
+.antabs{display:flex;gap:2px;padding:3px;background:#fff;border:0.5px solid var(--brd);border-radius:9px;margin-bottom:11px;}
+.antab{flex:1;padding:5px 3px;border-radius:6px;font-size:8.5px;font-weight:700;text-align:center;text-transform:uppercase;color:var(--sl);}
+.antab.on{background:var(--ink);color:var(--am);}
+.kpig{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:11px;}
+.kpi{background:#fff;border:0.5px solid var(--brd);border-radius:11px;padding:9px 10px;}
+.kpiico{font-size:15px;margin-bottom:2px;}
+.kpiv{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;color:var(--ink);letter-spacing:-.5px;}
+.kpil{font-size:7.5px;font-weight:700;color:var(--sl);text-transform:uppercase;margin-top:1px;}
+.tsel{display:flex;gap:3px;flex-wrap:wrap;margin-bottom:9px;}
+.ts{padding:3px 9px;border-radius:16px;border:1.5px solid var(--brd);background:#fff;font-size:8.5px;font-weight:700;color:var(--sl);}
+.ts.on{color:#fff;border-color:transparent;}
+.chart-area{background:#fff;border:0.5px solid var(--brd);border-radius:11px;padding:9px;margin-bottom:8px;overflow:hidden;}
+.clbl{font-size:8.5px;font-weight:700;color:var(--sl);text-transform:uppercase;margin-bottom:7px;}
 
-/* ADMIN SWITCHER */
-.a-switch{display:flex;gap:4px;margin-bottom:14px;overflow-x:auto;scrollbar-width:none}
-.a-switch::-webkit-scrollbar{display:none}
-.asw{padding:5px 13px;border-radius:20px;border:0.5px solid var(--brd);background:var(--wh);font-size:10px;font-weight:500;color:var(--sl);cursor:pointer;white-space:nowrap;font-family:var(--font);transition:all .13s}
-.asw.on{background:var(--ink);color:var(--am);border-color:var(--ink)}
+/* HM */
+.hmw{padding:7px 11px 11px;}
+.hmsc{display:flex;align-items:center;gap:3px;margin-bottom:6px;}
+.hmsl{font-size:7.5px;color:var(--sl);}
+.hmb{width:14px;height:9px;border-radius:2px;}
+.hmg{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;}
+.hml{font-size:7.5px;font-weight:700;color:var(--sl);text-align:center;padding:1px 0;}
+.hmc{aspect-ratio:1;border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:7px;font-weight:700;}
 
-/* PEDIDO ROW */
-.ped-row{padding:10px 14px;border-bottom:0.5px solid #F8FAFC}
-.ped-row:last-child{border-bottom:none}
-.ped-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:5px}
-.ped-name{font-size:12px;font-weight:600;color:var(--ink)}
-.ped-sub{font-size:10px;color:var(--sl);margin-top:1px}
-.ped-badges{display:flex;gap:4px;flex-wrap:wrap;margin-top:4px}
-.state-sel{font-size:9px;font-weight:500;padding:3px 7px;border-radius:8px;border:none;outline:none;cursor:pointer;flex-shrink:0;font-family:var(--font)}
+/* INSIGHT */
+.insrow{display:flex;gap:8px;padding:8px 0;border-bottom:0.5px solid var(--brd);align-items:flex-start;}
+.insrow:last-child{border-bottom:none;}
+.insico{width:26px;height:26px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;}
+.instit{font-size:9.5px;font-weight:700;}
+.insbod{font-size:8px;color:var(--sl);margin-top:1px;line-height:1.4;}
+.insrec{font-size:8px;font-weight:700;margin-top:3px;padding:2px 6px;border-radius:5px;display:inline-block;}
 
-/* NOTIFY */
-.notify-btn{display:flex;align-items:center;justify-content:center;gap:5px;margin:0 14px 8px;padding:7px;background:var(--am0);border-radius:9px;font-size:9px;font-weight:500;color:var(--am3);text-decoration:none}
+/* PLAN */
+.fcrow{display:flex;align-items:center;gap:7px;padding:7px 11px;border-bottom:0.5px solid var(--brd);}
+.fcrow:last-child{border-bottom:none;}
+.fcmes{font-size:9.5px;font-weight:700;color:var(--ink);width:50px;flex-shrink:0;}
+.fcbw{flex:1;background:var(--sur);border-radius:3px;height:6px;overflow:hidden;}
+.fcbf{height:6px;border-radius:3px;background:#EF4444;}
+.fcval{font-size:9.5px;font-weight:700;color:var(--er);width:40px;text-align:right;flex-shrink:0;}
 
-/* COMPROBANTE THUMB */
-.comp-thumb{display:flex;align-items:center;gap:9px;margin:5px 14px 8px;background:var(--sur);border:0.5px dashed #CBD5E1;border-radius:10px;padding:9px;cursor:pointer}
-.comp-thumb img{width:38px;height:38px;border-radius:8px;object-fit:cover}
-.comp-name{font-size:11px;font-weight:500;color:var(--ink)}
-.comp-sub{font-size:9px;color:var(--sl)}
+/* TOP/BAJO */
+.toprow{display:flex;align-items:center;gap:6px;padding:6px 10px;border-bottom:0.5px solid var(--brd);}
+.toprow:last-child{border-bottom:none;}
+.trk2{width:17px;height:17px;border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:8.5px;font-weight:700;flex-shrink:0;}
+.tbw{width:28px;height:5px;background:var(--brd);border-radius:2px;overflow:hidden;margin-left:auto;}
+.tbf{height:5px;border-radius:2px;}
 
-/* ACTION ROW */
-.action-row{display:flex;gap:6px;padding:0 14px 10px}
-.act-g{flex:1;padding:6px;background:var(--ink);color:var(--am);border:none;border-radius:8px;font-size:9px;font-weight:600;cursor:pointer;font-family:var(--font)}
-.act-r{padding:6px 9px;background:var(--er0);color:var(--er);border:none;border-radius:8px;font-size:9px;cursor:pointer;font-family:var(--font)}
+/* BTN */
+.wabtn{width:100%;padding:8px;background:#22C55E;color:#fff;border-radius:9px;font-size:9px;font-weight:700;text-align:center;text-transform:uppercase;margin-bottom:6px;}
+.navbtn{width:100%;padding:9px;background:var(--ink);color:var(--am);border-radius:9px;font-size:9px;font-weight:700;text-align:center;text-transform:uppercase;}
+.secbtn{width:100%;padding:7px;background:transparent;border:1.5px solid var(--brd);border-radius:9px;font-size:8.5px;font-weight:700;text-align:center;color:var(--sl);margin-top:5px;text-transform:uppercase;}
 
-/* EVENTO CARD */
-.ev-card{background:var(--ink);border-radius:16px;padding:14px;margin-bottom:10px}
-.ev-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px}
-.ev-name{font-size:13px;font-weight:600;color:#fff}
-.ev-sub-txt{font-size:10px;color:rgba(255,255,255,.4);margin-top:2px}
-.ev-a-lbl{font-size:9px;color:rgba(255,255,255,.4);text-transform:uppercase;text-align:right}
-.ev-a-val{font-size:18px;font-weight:600;color:var(--am);text-align:right}
-.ev-comp{display:flex;align-items:center;gap:9px;background:rgba(255,255,255,.06);border:0.5px dashed rgba(255,255,255,.15);border-radius:10px;padding:8px;margin-bottom:8px;cursor:pointer}
-.ev-comp img{width:35px;height:35px;border-radius:7px;object-fit:cover}
-.ev-actions{display:flex;gap:6px}
-.ev-btn-ok{flex:1;padding:7px;background:var(--am);color:var(--ink);border:none;border-radius:9px;font-size:10px;font-weight:600;cursor:pointer;font-family:var(--font)}
-.ev-btn-er{padding:7px 10px;background:rgba(220,38,38,.15);color:#FCA5A5;border:none;border-radius:9px;font-size:10px;cursor:pointer;font-family:var(--font)}
+/* RUTA MAP */
+.rutamap{background:#FFFBEB;border-radius:9px;margin:0 11px 9px;padding:4px;overflow:hidden;}
 
-/* TRACKING */
-.track-card{background:var(--wh);border:0.5px solid var(--brd);border-radius:16px;overflow:hidden;margin-bottom:10px}
-.track-head{padding:11px 14px;display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
-.track-amt{font-size:15px;font-weight:600;color:var(--ink)}
-.track-s{font-size:10px;color:var(--sl);margin-top:1px}
-.track-d{font-size:10px;color:var(--sl);margin-top:2px}
-.track-badges{display:flex;gap:4px;flex-wrap:wrap;margin-top:5px}
-.track-alert{margin:0 14px 10px;padding:7px 10px;background:var(--am0);border:0.5px solid var(--am1);border-radius:8px;font-size:10px;color:var(--am3);font-weight:500}
-.track-ok-bar{margin:0 14px 10px;padding:7px 10px;background:var(--ok0);border:0.5px solid #A7F3D0;border-radius:8px;font-size:10px;color:#065F46;font-weight:500}
+/* EVENTO GPS */
+.evserv{display:flex;align-items:center;justify-content:space-between;padding:9px 11px;background:var(--sur);border:1.5px solid var(--brd);border-radius:10px;margin:0 11px 9px;}
+.tgl{width:32px;height:18px;border-radius:9px;background:var(--am);position:relative;flex-shrink:0;}
+.tgl-t{position:absolute;top:2px;left:14px;width:14px;height:14px;border-radius:50%;background:#fff;}
+.evhor{margin:0 11px 11px;background:var(--am0);border:0.5px solid var(--am1);border-radius:9px;padding:8px 10px;display:flex;align-items:center;gap:7px;}
 
-/* COTIZADOR */
-.cotiz-hero{background:var(--ink);border-radius:18px;padding:16px;color:#fff;margin-bottom:11px}
-.cotiz-lbl{font-size:9px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
-.cotiz-val{font-size:28px;font-weight:600;color:#fff}
-.cotiz-sub{font-size:10px;color:rgba(255,255,255,.55);margin-top:2px}
-.ant-box{background:rgba(245,158,11,.12);border:0.5px solid rgba(245,158,11,.3);border-radius:11px;padding:10px;margin-top:10px}
-.ant-lbl{font-size:9px;color:var(--am);text-transform:uppercase;font-weight:600}
-.ant-val{font-size:17px;font-weight:600;color:var(--am)}
-.cotiz-btn{width:100%;margin-top:11px;padding:11px;background:var(--am);color:var(--ink);border:none;border-radius:11px;font-size:12px;font-weight:700;cursor:pointer;font-family:var(--font)}
+/* MÉTRICAS ADMIN */
+.metg{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin-bottom:11px;}
+.metc{background:#fff;border:0.5px solid var(--brd);border-radius:10px;padding:8px 9px;}
+.metl{font-size:7px;font-weight:700;color:var(--sl);text-transform:uppercase;margin-bottom:1px;}
+.metv{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:var(--ink);}
 
-/* STEPPER */
-.stepper{display:flex;align-items:center;gap:5px;background:var(--sur);border:0.5px solid var(--brd);border-radius:9px;padding:5px}
-.step-btn{width:28px;height:28px;border-radius:7px;border:none;background:var(--wh);font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--ink);font-family:var(--font)}
-.step-val{flex:1;text-align:center;font-size:15px;font-weight:600;color:var(--ink)}
-
-/* CONFIG */
-.cfg-inp{width:100%;padding:9px 11px;border-radius:8px;border:0.5px solid var(--brd);background:var(--sur);color:var(--ink);font-size:12px;outline:none;font-family:var(--font);margin-bottom:8px}
-.cfg-inp:focus{border-color:var(--am)}
-.cfg-btn{padding:9px 14px;background:var(--ink);color:var(--am);border:none;border-radius:8px;font-size:11px;font-weight:600;cursor:pointer;font-family:var(--font)}
-
-/* MODAL */
-.modal-overlay{min-height:500px;background:rgba(15,23,42,.78);display:flex;align-items:center;justify-content:center;padding:20px}
-.modal-box{background:var(--wh);border-radius:16px;overflow:hidden;width:100%;max-width:280px}
-.modal-head{display:flex;align-items:center;justify-content:space-between;padding:11px 14px;border-bottom:0.5px solid var(--brd)}
-.modal-title{font-size:12px;font-weight:600;color:var(--ink)}
-.modal-close{width:26px;height:26px;border-radius:7px;border:none;background:var(--sur);font-size:16px;cursor:pointer;color:var(--ink);display:flex;align-items:center;justify-content:center;font-family:var(--font)}
-.modal-img{width:100%;display:block;max-height:200px;object-fit:contain;background:var(--ink)}
-.modal-actions{display:flex;gap:8px;padding:10px 14px;border-top:0.5px solid var(--brd)}
-.modal-dl{flex:1;padding:8px;background:var(--am);color:var(--ink);border:none;border-radius:9px;font-size:10px;font-weight:600;cursor:pointer;font-family:var(--font)}
-.modal-cl{flex:1;padding:8px;background:var(--sur);color:var(--sl);border:none;border-radius:9px;font-size:10px;font-weight:500;cursor:pointer;font-family:var(--font)}
-
-/* ROUTE SVG */
-.route-legend{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}
-.rl{font-size:9px;font-weight:500;padding:2px 7px;border-radius:4px}
-
-/* FOOTER */
-.footer{text-align:center;padding:32px 0 12px;border-top:0.5px solid var(--brd);margin-top:8px}
-.tech-row{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:16px}
-.tech{font-size:10px;font-weight:500;color:var(--sl);background:var(--wh);border:0.5px solid var(--brd);padding:4px 12px;border-radius:20px}
-
-/* RANGE */
-input[type=range]{width:100%;accent-color:var(--am);cursor:pointer}
-
-/* TEXTAREA */
-.addr{width:100%;padding:8px 10px;border-radius:9px;border:0.5px solid var(--brd);background:var(--sur);color:var(--ink);font-size:11px;resize:none;outline:none;font-family:var(--font);line-height:1.5}
-.addr:focus{border-color:var(--am)}
+/* LEGEND */
+.legend{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:7px;}
+.legit{display:flex;align-items:center;gap:3px;font-size:8px;font-weight:600;color:var(--sl);}
+.legdot{width:8px;height:8px;border-radius:2px;}
 </style>
 </head>
 <body>
 
-<div class="hdr">
+<!-- HEADER -->
+<div class="header">
   <div class="hdr-logo">
-    <div class="hdr-sq">M</div>
-    <span class="hdr-txt">Mega<em>Logistics</em> · kilos.mx</span>
+    <div class="logo-mark">M</div>
+    <h1>Mega<span>Logistics</span></h1>
   </div>
-  <span class="hdr-badge">Mockup v4 · Dark &amp; Amber</span>
+  <div class="hdr-sub">kilos.mx · Sistema de pedidos de carne al pastor · Mérida, Yucatán</div>
+  <div class="vpill">Mockup v6 · CRUD v22 · Abril 2026 · 15 pantallas</div>
 </div>
 
-<div class="stage">
+<!-- ══════════════ SECCIÓN 1: EXPRESS ══════════════ -->
+<div class="sec-title">01 — Express: Modo de pedido + Tipo de entrega<span class="sec-pill">Cliente</span></div>
 
-  <!-- ══ CLIENTE ══ -->
-  <div class="row-label">Vista Cliente</div>
-  <div class="phones">
+<div class="phones-row">
 
-    <!-- 1 · Express Form -->
-    <div class="pw">
-      <div class="phone">
-        <div class="notch"><div class="notch-pill"></div></div>
-        <div class="status-bar"><span>9:41</span><span>●●●</span></div>
-        <div class="screen">
-          <div class="app-nav">
-            <div class="nav-logo"><div class="nav-sq">M</div><span class="nav-txt">Mega<em>Logistics</em></span></div>
-            <div class="nav-switch"><button class="ns on">Cliente</button><button class="ns">Admin</button></div>
-            <div class="stock"><div class="stock-dot"></div><span>72 kg</span></div>
+<!-- P1: Modo + entrega como lista -->
+<div class="phone-wrap">
+  <div class="phone-label">¿Qué pedir? + selector de entrega con horarios</div>
+  <div class="phone"><div class="screen">
+    <div class="nav">
+      <div class="nav-logo"><div class="nav-mark">M</div><div class="nav-name">Mega<em>Logistics</em></div></div>
+      <div class="nav-sw"><div class="sw on">Cliente</div><div class="sw">Admin</div></div>
+      <div class="nav-kg"><div class="kd"></div>72 kg</div>
+    </div>
+    <div class="tabs"><div class="tab on">Express</div><div class="tab">Evento</div><div class="tab">Seguim.</div></div>
+    <div class="sc">
+      <div class="hero">
+        <div class="hl"><div class="lbl">Carne disponible</div><div class="val">72 kg</div><div class="hbar"><div class="hbarf" style="width:40%"></div></div></div>
+        <div class="hr"><div class="lbl">Precio / kg</div><div class="val">$300</div><div class="tm">06:00–22:00</div></div>
+      </div>
+      <!-- Modo pedido -->
+      <div class="card">
+        <div class="ch"><span class="ct">¿Qué quieres pedir?</span></div>
+        <div class="modos">
+          <div class="modo on"><div class="ico">🍖</div><div class="lbl">Solo carne</div><div class="sub">Al pastor</div></div>
+          <div class="modo"><div class="ico">🍖🌮</div><div class="lbl">Mixto</div><div class="sub">Carne+tortas</div></div>
+          <div class="modo"><div class="ico">🌮</div><div class="lbl">Solo tortas</div><div class="sub">Sin carne/kg</div></div>
+        </div>
+      </div>
+      <!-- Entrega como lista -->
+      <div class="card">
+        <div class="ch"><span class="ct">Tipo de entrega</span><span class="new-pill">Nuevo v22</span></div>
+        <div class="ei on">
+          <div class="er2 on"><div class="erdot"></div></div>
+          <div class="eico">🚚</div>
+          <div class="einfo">
+            <div class="elbl">Envío a domicilio</div>
+            <div class="esub">Te llevamos a tu dirección</div>
+            <div class="ebdg" style="background:var(--am0);color:var(--am3)">⏰ Horario: 08:00 – 11:00</div>
           </div>
-          <div class="tabs"><button class="tab on">Express</button><button class="tab">Eventos</button><button class="tab">Seguimiento</button></div>
-          <div class="content">
-            <div class="hero">
-              <div><div class="hero-lbl">Disponible hoy</div><div class="hero-val">72.0 kg</div><div class="hero-bar"><div class="hero-bar-fill" style="width:10%"></div></div></div>
-              <div style="text-align:right"><div class="hero-lbl">Precio / kg</div><div class="hero-val" style="color:var(--am)">$300</div><div style="font-size:9px;color:rgba(255,255,255,.3);margin-top:4px">06:00–22:00</div></div>
-            </div>
-            <div class="card">
-              <div class="card-head"><span class="card-title">Tipo de entrega</span></div>
-              <div class="tipo-row">
-                <div class="tipo on"><span style="font-size:16px">🚚</span><span class="tipo-lbl">Domicilio</span><span class="tipo-sub">Te llevamos</span></div>
-                <div class="tipo"><span style="font-size:16px">🏪</span><span class="tipo-lbl">Recoger</span><span class="tipo-sub">Desde 06:00</span></div>
-              </div>
-              <div style="padding:0 14px 12px"><textarea class="addr" rows="2">Calle 60 #312, Col. Centro</textarea></div>
-            </div>
-            <div class="card">
-              <div class="card-head"><span class="card-title">¿Cuánto quieres gastar?</span></div>
-              <div style="padding:12px 14px">
-                <div class="amount-box">
-                  <div class="amount-row"><div class="qty-btn">−</div><div class="amt">$80</div><div class="qty-btn">+</div></div>
-                  <div class="equiv"><div><div class="eq-lbl">Equivale a</div><div class="eq-val">267 g</div></div><div style="text-align:right"><div class="eq-lbl">Precio/kg</div><div class="eq-val">$300</div></div></div>
-                </div>
-                <input type="range" min="30" max="240" value="80" step="10">
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-head"><span class="card-title">Método de pago</span></div>
-              <div style="padding:4px 14px">
-                <div class="pay-opt"><div class="radio on"><div class="rdot"></div></div><span style="font-size:14px">💵</span><div><div class="pay-lbl">Efectivo</div><div class="pay-sub">Pago al recibir</div></div></div>
-                <div class="pay-opt"><div class="radio"></div><span style="font-size:14px">🏦</span><div><div class="pay-lbl">Transferencia</div><div class="pay-sub">SPEI / banco</div></div></div>
-              </div>
-            </div>
-            <div class="cta-bar">
-              <div><div class="cta-lbl">Total a pagar</div><div class="cta-val">$80</div><div class="cta-sub">267 g · Efectivo · Domicilio</div></div>
-              <button class="cta-btn">→</button>
-            </div>
+        </div>
+        <div class="ei">
+          <div class="er2"></div>
+          <div class="eico">🏪</div>
+          <div class="einfo">
+            <div class="elbl">Recoger en local</div>
+            <div class="esub">Pasa por tu pedido</div>
+            <div class="ebdg" style="background:var(--bl0);color:var(--bl)">⏰ Horario: 06:00 – 18:00</div>
           </div>
         </div>
       </div>
-      <div class="pc">Pedido Express — formulario</div>
     </div>
+  </div></div>
+</div>
 
-    <!-- 2 · Confirmación -->
-    <div class="pw">
-      <div class="phone">
-        <div class="notch"><div class="notch-pill"></div></div>
-        <div class="status-bar"><span>9:41</span><span>●●●</span></div>
-        <div class="screen">
-          <div class="app-nav">
-            <div class="nav-logo"><div class="nav-sq">M</div><span class="nav-txt">Mega<em>Logistics</em></span></div>
-            <div class="nav-switch"><button class="ns on">Cliente</button><button class="ns">Admin</button></div>
-            <div class="stock"><div class="stock-dot"></div><span>72 kg</span></div>
-          </div>
-          <div style="height:10px"></div>
-          <div style="padding:0 14px">
-            <div class="confirm-box">
-              <div class="confirm-icon">✓</div>
-              <div class="confirm-title">¡Pedido registrado!</div>
-              <div class="confirm-sub">267 g · $80 · Transferencia</div>
-              <div class="saving"><div class="saving-dot"></div><span class="saving-txt">Guardando en sistema…</span></div>
+<!-- P2: Dirección + GPS real -->
+<div class="phone-wrap">
+  <div class="phone-label">Dirección de entrega + botón GPS real</div>
+  <div class="phone"><div class="screen">
+    <div class="nav">
+      <div class="nav-logo"><div class="nav-mark">M</div><div class="nav-name">Mega<em>Logistics</em></div></div>
+      <div class="nav-sw"><div class="sw on">Cliente</div><div class="sw">Admin</div></div>
+      <div class="nav-kg"><div class="kd"></div>72 kg</div>
+    </div>
+    <div class="sc" style="padding-top:11px">
+      <div class="card">
+        <div class="ei on" style="padding:10px 12px">
+          <div class="er2 on"><div class="erdot"></div></div>
+          <div class="eico">🚚</div>
+          <div class="einfo"><div class="elbl">Envío a domicilio</div><div class="ebdg" style="background:var(--am0);color:var(--am3)">⏰ 08:00 – 11:00</div></div>
+        </div>
+        <div class="addr-box">
+          <div class="addr-lbl">Dirección de entrega</div>
+          <div class="addr-inp">Calle 60 #312, Centro, Mérida…</div>
+          <div class="geo-btn ok">✓ Ubicación GPS capturada</div>
+          <div class="geo-res">
+            <span style="font-size:17px;flex-shrink:0">✅</span>
+            <div>
+              <div class="geo-coords">📍 20.967412, -89.592614</div>
+              <a class="geo-link">🗺️ Ver en Google Maps</a>
             </div>
-            <div class="card">
-              <div class="card-head"><span class="card-title">Datos de transferencia</span></div>
-              <div style="padding:10px 14px">
-                <div class="warn-bar"><span style="font-size:13px;flex-shrink:0">⚠</span><span class="warn-txt">Sube tu comprobante para completar el pedido.</span></div>
-                <div class="bank-box">
-                  <div class="bank-row"><div><div class="bank-lbl">Banco</div><div class="bank-val">BBVA</div></div><button class="copy-btn">Copiar</button></div>
-                  <div class="bank-row"><div><div class="bank-lbl">CLABE</div><div class="bank-val" style="font-size:11px">012345678901234567</div></div><button class="copy-btn">Copiar</button></div>
-                </div>
-                <button class="upload-btn">↑ Subir comprobante de pago</button>
-              </div>
-            </div>
-            <a href="#" class="wa-btn">📱 Enviar lista al negocio</a>
-            <button style="width:100%;padding:8px;background:transparent;border:0.5px solid var(--brd);border-radius:10px;font-size:10px;color:var(--sl);cursor:pointer;font-family:var(--font);margin-top:8px">Hacer otro pedido</button>
           </div>
+          <div class="geo-hint">El GPS ayuda al repartidor a ubicarte con precisión</div>
         </div>
       </div>
-      <div class="pc">Confirmación + comprobante obligatorio</div>
+      <!-- Monto -->
+      <div class="card">
+        <div class="ch"><span class="ct">¿Cuánto de carne?</span></div>
+        <div class="chips"><div class="chip">$50</div><div class="chip">$100</div><div class="chip on">$150</div><div class="chip">$200</div><div class="chip">$300</div></div>
+        <div class="monto-wrap"><div class="mp">$</div><div class="mv">150</div></div>
+        <div class="mhint">✓ 500 g de carne · ${cfg.precioKg}/kg</div>
+      </div>
     </div>
+  </div></div>
+</div>
 
-    <!-- 3 · Cotizador Eventos -->
-    <div class="pw">
-      <div class="phone">
-        <div class="notch"><div class="notch-pill"></div></div>
-        <div class="status-bar"><span>9:41</span><span>●●●</span></div>
-        <div class="screen">
-          <div class="app-nav">
-            <div class="nav-logo"><div class="nav-sq">M</div><span class="nav-txt">Mega<em>Logistics</em></span></div>
-            <div class="nav-switch"><button class="ns on">Cliente</button><button class="ns">Admin</button></div>
-            <div class="stock"><div class="stock-dot"></div><span>72 kg</span></div>
-          </div>
-          <div class="tabs"><button class="tab">Express</button><button class="tab on">Eventos</button><button class="tab">Seguimiento</button></div>
-          <div class="content">
-            <div class="cotiz-hero">
-              <div class="cotiz-lbl">Cotizador de Eventos</div>
-              <div class="cotiz-val">$1,500</div>
-              <div class="cotiz-sub">30 personas · 250g/p · 7.5 kg</div>
-              <div class="ant-box"><div class="ant-lbl">Anticipo requerido (50%)</div><div class="ant-val">$750</div></div>
-              <button class="cotiz-btn">Solicitar evento →</button>
-            </div>
-            <div class="card">
-              <div class="card-head"><span class="card-title">Configurar evento</span></div>
-              <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:12px 14px">
-                <div>
-                  <div style="font-size:9px;color:var(--sl);text-transform:uppercase;font-weight:600;margin-bottom:5px">Invitados</div>
-                  <div class="stepper"><button class="step-btn">−</button><div class="step-val">30</div><button class="step-btn">+</button></div>
-                </div>
-                <div>
-                  <div style="font-size:9px;color:var(--sl);text-transform:uppercase;font-weight:600;margin-bottom:5px">Porción</div>
-                  <select style="width:100%;padding:8px;border-radius:9px;border:0.5px solid var(--brd);font-size:11px;font-weight:500;background:var(--sur);color:var(--ink);outline:none;font-family:var(--font)"><option>250g — Normal</option><option>350g — Abundante</option></select>
-                </div>
-              </div>
-              <div style="padding:0 14px 12px">
-                <label style="display:flex;align-items:center;justify-content:space-between;padding:9px 11px;background:var(--sur);border-radius:9px;border:0.5px solid var(--brd);cursor:pointer">
-                  <span style="font-size:11px;font-weight:500;color:var(--ink)">Servicio a domicilio (+$1,500)</span>
-                  <div style="width:36px;height:20px;border-radius:10px;background:var(--brd);position:relative"><div style="position:absolute;top:2px;left:2px;width:16px;height:16px;border-radius:50%;background:#fff"></div></div>
-                </label>
-              </div>
-            </div>
-          </div>
+<!-- P3: Extras + CTA con horario -->
+<div class="phone-wrap">
+  <div class="phone-label">Barras de leña + tortas + CTA con horario</div>
+  <div class="phone"><div class="screen">
+    <div class="nav">
+      <div class="nav-logo"><div class="nav-mark">M</div><div class="nav-name">Mega<em>Logistics</em></div></div>
+      <div class="nav-sw"><div class="sw on">Cliente</div><div class="sw">Admin</div></div>
+      <div class="nav-kg"><div class="kd"></div>72 kg</div>
+    </div>
+    <div class="sc" style="padding-top:11px">
+      <div class="card">
+        <div class="ch"><span class="ct">Extras</span><span class="bdg b-am">🥖 28 disp.</span></div>
+        <!-- Barras ON -->
+        <div class="xrow on">
+          <div class="ckbox">✓</div>
+          <div style="font-size:20px;flex-shrink:0">🥖</div>
+          <div style="flex:1"><div style="font-size:11px;font-weight:700;color:var(--ink)">Barra de leña</div><div style="font-size:8px;color:var(--sl)">Pan francés al horno · $8/u</div></div>
+          <div style="font-size:11px;font-weight:700;color:var(--am2)">$16</div>
+        </div>
+        <div class="xstep"><div class="xsl">Cantidad</div><div class="xsb">−</div><div class="xsv">2</div><div class="xsb">+</div><div class="xst">$16</div></div>
+        <!-- Stock mini -->
+        <div style="display:flex;align-items:center;gap:7px;padding:6px 11px;background:var(--ok0);border-top:0.5px solid var(--ok1)">
+          <span style="font-size:8px;font-weight:700;color:#065F46;text-transform:uppercase;flex:1">Stock tras este pedido</span>
+          <span style="font-size:9px;font-weight:700;color:var(--ok)">26 disponibles</span>
         </div>
       </div>
-      <div class="pc">Cotizador de Eventos con IA</div>
+      <!-- Pago -->
+      <div class="card">
+        <div class="ch"><span class="ct">Método de pago</span></div>
+        <div class="popt"><div class="rdo on"><div class="rdot2"></div></div><span style="font-size:14px">💵</span><div><div class="plbl">Efectivo</div><div class="psub">Pago al recibir</div></div></div>
+        <div class="popt"><div class="rdo"></div><span style="font-size:14px">🏦</span><div><div class="plbl">Transferencia</div><div class="psub">SPEI · banco</div></div></div>
+      </div>
+      <!-- CTA -->
+      <div class="cta">
+        <div class="cl">
+          <div class="clbl">Total a pagar</div>
+          <div class="ctot">$166</div>
+          <div class="csumm">500g · 🥖 2 · Efectivo · 🚚 08–11</div>
+        </div>
+        <div class="carr">→</div>
+      </div>
     </div>
+  </div></div>
+</div>
 
-    <!-- 4 · Seguimiento -->
-    <div class="pw">
-      <div class="phone">
-        <div class="notch"><div class="notch-pill"></div></div>
-        <div class="status-bar"><span>9:41</span><span>●●●</span></div>
-        <div class="screen">
-          <div class="app-nav">
-            <div class="nav-logo"><div class="nav-sq">M</div><span class="nav-txt">Mega<em>Logistics</em></span></div>
-            <div class="nav-switch"><button class="ns on">Cliente</button><button class="ns">Admin</button></div>
-            <div class="stock"><div class="stock-dot"></div><span>72 kg</span></div>
+<!-- P4: Confirmación con horario estimado -->
+<div class="phone-wrap">
+  <div class="phone-label">Confirmación + horario estimado de entrega</div>
+  <div class="phone"><div class="screen">
+    <div class="nav">
+      <div class="nav-logo"><div class="nav-mark">M</div><div class="nav-name">Mega<em>Logistics</em></div></div>
+      <div class="nav-sw"><div class="sw on">Cliente</div><div class="sw">Admin</div></div>
+      <div class="nav-kg"><div class="kd"></div>71.5 kg</div>
+    </div>
+    <div class="sc" style="padding-top:11px">
+      <div class="conf-banner">
+        <div class="cc">✓</div>
+        <div class="ctitle">¡Pedido registrado!</div>
+        <div class="cdetail">500g carne · 🥖 2 barras · $166</div>
+        <div style="display:flex;align-items:center;justify-content:center;gap:5px;margin-top:7px"><div style="width:5px;height:5px;border-radius:50%;background:var(--am2)"></div><span style="font-size:8px;font-weight:700;color:var(--wr);text-transform:uppercase">Guardando…</span></div>
+      </div>
+      <!-- Horario estimado NUEVO -->
+      <div class="hconf">
+        <div class="hclbl">🚚 Hora estimada de entrega</div>
+        <div class="hcrange">08:00 – 11:00</div>
+        <div class="hcsub">Tu pedido llegará dentro de este rango horario</div>
+      </div>
+      <div class="card">
+        <div class="ch"><span class="ct">Pago en efectivo</span></div>
+        <div style="margin:8px 10px;background:var(--am0);border-radius:9px;padding:9px 11px;display:flex;align-items:center;gap:7px"><span style="font-size:15px">💵</span><span style="font-size:9px;font-weight:700;color:var(--am3);text-transform:uppercase">Pago de $166 al recibir</span></div>
+      </div>
+      <div class="wabtn">📱 Notificar al negocio</div>
+      <div class="navbtn">Ver seguimiento →</div>
+      <div class="secbtn">Hacer otro pedido</div>
+    </div>
+  </div></div>
+</div>
+
+</div><!-- /phones-row -->
+
+<!-- ══════════════ SECCIÓN 2: SEGUIMIENTO ══════════════ -->
+<div class="sec-title">02 — Seguimiento cliente con horarios y GPS<span class="sec-pill">Badges horario</span></div>
+<div class="phones-row">
+
+<div class="phone-wrap">
+  <div class="phone-label">Seguimiento — pedidos con horario + link GPS</div>
+  <div class="phone"><div class="screen">
+    <div class="nav">
+      <div class="nav-logo"><div class="nav-mark">M</div><div class="nav-name">Mega<em>Logistics</em></div></div>
+      <div class="nav-sw"><div class="sw on">Cliente</div><div class="sw">Admin</div></div>
+      <div class="nav-kg"><div class="kd"></div>71.5 kg</div>
+    </div>
+    <div class="tabs"><div class="tab">Express</div><div class="tab">Evento</div><div class="tab on">Seguim.</div></div>
+    <div class="sc">
+      <!-- P1: En ruta domicilio + GPS -->
+      <div class="trkcard">
+        <div class="trkh">
+          <div>
+            <div class="trktot">$166</div>
+            <div class="trkd">500g · 🍖 Carne · 🥖 2 barras</div>
+            <div style="font-size:8.5px;color:var(--sl);margin-top:1px">📍 Calle 60 #312, Centro</div>
+            <div class="trkgeo">🗺️ Ver ubicación GPS</div>
+            <div class="trkhor" style="background:var(--am0);color:var(--am3)">⏰ 08:00 – 11:00</div>
           </div>
-          <div class="tabs"><button class="tab">Express</button><button class="tab">Eventos</button><button class="tab on">Seguimiento</button></div>
-          <div class="content">
-            <div class="card">
-              <div class="card-head"><span class="card-title">Ruta de mis pedidos</span></div>
-              <div style="padding:9px 12px">
-                <svg viewBox="0 0 305 125" style="width:100%;display:block;background:#FFFBEB;border-radius:8px">
-                  <polyline points="17,62 138,44 248,88" fill="none" stroke="#F59E0B" stroke-width="1.8" stroke-dasharray="5,3" opacity=".7"/>
-                  <circle cx="17" cy="62" r="9" fill="#0F172A"/><text x="17" y="66" text-anchor="middle" font-size="8" fill="#F59E0B" font-weight="bold" font-family="sans-serif">L</text>
-                  <circle cx="138" cy="44" r="8" fill="#F59E0B" stroke="#D97706" stroke-width="2"/><text x="138" y="48" text-anchor="middle" font-size="8" fill="#0F172A" font-family="sans-serif">1</text>
-                  <circle cx="248" cy="88" r="8" fill="#fff" stroke="#94A3B8" stroke-width="2"/><text x="248" y="92" text-anchor="middle" font-size="8" fill="#64748B" font-family="sans-serif">2</text>
-                  <text x="6" y="11" font-size="7" fill="#64748B" opacity=".7" font-family="sans-serif">Mérida, Yuc.</text>
-                </svg>
-              </div>
-            </div>
-            <div class="track-card">
-              <div class="track-head"><div><div class="track-amt">$60</div><div class="track-s">200 g · Domicilio · Efectivo</div><div class="track-d">📍 Calle 60 #312</div><div class="track-badges"><span class="badge b-ok">Efectivo</span></div></div><span class="badge b-am">En ruta</span></div>
-              <div class="track-alert">Tu pedido está en camino 🚚</div>
-            </div>
-            <div class="track-card">
-              <div class="track-head"><div><div class="track-amt">$150</div><div class="track-s">500 g · Domicilio · Transf.</div><div class="track-d">📍 Av. Colón #45</div><div class="track-badges"><span class="badge b-wa">Revisión</span></div></div><span class="badge b-sl">Pendiente</span></div>
-              <div style="padding:0 14px 12px"><div class="warn-bar"><span style="font-size:12px;flex-shrink:0">⚠</span><span class="warn-txt">Sube tu comprobante.</span></div><button class="upload-btn">Subir comprobante de pago</button></div>
-            </div>
-          </div>
+          <span class="bdg b-am">En ruta</span>
+        </div>
+        <div class="trkstat" style="background:var(--am0);border-top:0.5px solid var(--am1)">
+          <span>🚚</span><span style="font-size:8.5px;font-weight:700;color:var(--am3)">Llegará entre las 08:00 y 11:00</span>
         </div>
       </div>
-      <div class="pc">Seguimiento + mapa de ruta</div>
-    </div>
-
-  </div>
-
-  <!-- ══ ADMIN ══ -->
-  <div class="row-label">Vista Admin</div>
-  <div class="phones">
-
-    <!-- 5 · Admin Pedidos -->
-    <div class="pw">
-      <div class="phone">
-        <div class="notch"><div class="notch-pill"></div></div>
-        <div class="status-bar"><span>9:41</span><span>●●●</span></div>
-        <div class="screen">
-          <div class="app-nav">
-            <div class="nav-logo"><div class="nav-sq">M</div><span class="nav-txt">Mega<em>Logistics</em></span></div>
-            <div class="nav-switch"><button class="ns">Cliente</button><button class="ns on">Admin</button></div>
-            <div class="stock"><div class="stock-dot"></div><span>72 kg</span></div>
+      <!-- P2: Recoger en local -->
+      <div class="trkcard">
+        <div class="trkh">
+          <div>
+            <div class="trktot">$45</div>
+            <div class="trkd">🌮 Solo tortas · 3 tortas</div>
+            <div class="trkhor" style="background:var(--bl0);color:var(--bl)">⏰ Recoger: 06:00 – 18:00</div>
           </div>
-          <div style="padding:12px 14px 0">
-            <div class="metrics-grid"><div class="metric"><div class="metric-lbl">Pedidos</div><div class="metric-val">3</div></div><div class="metric"><div class="metric-lbl">Activos</div><div class="metric-val">2</div></div><div class="metric"><div class="metric-lbl">Kg hoy</div><div class="metric-val">1.03</div></div><div class="metric"><div class="metric-lbl">Ingresos</div><div class="metric-val" style="font-size:13px">$310</div></div></div>
-            <div class="a-switch"><button class="asw on">Pedidos</button><button class="asw">Ruta</button><button class="asw">Eventos</button><button class="asw">Config</button></div>
-          </div>
-          <div class="card" style="margin:0 14px">
-            <div class="card-head"><span class="card-title">Reparto a domicilio</span><span class="badge b-bl">2 activos</span></div>
-            <div class="ped-row">
-              <div class="ped-top"><div><div class="ped-name">María García</div><div class="ped-sub">200 g · $60 · 📍 Calle 60 #312</div><div class="ped-badges"><span class="badge b-ok">Efectivo</span><span class="badge b-am">En ruta</span></div></div><select class="state-sel" style="background:var(--am0);color:var(--am3)"><option>En ruta</option></select></div>
-              <a href="#" class="notify-btn">📲 Notificar cliente — en camino</a>
-            </div>
-            <div class="ped-row">
-              <div class="ped-top"><div><div class="ped-name">Carlos Méndez</div><div class="ped-sub">500 g · $150 · 📍 Av. Colón #45</div><div class="ped-badges"><span class="badge b-wa">Revisión</span><span class="badge b-sl">Transf.</span></div></div><select class="state-sel" style="background:#F1F5F9;color:#475569"><option>Pendiente</option></select></div>
-            </div>
-            <div class="comp-thumb">
-              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Crect width='40' height='40' fill='%230F172A'/%3E%3Ctext x='20' y='16' text-anchor='middle' fill='%23F59E0B' font-size='7' font-family='sans-serif' font-weight='bold'%3ESPEI%3C/text%3E%3Ctext x='20' y='29' text-anchor='middle' fill='%23fff' font-size='11' font-family='sans-serif' font-weight='bold'%3E%24150%3C/text%3E%3C/svg%3E" alt="comp">
-              <div><div class="comp-name">Comprobante subido</div><div class="comp-sub">Toca para ampliar</div></div>
-              <span style="margin-left:auto;font-size:14px">🔍</span>
-            </div>
-            <div class="action-row"><button class="act-g">✓ Validar pago</button><button class="act-r">✕</button></div>
-          </div>
+          <span class="bdg b-sl">Pendiente</span>
         </div>
       </div>
-      <div class="pc">Panel Admin — pedidos y comprobantes</div>
-    </div>
-
-    <!-- 6 · Visor Comprobante -->
-    <div class="pw">
-      <div class="phone">
-        <div class="notch"><div class="notch-pill"></div></div>
-        <div class="status-bar"><span>9:41</span><span>●●●</span></div>
-        <div class="screen">
-          <div class="app-nav">
-            <div class="nav-logo"><div class="nav-sq">M</div><span class="nav-txt">Mega<em>Logistics</em></span></div>
-            <div class="nav-switch"><button class="ns">Cliente</button><button class="ns on">Admin</button></div>
+      <!-- P3: Entregado -->
+      <div class="trkcard">
+        <div class="trkh">
+          <div>
+            <div class="trktot">$300</div>
+            <div class="trkd">1 kg · 🍖🌮 Mixto · 🥖 1</div>
+            <div class="trkhor" style="background:var(--am0);color:var(--am3)">⏰ 08:00 – 11:00</div>
           </div>
-          <div class="modal-overlay">
-            <div class="modal-box">
-              <div class="modal-head"><span class="modal-title">Comprobante #002</span><button class="modal-close">×</button></div>
-              <img class="modal-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='175'%3E%3Crect width='280' height='175' fill='%230F172A'/%3E%3Ctext x='140' y='42' text-anchor='middle' fill='%23F59E0B' font-size='13' font-family='sans-serif' font-weight='bold'%3ECOMPROBANTE DE PAGO%3C/text%3E%3Ctext x='140' y='68' text-anchor='middle' fill='%2394A3B8' font-size='11' font-family='sans-serif'%3ETransferencia SPEI%3C/text%3E%3Ctext x='140' y='106' text-anchor='middle' fill='%23fff' font-size='28' font-family='sans-serif' font-weight='bold'%3E%24150.00%3C/text%3E%3Ctext x='140' y='130' text-anchor='middle' fill='%2394A3B8' font-size='10' font-family='sans-serif'%3E14%2F04%2F2026 09%3A32 AM%3C%2Ftext%3E%3Ctext x='140' y='153' text-anchor='middle' fill='%23F59E0B' font-size='10' font-family='sans-serif'%3EAutorizaci%C3%B3n%3A 7284619%3C%2Ftext%3E%3C%2Fsvg%3E" alt="comprobante">
-              <div class="modal-actions"><button class="modal-dl">Descargar</button><button class="modal-cl">Cerrar</button></div>
-            </div>
-          </div>
+          <span class="bdg b-ok">Entregado ✓</span>
         </div>
       </div>
-      <div class="pc">Visor de comprobante (modal)</div>
     </div>
-
-    <!-- 7 · Ruta -->
-    <div class="pw">
-      <div class="phone">
-        <div class="notch"><div class="notch-pill"></div></div>
-        <div class="status-bar"><span>9:41</span><span>●●●</span></div>
-        <div class="screen">
-          <div class="app-nav">
-            <div class="nav-logo"><div class="nav-sq">M</div><span class="nav-txt">Mega<em>Logistics</em></span></div>
-            <div class="nav-switch"><button class="ns">Cliente</button><button class="ns on">Admin</button></div>
-            <div class="stock"><div class="stock-dot"></div><span>72 kg</span></div>
-          </div>
-          <div style="padding:12px 14px 0">
-            <div class="metrics-grid"><div class="metric"><div class="metric-lbl">Pedidos</div><div class="metric-val">3</div></div><div class="metric"><div class="metric-lbl">Activos</div><div class="metric-val">2</div></div><div class="metric"><div class="metric-lbl">Kg hoy</div><div class="metric-val">1.03</div></div><div class="metric"><div class="metric-lbl">Ingresos</div><div class="metric-val" style="font-size:13px">$310</div></div></div>
-            <div class="a-switch"><button class="asw">Pedidos</button><button class="asw on">Ruta</button><button class="asw">Eventos</button><button class="asw">Config</button></div>
-          </div>
-          <div class="card" style="margin:0 14px">
-            <div class="card-head"><span class="card-title">Ruta óptima del día</span><span class="badge b-am">2 paradas</span></div>
-            <div style="padding:9px 12px">
-              <svg viewBox="0 0 305 148" style="width:100%;display:block;background:#FFFBEB;border-radius:8px">
-                <polyline points="18,74 142,50 262,108" fill="none" stroke="#F59E0B" stroke-width="1.8" stroke-dasharray="5,3" opacity=".7"/>
-                <circle cx="18" cy="74" r="10" fill="#0F172A"/><text x="18" y="78" text-anchor="middle" font-size="9" fill="#F59E0B" font-weight="bold" font-family="sans-serif">L</text>
-                <circle cx="142" cy="50" r="9" fill="#F59E0B" stroke="#D97706" stroke-width="2"/><text x="142" y="54" text-anchor="middle" font-size="9" fill="#0F172A" font-family="sans-serif">1</text>
-                <circle cx="262" cy="108" r="9" fill="#fff" stroke="#94A3B8" stroke-width="2"/><text x="262" y="112" text-anchor="middle" font-size="9" fill="#64748B" font-family="sans-serif">2</text>
-                <text x="7" y="13" font-size="8" fill="#64748B" opacity=".7" font-family="sans-serif">Mérida, Yucatán</text>
-                <text x="154" y="44" font-size="8" fill="#92400E" font-family="sans-serif">María</text>
-                <text x="274" y="104" font-size="8" fill="#64748B" font-family="sans-serif">Carlos</text>
-              </svg>
-              <div class="route-legend">
-                <span class="rl" style="background:var(--ink);color:var(--am)">L Local</span>
-                <span class="rl" style="background:var(--am0);color:var(--am3)">1 María · En ruta</span>
-                <span class="rl" style="background:#F1F5F9;color:#475569">2 Carlos · Pendiente</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="pc">Ruta óptima de reparto</div>
-    </div>
-
-    <!-- 8 · Eventos Admin -->
-    <div class="pw">
-      <div class="phone">
-        <div class="notch"><div class="notch-pill"></div></div>
-        <div class="status-bar"><span>9:41</span><span>●●●</span></div>
-        <div class="screen">
-          <div class="app-nav">
-            <div class="nav-logo"><div class="nav-sq">M</div><span class="nav-txt">Mega<em>Logistics</em></span></div>
-            <div class="nav-switch"><button class="ns">Cliente</button><button class="ns on">Admin</button></div>
-            <div class="stock"><div class="stock-dot"></div><span>72 kg</span></div>
-          </div>
-          <div style="padding:12px 14px 0">
-            <div class="metrics-grid"><div class="metric"><div class="metric-lbl">Pedidos</div><div class="metric-val">3</div></div><div class="metric"><div class="metric-lbl">Activos</div><div class="metric-val">2</div></div><div class="metric"><div class="metric-lbl">Kg hoy</div><div class="metric-val">1.03</div></div><div class="metric"><div class="metric-lbl">Ingresos</div><div class="metric-val" style="font-size:13px">$310</div></div></div>
-            <div class="a-switch"><button class="asw">Pedidos</button><button class="asw">Ruta</button><button class="asw on">Eventos</button><button class="asw">Config</button></div>
-          </div>
-          <div style="padding:0 14px">
-            <div class="ev-card">
-              <div class="ev-head"><div><div class="ev-name">Luis Peña</div><div class="ev-sub-txt">40 invitados · 8.0 kg</div></div><div><div class="ev-a-lbl">Anticipo</div><div class="ev-a-val">$1,050</div></div></div>
-              <div style="display:flex;gap:5px;margin-bottom:8px"><span class="badge b-wa">Revisión</span><span class="badge b-sl">Esperando anticipo</span></div>
-              <div class="ev-comp">
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Crect width='40' height='40' fill='%230F172A'/%3E%3Ctext x='20' y='16' text-anchor='middle' fill='%23F59E0B' font-size='7' font-family='sans-serif' font-weight='bold'%3ESPEI%3C/text%3E%3Ctext x='20' y='29' text-anchor='middle' fill='%23fff' font-size='10' font-family='sans-serif' font-weight='bold'%3E%241%2C050%3C%2Ftext%3E%3C%2Fsvg%3E" alt="comp">
-                <div><div style="font-size:11px;font-weight:500;color:rgba(255,255,255,.8)">Comprobante anticipo</div><div style="font-size:9px;color:rgba(255,255,255,.35)">Toca para ampliar</div></div>
-                <span style="margin-left:auto;font-size:13px">🔍</span>
-              </div>
-              <div class="ev-actions"><button class="ev-btn-ok">✓ Validar anticipo</button><button class="ev-btn-er">✕ Rechazar</button></div>
-            </div>
-            <div class="ev-card" style="background:var(--ink2)">
-              <div class="ev-head"><div><div class="ev-name">Sofía Ruiz</div><div class="ev-sub-txt">20 invitados · 4.0 kg</div></div><div><div class="ev-a-lbl">Anticipo</div><div class="ev-a-val">$550</div></div></div>
-              <div style="display:flex;gap:5px;margin-bottom:8px"><span class="badge b-er">Pendiente</span><span class="badge b-sl">Esperando anticipo</span></div>
-              <div style="display:flex;align-items:center;gap:7px;background:rgba(245,158,11,.1);border:0.5px solid rgba(245,158,11,.25);border-radius:9px;padding:8px 10px"><span style="font-size:12px">⚠</span><span style="font-size:10px;font-weight:500;color:var(--am);text-transform:uppercase;line-height:1.4">Sin comprobante de anticipo</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="pc">Gestión de eventos y anticipos</div>
-    </div>
-
-    <!-- 9 · Config -->
-    <div class="pw">
-      <div class="phone">
-        <div class="notch"><div class="notch-pill"></div></div>
-        <div class="status-bar"><span>9:41</span><span>●●●</span></div>
-        <div class="screen">
-          <div class="app-nav">
-            <div class="nav-logo"><div class="nav-sq">M</div><span class="nav-txt">Mega<em>Logistics</em></span></div>
-            <div class="nav-switch"><button class="ns">Cliente</button><button class="ns on">Admin</button></div>
-            <div class="stock"><div class="stock-dot"></div><span>72 kg</span></div>
-          </div>
-          <div style="padding:12px 14px 0"><div class="a-switch"><button class="asw">Pedidos</button><button class="asw">Ruta</button><button class="asw">Eventos</button><button class="asw on">Config</button></div></div>
-          <div style="padding:0 14px;display:flex;flex-direction:column;gap:10px">
-            <div class="card">
-              <div class="card-head"><span class="card-title">Kilos del día</span></div>
-              <div style="padding:11px 14px">
-                <input class="cfg-inp" type="number" value="80">
-                <div style="font-size:10px;color:var(--sl);margin-bottom:8px">Vendidos: 10.3 kg · Disponibles: 69.7 kg</div>
-                <div style="background:#F1F5F9;border-radius:3px;height:5px;margin-bottom:9px"><div style="background:var(--am);border-radius:3px;height:5px;width:13%"></div></div>
-                <button class="cfg-btn">Guardar kilos</button>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-head"><span class="card-title">Horario de servicio</span></div>
-              <div style="padding:11px 14px">
-                <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px">
-                  <div><div style="font-size:9px;color:var(--sl);text-transform:uppercase;font-weight:500;margin-bottom:4px">Inicio</div><input class="cfg-inp" type="time" value="06:00" style="margin-bottom:0"></div>
-                  <div><div style="font-size:9px;color:var(--sl);text-transform:uppercase;font-weight:500;margin-bottom:4px">Fin</div><input class="cfg-inp" type="time" value="22:00" style="margin-bottom:0"></div>
-                </div>
-                <button class="cfg-btn">Guardar horario</button>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-head"><span class="card-title">WhatsApp del negocio</span></div>
-              <div style="padding:10px 14px;display:flex;gap:8px"><input class="cfg-inp" value="5219991234567" style="margin-bottom:0;flex:1"><button class="cfg-btn" style="flex-shrink:0">Guardar</button></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="pc">Configuración del sistema</div>
-    </div>
-
-  </div>
-
-  <div class="footer">
-    <div style="font-size:14px;font-weight:600;color:var(--ink)">MegaLogistics · kilos.mx</div>
-    <div style="font-size:11px;color:var(--sl);margin-top:4px">Mockup v4 Dark &amp; Amber · 9 pantallas · En desarrollo activo</div>
-    <div class="tech-row">
-      <span class="tech">React 18 + Vite</span>
-      <span class="tech">Firebase Firestore</span>
-      <span class="tech">Tailwind CSS</span>
-      <span class="tech">WhatsApp API</span>
-      <span class="tech">Gemini IA</span>
-    </div>
-  </div>
+  </div></div>
+</div>
 
 </div>
+
+<!-- ══════════════ SECCIÓN 3: EVENTO GPS ══════════════ -->
+<div class="sec-title">03 — Cotizador de eventos con GPS y horario<span class="sec-pill">Nuevo v22</span></div>
+<div class="phones-row">
+
+<div class="phone-wrap">
+  <div class="phone-label">Evento — servicio a domicilio + GPS del lugar</div>
+  <div class="phone"><div class="screen">
+    <div class="nav">
+      <div class="nav-logo"><div class="nav-mark">M</div><div class="nav-name">Mega<em>Logistics</em></div></div>
+      <div class="nav-sw"><div class="sw on">Cliente</div><div class="sw">Admin</div></div>
+      <div class="nav-kg"><div class="kd"></div>72 kg</div>
+    </div>
+    <div class="tabs"><div class="tab">Express</div><div class="tab on">Evento</div><div class="tab">Seguim.</div></div>
+    <div class="sc">
+      <div style="background:var(--ink);border-radius:14px;padding:13px;margin-bottom:9px">
+        <div style="font-size:8px;color:rgba(255,255,255,.3);text-transform:uppercase;margin-bottom:3px">Cotizador de Eventos</div>
+        <div style="font-family:'Syne',sans-serif;font-size:24px;font-weight:800;color:#fff;letter-spacing:-1px">$2,500</div>
+        <div style="font-size:9px;color:rgba(255,255,255,.4);margin-top:2px">40 personas · 250g/p · 10 kg</div>
+        <div style="background:rgba(245,158,11,.15);border:1px solid rgba(245,158,11,.3);border-radius:9px;padding:8px;margin-top:9px">
+          <div style="font-size:7.5px;font-weight:700;color:var(--am);text-transform:uppercase">Anticipo (50%)</div>
+          <div style="font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:var(--am)">$1,250</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="ch"><span class="ct">Configurar evento</span></div>
+        <!-- Servicio domicilio toggle ON -->
+        <div class="evserv">
+          <div><div style="font-size:10.5px;font-weight:600;color:var(--ink)">Servicio a domicilio</div><div style="font-size:8.5px;color:var(--am2);font-weight:700">+$1,500</div></div>
+          <div class="tgl"><div class="tgl-t"></div></div>
+        </div>
+        <!-- Dirección + GPS evento -->
+        <div class="addr-box">
+          <div class="addr-lbl">Ubicación del evento</div>
+          <div class="addr-inp">Salón Cristal, Calle 21 #300…</div>
+          <div class="geo-btn ok">✓ Ubicación GPS del evento capturada</div>
+          <div class="geo-res" style="margin-top:6px">
+            <span style="font-size:17px;flex-shrink:0">✅</span>
+            <div>
+              <div class="geo-coords">📍 20.982101, -89.618234</div>
+              <a class="geo-link">🗺️ Ver en Google Maps</a>
+            </div>
+          </div>
+        </div>
+        <!-- Horario nota -->
+        <div class="evhor">
+          <span style="font-size:15px">⏰</span>
+          <div>
+            <div style="font-size:9.5px;font-weight:700;color:var(--am3)">Horario de entrega estimado</div>
+            <div style="font-family:'Syne',sans-serif;font-size:12px;font-weight:700;color:var(--am2)">08:00 – 11:00</div>
+            <div style="font-size:7.5px;color:var(--sl)">Coordinaremos la hora exacta contigo</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div></div>
+</div>
+
+</div>
+
+<!-- ══════════════ SECCIÓN 4: ADMIN PEDIDOS ══════════════ -->
+<div class="sec-title">04 — Admin: pedidos con horarios y GPS<span class="sec-pill">Admin</span></div>
+<div class="phones-row">
+
+<!-- Columnas pedidos -->
+<div class="phone-wrap">
+  <div class="phone-label">Reparto 🚚 08–11 vs Recoger 🏪 06–18</div>
+  <div class="phone"><div class="screen">
+    <div class="nav">
+      <div class="nav-logo"><div class="nav-mark">M</div><div class="nav-name">Mega<em>Logistics</em></div></div>
+      <div class="nav-sw"><div class="sw">Cliente</div><div class="sw on">Admin</div></div>
+      <div class="nav-kg"><div class="kd"></div>0.7 kg</div>
+    </div>
+    <div class="sc" style="padding-top:11px">
+      <div class="metg">
+        <div class="metc"><div class="metl">Pedidos</div><div class="metv">3</div></div>
+        <div class="metc"><div class="metl">Activos</div><div class="metv">3</div></div>
+        <div class="metc"><div class="metl">Vendidos</div><div class="metv">0.7 kg</div></div>
+        <div class="metc"><div class="metl">Ingreso</div><div class="metv">$285</div></div>
+      </div>
+      <div class="atabs">
+        <div class="at on">Pedidos</div><div class="at">Ruta</div><div class="at">Eventos</div>
+        <div class="at">Config</div><div class="at" style="background:var(--bl0);color:var(--bl);border-color:var(--bl1)">👥</div>
+        <div class="at" style="background:#DCFCE7;color:#166634;border-color:#A7F3D0">📢</div>
+        <div class="at an">📊</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:7px">
+        <div>
+          <div class="pcl">Reparto 🚚<br><span style="color:var(--am3)">08:00–11:00</span> (2)</div>
+          <div class="pcard">
+            <div class="pname">María García</div>
+            <div class="pdet">200g · $60 · 🍖</div>
+            <div class="pgeo">🗺️ GPS capturado</div>
+            <div class="pbdgs"><span class="bdg b-ok">Efectivo</span></div>
+            <div class="phor">🚚 08:00–11:00</div>
+          </div>
+          <div class="pcard">
+            <div class="pname">Carlos Méndez</div>
+            <div class="pdet">500g · 🍖🌮 · 🥖1 🌮2</div>
+            <div class="pbdgs"><span class="bdg b-am">Revisión</span><span class="bdg b-bl">Transf.</span></div>
+            <div class="phor">🚚 08:00–11:00</div>
+          </div>
+        </div>
+        <div>
+          <div class="pcl">Recoger 🏪<br><span style="color:var(--bl)">06:00–18:00</span> (1)</div>
+          <div class="pcard">
+            <div class="pname">Ana Torres</div>
+            <div class="pdet">$45 · 🌮 x3 tortas</div>
+            <div class="pbdgs"><span class="bdg b-ok">Efectivo</span></div>
+            <div class="phor" style="color:var(--bl)">🏪 06:00–18:00</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div></div>
+</div>
+
+<!-- Ruta con GPS markers -->
+<div class="phone-wrap">
+  <div class="phone-label">Ruta óptima · stops con GPS clickeables</div>
+  <div class="phone"><div class="screen">
+    <div class="nav">
+      <div class="nav-logo"><div class="nav-mark">M</div><div class="nav-name">Mega<em>Logistics</em></div></div>
+      <div class="nav-sw"><div class="sw">Cliente</div><div class="sw on">Admin</div></div>
+      <div class="nav-kg"><div class="kd"></div>0.7 kg</div>
+    </div>
+    <div class="sc" style="padding-top:11px">
+      <div class="atabs">
+        <div class="at">Pedidos</div><div class="at on">Ruta</div><div class="at">Eventos</div><div class="at">Config</div>
+      </div>
+      <div class="card">
+        <div class="ch"><span class="ct">Ruta · 🚚 08:00–11:00</span><span class="bdg b-am">2 paradas</span></div>
+        <div class="rutamap">
+          <svg viewBox="0 0 222 105" width="100%" style="display:block">
+            <line x1="18" y1="52" x2="85" y2="30" stroke="#F59E0B" stroke-width="2" stroke-dasharray="5,3" opacity=".8"/>
+            <line x1="85" y1="30" x2="158" y2="68" stroke="#F59E0B" stroke-width="2" stroke-dasharray="5,3" opacity=".8"/>
+            <circle cx="18" cy="52" r="11" fill="#0F172A"/>
+            <text x="18" y="56" text-anchor="middle" font-size="8" fill="#F59E0B" font-weight="bold" font-family="sans-serif">L</text>
+            <!-- Stop 1 con GPS -->
+            <circle cx="85" cy="30" r="10" fill="#F59E0B" stroke="#D97706" stroke-width="2"/>
+            <text x="85" y="34" text-anchor="middle" font-size="9" fill="#0F172A" font-weight="bold" font-family="sans-serif">1</text>
+            <text x="85" y="46" text-anchor="middle" font-size="6.5" fill="#2563EB" font-family="sans-serif">📍GPS</text>
+            <!-- Stop 2 -->
+            <circle cx="158" cy="68" r="10" fill="#fff" stroke="#94A3B8" stroke-width="2"/>
+            <text x="158" y="72" text-anchor="middle" font-size="9" fill="#64748B" font-weight="bold" font-family="sans-serif">2</text>
+            <text x="7" y="11" font-size="7" fill="#94A3B8" font-family="sans-serif">Mérida, Yucatán</text>
+          </svg>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:4px;padding:0 11px 10px">
+          <span style="font-size:7.5px;font-weight:700;padding:2px 7px;border-radius:4px;background:#0F172A;color:#F59E0B;text-transform:uppercase">L Local</span>
+          <span style="font-size:7.5px;font-weight:700;padding:2px 7px;border-radius:4px;background:var(--am0);color:var(--am3);text-transform:uppercase">1 María 📍</span>
+          <span style="font-size:7.5px;font-weight:700;padding:2px 7px;border-radius:4px;background:#F1F5F9;color:#475569;text-transform:uppercase">2 Carlos</span>
+        </div>
+      </div>
+      <!-- Evento con GPS -->
+      <div class="card">
+        <div class="ch"><span class="ct">Eventos</span><span class="bdg b-sl">2</span></div>
+        <div style="background:var(--ink2);border-radius:11px;padding:11px;margin:8px;">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px">
+            <div>
+              <div style="font-size:11px;font-weight:700;color:#F1F5F9">Luis Peña</div>
+              <div style="font-size:8px;color:#94A3B8">40 inv · 8 kg</div>
+              <a style="font-size:8px;font-weight:700;color:#60A5FA;text-decoration:none;display:flex;align-items:center;gap:3px;margin-top:2px">🗺️ Ver ubicación GPS</a>
+            </div>
+            <div style="text-align:right">
+              <div style="font-size:7.5px;color:#94A3B8;text-transform:uppercase">Anticipo</div>
+              <div style="font-family:'Syne',sans-serif;font-size:16px;font-weight:700;color:#F59E0B">$1,050</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:4px"><span class="bdg b-am">Revisión</span><span class="bdg b-sl">Esp. anticipo</span></div>
+        </div>
+      </div>
+    </div>
+  </div></div>
+</div>
+
+</div>
+
+<!-- ══════════════ SECCIÓN 5: CONFIG HORARIOS ══════════════ -->
+<div class="sec-title">05 — Admin · Config: horarios de entrega ajustables<span class="sec-pill">Nuevo v22</span></div>
+<div class="phones-row">
+
+<div class="phone-wrap">
+  <div class="phone-label">Config — Horarios domicilio y recoger configurables</div>
+  <div class="phone"><div class="screen">
+    <div class="nav">
+      <div class="nav-logo"><div class="nav-mark">M</div><div class="nav-name">Mega<em>Logistics</em></div></div>
+      <div class="nav-sw"><div class="sw">Cliente</div><div class="sw on">Admin</div></div>
+      <div class="nav-kg"><div class="kd"></div>0.7 kg</div>
+    </div>
+    <div class="sc" style="padding-top:11px">
+      <div class="atabs">
+        <div class="at">Pedidos</div><div class="at">Ruta</div><div class="at">Eventos</div><div class="at on">Config</div>
+      </div>
+      <!-- Precios breve -->
+      <div class="card" style="margin-bottom:8px">
+        <div class="ch"><span class="ct">Precios</span></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:7px;padding:9px 11px">
+          <div><div style="font-size:7.5px;font-weight:700;color:var(--sl);text-transform:uppercase;margin-bottom:3px">Express $/kg</div><div style="background:var(--sur);border:1.5px solid var(--brd);border-radius:8px;padding:6px 9px;font-size:11px;font-weight:700;color:var(--ink)">$300</div></div>
+          <div><div style="font-size:7.5px;font-weight:700;color:var(--sl);text-transform:uppercase;margin-bottom:3px">Kilos del día</div><div style="background:var(--sur);border:1.5px solid var(--brd);border-radius:8px;padding:6px 9px;font-size:11px;font-weight:700;color:var(--ink)">80 kg</div></div>
+        </div>
+      </div>
+      <!-- HORARIOS DE ENTREGA — sección nueva -->
+      <div class="card">
+        <div class="ch"><span class="ct">Horarios de entrega</span><span class="bdg b-am">Visible al cliente</span></div>
+        <!-- Domicilio -->
+        <div class="hbloque am">
+          <div class="hbico">🚚</div>
+          <div>
+            <div class="hbtitle">Entrega a domicilio</div>
+            <div class="hbrange">08:00 – 11:00</div>
+            <div class="hbsub">El cliente ve este rango en su formulario</div>
+          </div>
+        </div>
+        <div class="timeinps">
+          <div class="tinp">08:00</div>
+          <div class="tdash">–</div>
+          <div class="tinp">11:00</div>
+        </div>
+        <!-- Recoger -->
+        <div class="hbloque bl">
+          <div class="hbico">🏪</div>
+          <div>
+            <div class="hbtitle">Recoger en local</div>
+            <div class="hbrange">06:00 – 18:00</div>
+            <div class="hbsub">El cliente ve este rango al elegir recoger</div>
+          </div>
+        </div>
+        <div class="timeinps">
+          <div class="tinp">06:00</div>
+          <div class="tdash">–</div>
+          <div class="tinp">18:00</div>
+        </div>
+        <div class="sbtn">Guardar horarios de entrega</div>
+      </div>
+      <!-- Extras config -->
+      <div class="card">
+        <div class="ch"><span class="ct">Extras — Barras y Tortas</span></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:7px;padding:9px 11px">
+          <div><div style="font-size:7.5px;font-weight:700;color:var(--sl);text-transform:uppercase;margin-bottom:3px">🥖 Barra $/u</div><div style="background:var(--sur);border:1.5px solid var(--brd);border-radius:8px;padding:6px 9px;font-size:11px;font-weight:700;color:var(--ink)">$8</div></div>
+          <div><div style="font-size:7.5px;font-weight:700;color:var(--sl);text-transform:uppercase;margin-bottom:3px">🌮 Torta $/u</div><div style="background:var(--sur);border:1.5px solid var(--brd);border-radius:8px;padding:6px 9px;font-size:11px;font-weight:700;color:var(--ink)">$15</div></div>
+        </div>
+        <div style="padding:0 11px 11px">
+          <div style="font-size:7.5px;font-weight:700;color:var(--sl);text-transform:uppercase;margin-bottom:3px">Stock de barras del día</div>
+          <div style="background:var(--sur);border:1.5px solid var(--brd);border-radius:8px;padding:6px 9px;font-size:11px;font-weight:700;color:var(--ink);margin-bottom:4px">30 barras</div>
+          <div style="background:var(--brd);border-radius:3px;height:4px;margin-bottom:2px"><div style="background:var(--am);border-radius:3px;height:4px;width:13%"></div></div>
+          <div style="font-size:7.5px;color:var(--sl)">Usadas: 4 · Disponibles: 26</div>
+        </div>
+      </div>
+    </div>
+  </div></div>
+</div>
+
+</div>
+
+<!-- ══════════════ SECCIÓN 6: ANALÍTICAS ══════════════ -->
+<div class="sec-title">06 — Admin · Analíticas: gráficas + insights + plan<span class="sec-pill">📊 Admin</span></div>
+<div class="phones-row">
+
+<!-- Gráfica de línea + KPIs -->
+<div class="phone-wrap">
+  <div class="phone-label">KPIs + gráfica de línea por mes + selector categoría</div>
+  <div class="phone"><div class="screen">
+    <div class="nav">
+      <div class="nav-logo"><div class="nav-mark">M</div><div class="nav-name">Mega<em>Logistics</em></div></div>
+      <div class="nav-sw"><div class="sw">Cliente</div><div class="sw on">Admin</div></div>
+      <div class="nav-kg"><div class="kd"></div>0.7 kg</div>
+    </div>
+    <div class="sc" style="padding-top:11px">
+      <div class="atabs">
+        <div class="at">Pedidos</div><div class="at">Ruta</div><div class="at">Eventos</div>
+        <div class="at">Config</div><div class="at" style="background:var(--bl0);color:var(--bl);border-color:var(--bl1)">👥</div>
+        <div class="at" style="background:#DCFCE7;color:#166634;border-color:#A7F3D0">📢</div>
+        <div class="at an on">📊 Analíticas</div>
+      </div>
+      <div class="anh">
+        <div class="anico">📊</div>
+        <div><div class="antitle">Analíticas</div><div class="ansub">Pedidos · Kg · Barras · Tortas</div></div>
+      </div>
+      <div class="antabs"><div class="antab">Día</div><div class="antab on">Mes</div><div class="antab">Año</div></div>
+      <div class="kpig">
+        <div class="kpi"><div class="kpiico">📦</div><div class="kpiv">558</div><div class="kpil">Pedidos</div></div>
+        <div class="kpi"><div class="kpiico">🥩</div><div class="kpiv">168 kg</div><div class="kpil">Carne</div></div>
+        <div class="kpi"><div class="kpiico">💰</div><div class="kpiv">$50,220</div><div class="kpil">Ingresos</div></div>
+        <div class="kpi"><div class="kpiico">🥖</div><div class="kpiv">701</div><div class="kpil">Barras</div></div>
+      </div>
+      <!-- Selector categoría -->
+      <div class="tsel">
+        <div class="ts on" style="background:#F59E0B;border-color:#F59E0B">Kg carne</div>
+        <div class="ts">Barras</div><div class="ts">Tortas</div><div class="ts">Mixto</div><div class="ts">Pedidos</div>
+      </div>
+      <!-- Gráfica línea Kg por mes -->
+      <div class="chart-area">
+        <div class="clbl">Kg carne por mes — 2025</div>
+        <svg viewBox="0 0 222 70" width="100%" style="display:block;overflow:visible">
+          <line x1="0" y1="0" x2="222" y2="0" stroke="#E2E8F0" stroke-width="0.5"/>
+          <line x1="0" y1="23" x2="222" y2="23" stroke="#E2E8F0" stroke-width="0.5"/>
+          <line x1="0" y1="46" x2="222" y2="46" stroke="#E2E8F0" stroke-width="0.5"/>
+          <polyline points="0,54 20,56 40,49 60,58 80,44 100,37 120,28 140,32 160,41 180,55 200,57 221,34"
+            fill="none" stroke="#F59E0B" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+          <!-- Dots -->
+          <circle cx="0" cy="54" r="2.5" fill="#F59E0B" stroke="#fff" stroke-width="1.5"/>
+          <circle cx="120" cy="28" r="4" fill="#F59E0B" stroke="#fff" stroke-width="2"/>
+          <circle cx="200" cy="57" r="4" fill="#EF4444" stroke="#fff" stroke-width="2"/>
+          <!-- Labels -->
+          <text x="0" y="67" font-size="6" fill="#94A3B8" font-family="sans-serif" text-anchor="middle">E</text>
+          <text x="40" y="67" font-size="6" fill="#94A3B8" font-family="sans-serif" text-anchor="middle">M</text>
+          <text x="80" y="67" font-size="6" fill="#94A3B8" font-family="sans-serif" text-anchor="middle">M</text>
+          <text x="120" y="67" font-size="6" fill="#F59E0B" font-family="sans-serif" text-anchor="middle" font-weight="bold">Jul</text>
+          <text x="160" y="67" font-size="6" fill="#94A3B8" font-family="sans-serif" text-anchor="middle">S</text>
+          <text x="200" y="67" font-size="6" fill="#EF4444" font-family="sans-serif" text-anchor="middle" font-weight="bold">Nov</text>
+        </svg>
+      </div>
+    </div>
+  </div></div>
+</div>
+
+<!-- Gráfica barras + heatmap -->
+<div class="phone-wrap">
+  <div class="phone-label">Comparativa apilada + mapa de calor semanal</div>
+  <div class="phone"><div class="screen">
+    <div class="nav">
+      <div class="nav-logo"><div class="nav-mark">M</div><div class="nav-name">Mega<em>Logistics</em></div></div>
+      <div class="nav-sw"><div class="sw">Cliente</div><div class="sw on">Admin</div></div>
+      <div class="nav-kg"><div class="kd"></div>0.7 kg</div>
+    </div>
+    <div class="sc" style="padding-top:11px">
+      <!-- Barras apiladas -->
+      <div class="chart-area" style="margin-bottom:8px">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px">
+          <div class="clbl" style="margin-bottom:0">Comparativa extras — todos los meses</div>
+          <span class="bdg b-sl">Apilado</span>
+        </div>
+        <div class="legend">
+          <div class="legit"><div class="legdot" style="background:#F59E0B"></div>Kg</div>
+          <div class="legit"><div class="legdot" style="background:#7C3AED"></div>Barras</div>
+          <div class="legit"><div class="legdot" style="background:#EA580C"></div>Tortas</div>
+          <div class="legit"><div class="legdot" style="background:#2563EB"></div>Mixto</div>
+        </div>
+        <svg viewBox="0 0 222 68" width="100%" style="display:block">
+          <!-- Barras por mes — 12 grupos -->
+          <!-- E --><rect x="2"   y="43" width="12" height="20" fill="#F59E0B" rx="2" opacity=".9"/><rect x="2"   y="30" width="12" height="13" fill="#7C3AED" rx="1" opacity=".9"/><rect x="2"   y="25" width="12" height="5"  fill="#EA580C" rx="1" opacity=".9"/><text x="8"   y="66" font-size="5.5" fill="#94A3B8" font-family="sans-serif" text-anchor="middle">E</text>
+          <!-- F --><rect x="19"  y="48" width="12" height="15" fill="#F59E0B" rx="2" opacity=".9"/><rect x="19"  y="37" width="12" height="11" fill="#7C3AED" rx="1" opacity=".9"/><text x="25"  y="66" font-size="5.5" fill="#EF4444" font-family="sans-serif" text-anchor="middle" font-weight="bold">F</text>
+          <!-- M --><rect x="36"  y="38" width="12" height="25" fill="#F59E0B" rx="2" opacity=".9"/><rect x="36"  y="24" width="12" height="14" fill="#7C3AED" rx="1" opacity=".9"/><rect x="36"  y="19" width="12" height="5"  fill="#EA580C" rx="1" opacity=".9"/><rect x="36"  y="14" width="12" height="5"  fill="#2563EB" rx="1" opacity=".9"/><text x="42"  y="66" font-size="5.5" fill="#94A3B8" font-family="sans-serif" text-anchor="middle">M</text>
+          <!-- A --><rect x="53"  y="51" width="12" height="12" fill="#F59E0B" rx="2" opacity=".9"/><rect x="53"  y="43" width="12" height="8"  fill="#7C3AED" rx="1" opacity=".9"/><text x="59"  y="66" font-size="5.5" fill="#EF4444" font-family="sans-serif" text-anchor="middle" font-weight="bold">A</text>
+          <!-- M2 --><rect x="70"  y="29" width="12" height="34" fill="#F59E0B" rx="2" opacity=".9"/><rect x="70"  y="16" width="12" height="13" fill="#7C3AED" rx="1" opacity=".9"/><rect x="70"  y="10" width="12" height="6"  fill="#EA580C" rx="1" opacity=".9"/><text x="76"  y="66" font-size="5.5" fill="#94A3B8" font-family="sans-serif" text-anchor="middle">M</text>
+          <!-- J --><rect x="87"  y="21" width="12" height="42" fill="#F59E0B" rx="2" opacity=".9"/><rect x="87"  y="7"  width="12" height="14" fill="#7C3AED" rx="1" opacity=".9"/><rect x="87"  y="2"  width="12" height="5"  fill="#EA580C" rx="1" opacity=".9"/><text x="93"  y="66" font-size="5.5" fill="#94A3B8" font-family="sans-serif" text-anchor="middle">J</text>
+          <!-- Jul PICO --><rect x="104" y="13" width="12" height="50" fill="#F59E0B" rx="2" opacity=".95"/><rect x="104" y="2"  width="12" height="11" fill="#7C3AED" rx="1" opacity=".9"/><text x="110" y="66" font-size="5.5" fill="#F59E0B" font-family="sans-serif" text-anchor="middle" font-weight="bold">J</text>
+          <!-- A --><rect x="121" y="18" width="12" height="45" fill="#F59E0B" rx="2" opacity=".9"/><rect x="121" y="6"  width="12" height="12" fill="#7C3AED" rx="1" opacity=".9"/><text x="127" y="66" font-size="5.5" fill="#94A3B8" font-family="sans-serif" text-anchor="middle">A</text>
+          <!-- S --><rect x="138" y="34" width="12" height="29" fill="#F59E0B" rx="2" opacity=".9"/><rect x="138" y="21" width="12" height="13" fill="#7C3AED" rx="1" opacity=".9"/><text x="144" y="66" font-size="5.5" fill="#94A3B8" font-family="sans-serif" text-anchor="middle">S</text>
+          <!-- O --><rect x="155" y="44" width="12" height="19" fill="#F59E0B" rx="2" opacity=".9"/><rect x="155" y="36" width="12" height="8"  fill="#7C3AED" rx="1" opacity=".9"/><text x="161" y="66" font-size="5.5" fill="#94A3B8" font-family="sans-serif" text-anchor="middle">O</text>
+          <!-- Nov BAJO --><rect x="172" y="53" width="12" height="10" fill="#EF4444" rx="2" opacity=".9"/><rect x="172" y="47" width="12" height="6"  fill="#7C3AED" rx="1" opacity=".9"/><text x="178" y="66" font-size="5.5" fill="#EF4444" font-family="sans-serif" text-anchor="middle" font-weight="bold">N</text>
+          <!-- D --><rect x="189" y="25" width="12" height="38" fill="#F59E0B" rx="2" opacity=".9"/><rect x="189" y="12" width="12" height="13" fill="#7C3AED" rx="1" opacity=".9"/><rect x="189" y="7"  width="12" height="5"  fill="#EA580C" rx="1" opacity=".9"/><text x="195" y="66" font-size="5.5" fill="#94A3B8" font-family="sans-serif" text-anchor="middle">D</text>
+        </svg>
+      </div>
+      <!-- Heatmap -->
+      <div class="card">
+        <div class="ch"><span class="ct">Mapa de calor — Kg por día</span><span class="bdg b-am">Intensidad</span></div>
+        <div class="hmw">
+          <div class="hmsc">
+            <span class="hmsl">Bajo</span>
+            <div class="hmb" style="background:#FEF9EE"></div><div class="hmb" style="background:#FDE68A"></div>
+            <div class="hmb" style="background:#FCD34D"></div><div class="hmb" style="background:#F59E0B"></div>
+            <div class="hmb" style="background:#D97706"></div><div class="hmb" style="background:#B45309"></div>
+            <div class="hmb" style="background:#92400E"></div>
+            <span class="hmsl">Alto</span>
+          </div>
+          <div class="hmg">
+            <div class="hml">Lun</div><div class="hml">Mar</div><div class="hml">Mié</div>
+            <div class="hml">Jue</div><div class="hml">Vie</div><div class="hml">Sáb</div>
+            <div class="hml" style="color:var(--er)">Dom</div>
+            <div class="hmc" style="background:#D97706;color:#fff">2.5</div>
+            <div class="hmc" style="background:#B45309;color:#fff">2.3</div>
+            <div class="hmc" style="background:#D97706;color:#fff">2.7</div>
+            <div class="hmc" style="background:#D97706;color:#fff">2.6</div>
+            <div class="hmc" style="background:#92400E;color:#fff">3.7</div>
+            <div class="hmc" style="background:#92400E;color:#fff">4.7</div>
+            <div class="hmc" style="background:#FDE68A;color:#92400E">1.3</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div></div>
+</div>
+
+<!-- Insights + plan de acción -->
+<div class="phone-wrap">
+  <div class="phone-label">Rankings mejores/bajos + Insights + Plan de acción</div>
+  <div class="phone"><div class="screen">
+    <div class="nav">
+      <div class="nav-logo"><div class="nav-mark">M</div><div class="nav-name">Mega<em>Logistics</em></div></div>
+      <div class="nav-sw"><div class="sw">Cliente</div><div class="sw on">Admin</div></div>
+      <div class="nav-kg"><div class="kd"></div>0.7 kg</div>
+    </div>
+    <div class="sc" style="padding-top:11px">
+      <!-- Top / Bajo -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:8px">
+        <div class="card">
+          <div class="ch"><span class="ct">🏆 Mejores</span></div>
+          <div class="toprow"><div class="trk2" style="background:#FEF3C7;color:#92400E">1</div><div style="flex:1;min-width:0"><div style="font-size:9.5px;font-weight:700;color:var(--ink)">Jul</div><div style="font-size:7.5px;color:var(--sl)">21 kg</div></div><div class="tbw"><div class="tbf" style="width:100%;background:#F59E0B"></div></div></div>
+          <div class="toprow"><div class="trk2" style="background:#F1F5F9;color:#475569">2</div><div style="flex:1;min-width:0"><div style="font-size:9.5px;font-weight:700;color:var(--ink)">Ago</div><div style="font-size:7.5px;color:var(--sl)">19.5 kg</div></div><div class="tbw"><div class="tbf" style="width:93%;background:#F59E0B"></div></div></div>
+          <div class="toprow" style="border:none"><div class="trk2" style="background:#FEF9EE;color:#B45309">3</div><div style="flex:1;min-width:0"><div style="font-size:9.5px;font-weight:700;color:var(--ink)">Jun</div><div style="font-size:7.5px;color:var(--sl)">18.3 kg</div></div><div class="tbw"><div class="tbf" style="width:87%;background:#F59E0B"></div></div></div>
+        </div>
+        <div class="card">
+          <div class="ch"><span class="ct">📉 Bajos</span></div>
+          <div class="toprow"><div class="trk2" style="background:var(--er0);color:var(--er)">1</div><div style="flex:1;min-width:0"><div style="font-size:9.5px;font-weight:700;color:var(--ink)">Nov</div><div style="font-size:7.5px;color:var(--sl)">8.1 kg</div></div><div class="tbw"><div class="tbf" style="width:38%;background:#EF4444"></div></div></div>
+          <div class="toprow"><div class="trk2" style="background:var(--er0);color:var(--er)">2</div><div style="flex:1;min-width:0"><div style="font-size:9.5px;font-weight:700;color:var(--ink)">Abr</div><div style="font-size:7.5px;color:var(--sl)">8.7 kg</div></div><div class="tbw"><div class="tbf" style="width:41%;background:#EF4444"></div></div></div>
+          <div class="toprow" style="border:none"><div class="trk2" style="background:var(--er0);color:var(--er)">3</div><div style="flex:1;min-width:0"><div style="font-size:9.5px;font-weight:700;color:var(--ink)">Feb</div><div style="font-size:7.5px;color:var(--sl)">9.3 kg</div></div><div class="tbw"><div class="tbf" style="width:44%;background:#EF4444"></div></div></div>
+        </div>
+      </div>
+      <!-- Insights -->
+      <div class="card" style="margin-bottom:8px">
+        <div class="ch"><span class="ct">💡 Insights</span><span class="bdg b-pu">4</span></div>
+        <div style="padding:4px 0">
+          <div class="insrow" style="padding:7px 11px">
+            <div class="insico" style="background:#FFF1F1">📉</div>
+            <div><div class="instit" style="color:var(--er)">Nov — mes más crítico</div><div class="insbod">8.1 kg, -61% bajo el promedio anual.</div><div class="insrec" style="background:#FFF1F1;color:var(--er)">→ Combos y descuentos Nov y Abr</div></div>
+          </div>
+          <div class="insrow" style="padding:7px 11px">
+            <div class="insico" style="background:#ECFDF5">🔥</div>
+            <div><div class="instit" style="color:var(--ok)">Jul–Ago meses estrella</div><div class="insbod">Jul 21 kg = +47% sobre promedio.</div><div class="insrec" style="background:#ECFDF5;color:var(--ok)">→ Maximizar stock Jun–Ago</div></div>
+          </div>
+          <div class="insrow" style="padding:7px 11px">
+            <div class="insico" style="background:#F5F3FF">🥖</div>
+            <div><div class="instit" style="color:var(--pu)">Barras crecen más rápido</div><div class="insbod">Barras +30% vs carne +17% en 3 años.</div><div class="insrec" style="background:#F5F3FF;color:var(--pu)">→ Evalúa subir precio barra</div></div>
+          </div>
+        </div>
+      </div>
+      <!-- Plan meses bajos -->
+      <div class="card">
+        <div class="ch"><span class="ct">🎯 Plan — Meses bajos</span><span class="bdg b-er">Prioridad</span></div>
+        <div class="fcrow"><div class="fcmes">Nov <span class="bdg b-er" style="font-size:7px;padding:1px 4px">-61%</span></div><div class="fcbw"><div class="fcbf" style="width:38%"></div></div><div class="fcval">8.1 kg</div></div>
+        <div class="fcrow"><div class="fcmes">Abr <span class="bdg b-er" style="font-size:7px;padding:1px 4px">-59%</span></div><div class="fcbw"><div class="fcbf" style="width:41%"></div></div><div class="fcval">8.7 kg</div></div>
+        <div class="fcrow"><div class="fcmes">Feb <span class="bdg b-er" style="font-size:7px;padding:1px 4px">-56%</span></div><div class="fcbw"><div class="fcbf" style="width:44%"></div></div><div class="fcval">9.3 kg</div></div>
+        <div class="fcrow" style="border:none"><div class="fcmes">Oct <span class="bdg b-er" style="font-size:7px;padding:1px 4px">-50%</span></div><div class="fcbw"><div class="fcbf" style="width:50%"></div></div><div class="fcval">10.5 kg</div></div>
+        <div style="padding:8px 11px;background:var(--am0);border-top:0.5px solid var(--am1)">
+          <div style="font-size:8.5px;font-weight:700;color:var(--am3)">📌 Meta: recuperar +20% en meses bajos</div>
+          <div style="font-size:7.5px;color:var(--wr);margin-top:2px">Ingreso adicional estimado: <strong>$1,800</strong></div>
+        </div>
+      </div>
+    </div>
+  </div></div>
+</div>
+
+</div><!-- /phones-row analíticas -->
+
+<!-- FOOTER -->
+<div style="text-align:center;margin-top:80px;padding-top:40px;border-top:1px solid rgba(255,255,255,.05)">
+  <div style="font-family:'Syne',sans-serif;font-size:10px;color:rgba(255,255,255,.14);letter-spacing:.15em;text-transform:uppercase;margin-bottom:6px">
+    MegaLogistics · kilos.mx · Mockup v6 · CRUD v22 · Abril 2026
+  </div>
+  <div style="font-size:10px;color:rgba(255,255,255,.07)">
+    15 pantallas · 6 secciones · Horarios configurables · GPS real · Analíticas + insights · Plan de acción
+  </div>
+</div>
+
 </body>
 </html>
-<!-- responsive patch — injected -->
-<style>
-@media (max-width: 900px) {
-  .phones { flex-direction: column; align-items: center; gap: 32px; }
-  .pw { width: 100%; max-width: 390px; }
-  .phone { width: 100%; }
-  .hdr { padding: 14px 18px; }
-  .hdr-txt { font-size: 14px; }
-  .hdr-badge { display: none; }
-  .stage { padding: 24px 16px 48px; }
-}
-@media (max-width: 480px) {
-  .pw { max-width: 100%; }
-  .phone { border-radius: 32px; border-width: 4px; }
-  .metrics-grid { grid-template-columns: repeat(2,1fr); }
-  .tipo-row { gap: 6px; }
-  .footer .tech-row { gap: 6px; }
-}
-</style>
