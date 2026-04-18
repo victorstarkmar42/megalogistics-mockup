@@ -3,976 +3,1593 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MegaLogistics — Mockup v6</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<title>MegaLogistics · Demo Interactivo v6</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#0F172A;--ink2:#1E293B;--am:#F59E0B;--am2:#D97706;--am3:#92400E;--am0:#FEF9EE;--am1:#FDE68A;--sl:#64748B;--brd:#E2E8F0;--sur:#F8FAFC;--wh:#FFFFFF;--ok:#059669;--ok0:#ECFDF5;--ok1:#A7F3D0;--er:#DC2626;--er0:#FFF1F1;--bl:#2563EB;--bl0:#EFF6FF;--bl1:#BFDBFE;--pu:#7C3AED;--pu0:#F5F3FF;--wa:#22C55E;}
-*{box-sizing:border-box;margin:0;padding:0;}
-body{background:#080C14;font-family:'DM Sans',sans-serif;min-height:100vh;padding:48px 28px 80px;background-image:radial-gradient(ellipse 900px 600px at 10% 20%,rgba(245,158,11,.06) 0%,transparent 70%),radial-gradient(ellipse 700px 500px at 90% 80%,rgba(37,99,235,.05) 0%,transparent 70%);}
+/* ══ RESET & TOKENS ══ */
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+:root{
+  --ink:#0F172A;--ink2:#1E293B;--ink3:#334155;
+  --am:#F59E0B;--am2:#D97706;--am3:#92400E;--am0:#FEF9EE;--am1:#FDE68A;
+  --sl:#64748B;--brd:#E2E8F0;--sur:#F8FAFC;--wh:#fff;
+  --ok:#059669;--ok0:#ECFDF5;--ok1:#A7F3D0;
+  --er:#DC2626;--er0:#FFF1F1;
+  --bl:#2563EB;--bl0:#EFF6FF;--bl1:#BFDBFE;
+  --pu:#7C3AED;--pu0:#F5F3FF;
+  --wa:#22C55E;--wr:#B45309;--wr0:#FFFBEB;
+  --or:#EA580C;
+  --ff-head:'Syne',sans-serif;
+  --ff-body:'DM Sans',sans-serif;
+  --rad:16px;--radS:10px;--radXS:7px;
+  --sh:0 1px 3px rgba(0,0,0,.08),0 4px 12px rgba(0,0,0,.05);
+}
 
-/* HEADER */
-.header{text-align:center;margin-bottom:72px;}
-.hdr-logo{display:inline-flex;align-items:center;gap:12px;margin-bottom:18px;}
-.logo-mark{width:44px;height:44px;border-radius:14px;background:var(--am);color:var(--ink);font-family:'Syne',sans-serif;font-weight:800;font-size:20px;display:flex;align-items:center;justify-content:center;}
-h1{font-family:'Syne',sans-serif;font-weight:800;font-size:36px;color:#fff;letter-spacing:-1.5px;line-height:1;}
-h1 span{color:var(--am);}
-.hdr-sub{font-size:13px;color:rgba(255,255,255,.3);margin-top:10px;letter-spacing:.08em;text-transform:uppercase;font-weight:500;}
-.vpill{display:inline-block;background:rgba(245,158,11,.12);border:1px solid rgba(245,158,11,.25);color:var(--am);font-size:11px;font-weight:700;padding:4px 14px;border-radius:20px;margin-top:14px;text-transform:uppercase;letter-spacing:.08em;}
+/* ══ OUTER SHELL ══ */
+html,body{height:100%;font-family:var(--ff-body);background:#060A12;color:var(--ink)}
+body{display:flex;flex-direction:column;align-items:center;min-height:100vh;
+  background-image:radial-gradient(ellipse 800px 500px at 15% 10%,rgba(245,158,11,.07) 0%,transparent 65%),
+  radial-gradient(ellipse 600px 400px at 85% 90%,rgba(37,99,235,.05) 0%,transparent 65%)}
 
-/* SECTION */
-.sec-title{font-family:'Syne',sans-serif;font-weight:700;font-size:11px;color:rgba(255,255,255,.22);text-transform:uppercase;letter-spacing:.15em;margin-bottom:24px;margin-top:64px;display:flex;align-items:center;gap:12px;}
-.sec-title::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.05);}
-.sec-pill{background:rgba(245,158,11,.15);border:1px solid rgba(245,158,11,.2);color:var(--am);padding:2px 10px;border-radius:20px;font-size:10px;}
+/* ══ LANDING HEADER ══ */
+.landing{display:flex;flex-direction:column;align-items:center;padding:52px 20px 40px;text-align:center}
+.lmark{width:52px;height:52px;border-radius:16px;background:var(--am);color:var(--ink);
+  font-family:var(--ff-head);font-weight:800;font-size:22px;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 0 0 8px rgba(245,158,11,.12)}
+.lh1{font-family:var(--ff-head);font-size:clamp(28px,5vw,42px);font-weight:800;color:#fff;
+  letter-spacing:-1.5px;margin-top:18px;line-height:1}
+.lh1 em{color:var(--am);font-style:normal}
+.lsub{font-size:13px;color:rgba(255,255,255,.35);margin-top:10px;letter-spacing:.06em;text-transform:uppercase}
+.lpill{display:inline-flex;align-items:center;gap:6px;background:rgba(245,158,11,.1);
+  border:1px solid rgba(245,158,11,.22);color:var(--am);font-size:10px;font-weight:700;
+  padding:5px 14px;border-radius:20px;margin-top:16px;text-transform:uppercase;letter-spacing:.07em}
+.lpill .dot{width:6px;height:6px;border-radius:50%;background:var(--wa)}
 
-/* PHONES */
-.phones-row{display:flex;gap:24px;flex-wrap:wrap;justify-content:center;align-items:flex-start;}
-.phone-wrap{display:flex;flex-direction:column;align-items:center;gap:12px;}
-.phone-label{font-size:10px;font-weight:600;color:rgba(255,255,255,.28);text-transform:uppercase;letter-spacing:.09em;max-width:240px;text-align:center;line-height:1.5;}
-.phone{width:256px;background:#0F172A;border-radius:38px;padding:12px;box-shadow:0 0 0 1px rgba(255,255,255,.06),0 40px 80px rgba(0,0,0,.8),0 0 0 9px #0a0e18,0 0 0 10px rgba(255,255,255,.04);position:relative;}
-.phone::before{content:'';position:absolute;top:22px;left:50%;transform:translateX(-50%);width:72px;height:5px;background:rgba(255,255,255,.07);border-radius:3px;}
-.screen{background:var(--sur);border-radius:26px;overflow:hidden;min-height:520px;}
+/* ══ DEVICE SWITCHER ══ */
+.dev-sw{display:flex;gap:8px;margin:24px 0 32px;background:rgba(255,255,255,.05);
+  padding:4px;border-radius:12px;border:1px solid rgba(255,255,255,.07)}
+.dsw-btn{padding:8px 20px;border-radius:9px;font-size:11px;font-weight:700;color:rgba(255,255,255,.45);
+  cursor:pointer;text-transform:uppercase;letter-spacing:.06em;transition:all .2s;border:none;background:transparent}
+.dsw-btn.on{background:var(--am);color:var(--ink)}
 
-/* NAV */
-.nav{background:var(--ink);display:flex;align-items:center;justify-content:space-between;padding:0 13px;height:44px;}
-.nav-logo{display:flex;align-items:center;gap:7px;}
-.nav-mark{width:24px;height:24px;border-radius:7px;background:var(--am);color:var(--ink);font-family:'Syne',sans-serif;font-weight:800;font-size:10px;display:flex;align-items:center;justify-content:center;}
-.nav-name{font-family:'Syne',sans-serif;font-weight:700;font-size:12px;color:#fff;letter-spacing:-.3px;}
-.nav-name em{color:var(--am);font-style:normal;}
-.nav-sw{display:flex;gap:1px;background:rgba(255,255,255,.12);padding:2px;border-radius:7px;}
-.sw{padding:3px 10px;border-radius:5px;font-size:9px;font-weight:700;text-transform:uppercase;color:rgba(255,255,255,.55);}
-.sw.on{background:var(--am);color:var(--ink);}
-.nav-kg{font-size:9px;font-weight:700;color:rgba(255,255,255,.35);display:flex;align-items:center;gap:3px;}
-.kd{width:5px;height:5px;border-radius:50%;background:var(--am);}
+/* ══ PHONE SHELL ══ */
+.phone-shell{
+  width:375px;
+  background:#0D1520;
+  border-radius:48px;
+  padding:16px;
+  box-shadow:0 0 0 1px rgba(255,255,255,.07),
+    0 50px 100px rgba(0,0,0,.9),
+    inset 0 1px 0 rgba(255,255,255,.06),
+    0 0 0 11px #0a0f1a,
+    0 0 0 12px rgba(255,255,255,.04);
+  position:relative;
+  transition:transform .4s cubic-bezier(.34,1.56,.64,1);
+  margin-bottom:48px
+}
+.phone-shell::before{content:'';position:absolute;top:26px;left:50%;transform:translateX(-50%);
+  width:90px;height:6px;background:rgba(255,255,255,.06);border-radius:3px}
+.phone-screen{
+  background:var(--sur);border-radius:34px;overflow:hidden;
+  height:680px;position:relative;display:flex;flex-direction:column;
+}
 
-/* TABS */
-.tabs{display:flex;gap:2px;padding:3px;background:#fff;border:0.5px solid var(--brd);border-radius:9px;margin:9px 11px 0;}
-.tab{flex:1;padding:6px 3px;border-radius:6px;font-size:8.5px;font-weight:700;text-align:center;text-transform:uppercase;color:var(--sl);}
-.tab.on{background:var(--ink);color:var(--am);}
+/* Desktop mode */
+body.desktop .phone-shell{width:min(960px,96vw);border-radius:20px;padding:0}
+body.desktop .phone-shell::before{display:none}
+body.desktop .phone-screen{height:auto;min-height:100vh;border-radius:20px}
 
-/* CONTENT */
-.sc{padding:9px 11px 18px;}
+/* ══ NAV ══ */
+.nav{background:var(--ink);display:flex;align-items:center;justify-content:space-between;
+  padding:0 18px;height:54px;flex-shrink:0;position:sticky;top:0;z-index:50}
+.nav-logo{display:flex;align-items:center;gap:9px}
+.nav-mark{width:30px;height:30px;border-radius:9px;background:var(--am);color:var(--ink);
+  font-family:var(--ff-head);font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center}
+.nav-name{font-family:var(--ff-head);font-size:15px;font-weight:700;color:#fff;letter-spacing:-.4px}
+.nav-name em{color:var(--am);font-style:normal}
+.nav-sw{display:flex;gap:1px;background:rgba(255,255,255,.14);padding:3px;border-radius:10px}
+.sw-btn{padding:5px 14px;border-radius:7px;font-size:11px;font-weight:700;color:rgba(255,255,255,.6);
+  cursor:pointer;border:none;background:transparent;text-transform:uppercase;transition:all .15s}
+.sw-btn.on{background:var(--am);color:var(--ink)}
+.nav-kg{font-size:10px;font-weight:700;color:rgba(255,255,255,.4);display:flex;align-items:center;gap:4px}
+.kd{width:7px;height:7px;border-radius:50%;background:var(--am)}
 
-/* HERO */
-.hero{background:var(--ink);border-radius:14px;padding:13px;display:flex;justify-content:space-between;align-items:center;margin-bottom:9px;}
-.hl .lbl{font-size:7.5px;font-weight:700;color:rgba(255,255,255,.3);text-transform:uppercase;margin-bottom:3px;}
-.hl .val{font-family:'Syne',sans-serif;font-size:24px;font-weight:800;color:#fff;letter-spacing:-1px;}
-.hbar{background:rgba(255,255,255,.1);border-radius:3px;height:3px;width:90px;margin-top:7px;}
-.hbarf{background:var(--am);border-radius:3px;height:3px;}
-.hr{text-align:right;}
-.hr .lbl{font-size:7.5px;font-weight:700;color:rgba(255,255,255,.3);text-transform:uppercase;margin-bottom:3px;}
-.hr .val{font-family:'Syne',sans-serif;font-size:24px;font-weight:800;color:var(--am);letter-spacing:-1px;}
-.hr .tm{font-size:8px;color:rgba(255,255,255,.22);margin-top:3px;}
+/* ══ SCROLLABLE CONTENT ══ */
+.scroll{flex:1;overflow-y:auto;overscroll-behavior:contain}
+.scroll::-webkit-scrollbar{width:0}
+.sc{padding:0 16px 32px}
 
-/* CARD */
-.card{background:#fff;border:0.5px solid var(--brd);border-radius:13px;overflow:hidden;margin-bottom:8px;}
-.ch{padding:8px 11px;border-bottom:0.5px solid var(--brd);background:var(--sur);display:flex;align-items:center;justify-content:space-between;}
-.ct{font-size:9.5px;font-weight:700;color:var(--ink);text-transform:uppercase;letter-spacing:.04em;}
-.bdg{font-size:7.5px;font-weight:700;padding:2px 7px;border-radius:18px;text-transform:uppercase;white-space:nowrap;}
-.b-am{background:var(--am0);color:var(--am3);}
-.b-ok{background:var(--ok0);color:#065F46;}
-.b-er{background:var(--er0);color:var(--er);}
-.b-bl{background:var(--bl0);color:var(--bl);}
-.b-sl{background:#F1F5F9;color:#475569;}
-.b-pu{background:var(--pu0);color:var(--pu);}
-.new-pill{display:inline-block;background:rgba(34,197,94,.15);border:1px solid rgba(34,197,94,.3);color:#22C55E;font-size:7.5px;font-weight:700;padding:1px 7px;border-radius:9px;text-transform:uppercase;margin-left:4px;vertical-align:middle;}
+/* ══ PAGE SYSTEM ══ */
+.page{display:none}.page.on{display:block}
 
-/* MODOS */
-.modos{display:flex;gap:5px;padding:9px 11px;}
-.modo{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:10px 3px;border-radius:11px;border:2px solid var(--brd);background:var(--sur);text-align:center;}
-.modo.on{border-color:var(--am);background:var(--am0);}
-.modo .ico{font-size:19px;}
-.modo .lbl{font-size:9px;font-weight:700;color:var(--ink);text-transform:uppercase;}
-.modo.on .lbl{color:var(--am3);}
-.modo .sub{font-size:7.5px;color:var(--sl);}
+/* ══ TABS ══ */
+.tabs{display:flex;gap:2px;padding:3px;background:var(--wh);border:0.5px solid var(--brd);
+  border-radius:11px;margin:11px 16px 0}
+.tab{flex:1;padding:8px 3px;border-radius:8px;font-size:10px;font-weight:700;color:var(--sl);
+  cursor:pointer;text-align:center;text-transform:uppercase;transition:all .15s;user-select:none}
+.tab.on{background:var(--ink);color:var(--am)}
 
-/* ENTREGA — lista item */
-.ei{display:flex;align-items:center;gap:11px;padding:11px 13px;border-bottom:0.5px solid var(--brd);cursor:pointer;}
-.ei:last-child{border-bottom:none;}
-.ei.on{background:var(--am0);}
-.er2{width:17px;height:17px;border-radius:50%;border:2.5px solid var(--brd);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.er2.on{border-color:var(--am);}
-.erdot{width:8px;height:8px;border-radius:50%;background:var(--am);}
-.eico{font-size:21px;flex-shrink:0;}
-.einfo{flex:1;min-width:0;}
-.elbl{font-size:11.5px;font-weight:700;color:var(--ink);}
-.ei.on .elbl{color:var(--am3);}
-.esub{font-size:8.5px;color:var(--sl);margin-top:1px;}
-.ebdg{display:inline-block;font-size:8px;font-weight:700;padding:2px 7px;border-radius:8px;margin-top:4px;text-transform:uppercase;}
+/* ══ ADMIN TABS ══ */
+.atabs{display:flex;gap:4px;flex-wrap:wrap;padding:12px 16px 0}
+.at{padding:6px 11px;border-radius:20px;border:1.5px solid var(--brd);background:var(--wh);
+  font-size:10px;font-weight:700;color:var(--sl);cursor:pointer;text-transform:uppercase;
+  transition:all .15s;user-select:none}
+.at.on{background:var(--ink);color:var(--am);border-color:var(--ink)}
 
-/* ADDR + GPS */
-.addr-box{padding:10px 11px 12px;}
-.addr-lbl{font-size:7.5px;font-weight:700;color:var(--sl);text-transform:uppercase;margin-bottom:4px;}
-.addr-inp{width:100%;padding:7px 9px;background:var(--sur);border:1.5px solid var(--brd);border-radius:8px;font-size:9.5px;color:var(--sl);margin-bottom:7px;}
-.geo-btn{width:100%;padding:9px;background:var(--bl0);border:1.5px solid var(--bl1);border-radius:9px;color:var(--bl);font-size:9px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:5px;text-transform:uppercase;}
-.geo-btn.ok{background:var(--ok0);border-color:var(--ok1);color:var(--ok);}
-.geo-res{margin-top:6px;background:var(--ok0);border:1px solid var(--ok1);border-radius:9px;padding:7px 9px;display:flex;align-items:flex-start;gap:6px;}
-.geo-coords{font-size:8.5px;font-weight:700;color:var(--ok);font-family:monospace;}
-.geo-link{font-size:8.5px;font-weight:700;color:var(--bl);text-decoration:none;display:block;margin-top:2px;}
-.geo-hint{font-size:7.5px;color:var(--sl);text-align:center;margin-top:5px;}
+/* ══ CARDS ══ */
+.card{background:var(--wh);border:0.5px solid var(--brd);border-radius:var(--rad);overflow:hidden;margin-bottom:10px}
+.ch{padding:11px 15px;border-bottom:0.5px solid var(--brd);display:flex;align-items:center;
+  justify-content:space-between;background:var(--sur)}
+.ct{font-size:11px;font-weight:700;color:var(--ink);text-transform:uppercase;letter-spacing:.04em}
 
-/* MONTO */
-.chips{display:flex;gap:4px;flex-wrap:wrap;padding:9px 11px 0;}
-.chip{padding:4px 10px;border-radius:16px;border:1.5px solid var(--brd);background:#fff;font-size:9.5px;font-weight:700;color:var(--sl);}
-.chip.on{border-color:var(--am);background:var(--am);color:var(--ink);}
-.monto-wrap{display:flex;align-items:center;background:var(--sur);border:2px solid var(--ok);border-radius:11px;padding:0 13px;margin:7px 11px 3px;}
-.mp{font-size:22px;font-weight:700;color:var(--ok);margin-right:3px;}
-.mv{font-size:26px;font-weight:700;color:var(--ink);letter-spacing:-1px;padding:10px 0;}
-.mhint{font-size:8.5px;font-weight:600;color:var(--ok);padding:0 11px 9px;}
+/* ══ BADGES ══ */
+.bdg{font-size:9px;font-weight:700;padding:3px 9px;border-radius:20px;white-space:nowrap;
+  display:inline-block;text-transform:uppercase;letter-spacing:.03em}
+.bam{background:var(--am0);color:var(--am3)}.bok{background:var(--ok0);color:#065F46}
+.ber{background:var(--er0);color:var(--er)}.bbl{background:var(--bl0);color:var(--bl)}
+.bsl{background:#F1F5F9;color:#475569}.bpu{background:var(--pu0);color:var(--pu)}
+.bink{background:var(--ink);color:var(--am)}
 
-/* EXTRAS */
-.xrow{display:flex;align-items:center;gap:9px;padding:9px 11px;border-bottom:0.5px solid var(--brd);}
-.xrow:last-child{border-bottom:none;}
-.xrow.on{background:var(--am0);}
-.ckbox{width:19px;height:19px;border-radius:6px;border:2.5px solid var(--am);background:var(--am);color:var(--ink);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.ckbox.off{border-color:var(--brd);background:#fff;}
-.xstep{display:flex;align-items:center;gap:5px;padding:6px 11px;background:var(--am0);border-top:0.5px solid var(--am1);}
-.xsl{font-size:8.5px;font-weight:700;color:var(--am3);text-transform:uppercase;flex:1;}
-.xsb{width:26px;height:26px;border-radius:7px;border:1.5px solid var(--am1);background:#fff;font-size:15px;font-weight:700;color:var(--ink);display:flex;align-items:center;justify-content:center;}
-.xsv{font-size:16px;font-weight:700;color:var(--ink);width:28px;text-align:center;}
-.xst{font-size:11px;font-weight:700;color:var(--am2);}
+/* ══ HERO ══ */
+.hero{background:var(--ink);border-radius:18px;padding:18px;display:flex;
+  justify-content:space-between;align-items:center;margin-bottom:12px}
+.hero-l .lbl{font-size:9px;font-weight:700;color:rgba(255,255,255,.3);text-transform:uppercase;margin-bottom:5px}
+.hero-l .val{font-family:var(--ff-head);font-size:30px;font-weight:800;color:#fff;letter-spacing:-1px}
+.hbar{background:rgba(255,255,255,.1);border-radius:3px;height:4px;width:110px;margin-top:10px}
+.hbarf{background:var(--am);border-radius:3px;height:4px}
+.hero-r{text-align:right}
+.hero-r .lbl{font-size:9px;font-weight:700;color:rgba(255,255,255,.3);text-transform:uppercase;margin-bottom:5px}
+.hero-r .val{font-family:var(--ff-head);font-size:30px;font-weight:800;color:var(--am);letter-spacing:-1px}
+.hero-r .tm{font-size:9px;color:rgba(255,255,255,.25);margin-top:5px}
 
-/* PAGO */
-.popt{display:flex;align-items:center;gap:8px;padding:7px 11px;border-bottom:0.5px solid var(--brd);}
-.popt:last-child{border-bottom:none;}
-.rdo{width:14px;height:14px;border-radius:50%;border:2px solid var(--brd);display:flex;align-items:center;justify-content:center;}
-.rdo.on{border-color:var(--am);}
-.rdot2{width:7px;height:7px;border-radius:50%;background:var(--am);}
-.plbl{font-size:10.5px;font-weight:600;color:var(--ink);}
-.psub{font-size:8.5px;color:var(--sl);}
+/* ══ MODO PEDIDO ══ */
+.modos{display:flex;gap:8px;padding:11px 15px}
+.modo{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;padding:14px 6px;
+  border-radius:14px;border:2px solid var(--brd);background:var(--sur);cursor:pointer;
+  text-align:center;user-select:none;transition:all .15s}
+.modo:hover{border-color:var(--am1)}
+.modo.on{border-color:var(--am);background:var(--am0)}
+.modo .ico{font-size:22px}
+.modo .lbl{font-size:10px;font-weight:700;color:var(--ink);text-transform:uppercase}
+.modo.on .lbl{color:var(--am3)}
+.modo .sub{font-size:9px;color:var(--sl)}
 
-/* CTA */
-.cta{background:var(--ink);border-radius:14px;padding:12px 13px;display:flex;justify-content:space-between;align-items:center;margin-top:4px;}
-.cl .clbl{font-size:7.5px;color:rgba(255,255,255,.3);text-transform:uppercase;margin-bottom:2px;}
-.cl .ctot{font-family:'Syne',sans-serif;font-size:24px;font-weight:800;color:#fff;letter-spacing:-1px;}
-.cl .csumm{font-size:7.5px;color:rgba(255,255,255,.28);text-transform:uppercase;margin-top:1px;}
-.carr{width:42px;height:42px;border-radius:12px;background:var(--am);color:var(--ink);font-size:18px;font-weight:900;display:flex;align-items:center;justify-content:center;}
+/* ══ ENTREGA ITEM ══ */
+.ei{display:flex;align-items:center;gap:14px;padding:14px 16px;border-bottom:0.5px solid var(--brd);
+  cursor:pointer;transition:background .13s;user-select:none}
+.ei:last-child{border-bottom:none}
+.ei.on{background:var(--am0)}
+.ei-radio{width:20px;height:20px;border-radius:50%;border:2.5px solid var(--brd);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:border-color .13s}
+.ei-radio.on{border-color:var(--am)}
+.ei-rdot{width:10px;height:10px;border-radius:50%;background:var(--am)}
+.ei-ico{font-size:24px;flex-shrink:0}
+.ei-info{flex:1;min-width:0}
+.ei-lbl{font-size:13px;font-weight:700;color:var(--ink)}
+.ei.on .ei-lbl{color:var(--am3)}
+.ei-sub{font-size:10px;color:var(--sl);margin-top:2px}
+.ei-badge{display:inline-block;font-size:9px;font-weight:700;padding:3px 9px;border-radius:10px;
+  margin-top:5px;text-transform:uppercase}
 
-/* CONFIRMACIÓN */
-.conf-banner{background:var(--am0);border:1.5px solid var(--am1);border-radius:13px;padding:18px;text-align:center;margin-bottom:9px;}
-.cc{font-size:30px;margin-bottom:6px;}
-.ctitle{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;color:var(--am3);}
-.cdetail{font-size:9px;color:var(--sl);margin-top:2px;}
-.hconf{background:var(--ink);border-radius:11px;padding:11px 13px;margin-bottom:9px;}
-.hclbl{font-size:7.5px;color:rgba(255,255,255,.3);text-transform:uppercase;margin-bottom:4px;}
-.hcrange{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;color:var(--am);}
-.hcsub{font-size:8.5px;color:rgba(255,255,255,.35);margin-top:2px;}
+/* ══ DIRECCIÓN / GPS ══ */
+.addr-box{padding:12px 16px 14px}
+.addr-lbl{font-size:9px;font-weight:700;color:var(--sl);text-transform:uppercase;margin-bottom:5px;letter-spacing:.04em}
+.addr-inp{width:100%;padding:10px 12px;background:var(--sur);border:1.5px solid var(--brd);
+  border-radius:10px;font-size:11px;color:var(--ink);margin-bottom:9px;
+  font-family:var(--ff-body);outline:none;resize:none;transition:border-color .15s}
+.addr-inp:focus{border-color:var(--am)}
+.geo-btn{width:100%;padding:12px 14px;background:var(--bl0);border:1.5px solid var(--bl1);
+  border-radius:12px;color:var(--bl);font-size:12px;font-weight:700;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  font-family:var(--ff-body);text-transform:uppercase;transition:all .15s;margin-bottom:8px}
+.geo-btn:hover{background:var(--bl);color:#fff;border-color:var(--bl)}
+.geo-btn.ok{background:var(--ok0);border-color:var(--ok1);color:var(--ok)}
+.geo-btn.loading{background:#F1F5F9;border-color:var(--brd);color:var(--sl);cursor:wait}
+.geo-res{background:var(--ok0);border:1px solid var(--ok1);border-radius:11px;
+  padding:10px 13px;display:flex;align-items:flex-start;gap:9px}
+.geo-coords{font-size:10px;font-weight:700;color:var(--ok);font-family:monospace}
+.geo-link{font-size:10px;font-weight:700;color:var(--bl);text-decoration:none;display:inline-flex;
+  align-items:center;gap:4px;margin-top:4px}
+.geo-hint{font-size:9px;color:var(--sl);text-align:center;margin-top:6px}
 
-/* SEGUIMIENTO */
-.trkcard{background:#fff;border:0.5px solid var(--brd);border-radius:12px;overflow:hidden;margin-bottom:8px;}
-.trkh{padding:9px 11px;display:flex;justify-content:space-between;align-items:flex-start;gap:6px;}
-.trktot{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;color:var(--ink);}
-.trkd{font-size:8.5px;color:var(--sl);margin-top:1px;}
-.trkgeo{font-size:8.5px;font-weight:700;color:var(--bl);margin-top:1px;}
-.trkhor{display:inline-block;padding:2px 7px;border-radius:7px;font-size:7.5px;font-weight:700;text-transform:uppercase;margin-top:3px;}
-.trkstat{padding:6px 11px;font-size:8.5px;font-weight:700;display:flex;align-items:center;gap:5px;}
+/* ══ MONTO ══ */
+.chips{display:flex;gap:6px;flex-wrap:wrap;padding:12px 15px 0}
+.chip{padding:7px 13px;border-radius:20px;border:1.5px solid var(--brd);background:var(--wh);
+  font-size:11px;font-weight:700;color:var(--sl);cursor:pointer;user-select:none;transition:all .13s}
+.chip:hover{border-color:var(--am1)}
+.chip.on{border-color:var(--am);background:var(--am);color:var(--ink)}
+.monto-wrap{display:flex;align-items:center;background:var(--sur);border:2px solid var(--brd);
+  border-radius:14px;padding:0 18px;transition:all .15s;margin:9px 15px 5px}
+.monto-wrap.mok{border-color:var(--ok);background:var(--ok0)}
+.monto-wrap.merr{border-color:var(--er);background:var(--er0)}
+.mp{font-size:30px;font-weight:700;color:var(--sl);flex-shrink:0;line-height:1;margin-right:4px}
+.monto-wrap.mok .mp{color:var(--ok)}
+.mv{flex:1;border:none;background:transparent;font-size:34px;font-weight:700;color:var(--ink);
+  outline:none;padding:15px 0;letter-spacing:-1px;-moz-appearance:textfield;width:100%;min-width:0;
+  font-family:var(--ff-head)}
+.mv::-webkit-inner-spin-button,.mv::-webkit-outer-spin-button{-webkit-appearance:none}
+.mv::placeholder{color:#CBD5E1;font-weight:400}
+.mhint{font-size:10px;font-weight:600;color:var(--sl);padding:0 15px 11px;min-height:16px}
+.mhint.mok{color:var(--ok)}.mhint.merr{color:var(--er)}
+.equiv{display:flex;justify-content:space-between;align-items:center;
+  background:var(--am0);border:0.5px solid var(--am1);border-radius:12px;padding:11px 13px;margin:0 15px 12px}
+.equiv-item .e-lbl{font-size:9px;color:var(--am3);text-transform:uppercase;font-weight:700;margin-bottom:2px}
+.equiv-item .e-val{font-size:17px;font-weight:700;color:var(--am2);font-family:var(--ff-head)}
 
-/* ADMIN tabs */
-.atabs{display:flex;gap:3px;flex-wrap:wrap;margin-bottom:11px;}
-.at{padding:4px 8px;border-radius:16px;border:1.5px solid var(--brd);background:#fff;font-size:8.5px;font-weight:700;color:var(--sl);text-transform:uppercase;}
-.at.on{background:var(--ink);color:var(--am);border-color:var(--ink);}
-.at.an{background:var(--pu0);color:var(--pu);border-color:#DDD6FE;}
+/* ══ EXTRAS ══ */
+.xrow{display:flex;align-items:center;gap:11px;padding:12px 15px;
+  border-bottom:0.5px solid var(--brd);cursor:pointer;user-select:none;transition:background .12s}
+.xrow:last-child{border-bottom:none}
+.xrow.on{background:var(--am0)}
+.ckbox{width:22px;height:22px;border-radius:7px;border:2.5px solid var(--brd);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  font-size:13px;font-weight:700;background:var(--wh);transition:all .13s}
+.ckbox.on{background:var(--am);border-color:var(--am);color:var(--ink)}
+.x-ico{font-size:22px;flex-shrink:0}
+.x-info{flex:1;min-width:0}
+.x-lbl{font-size:13px;font-weight:700;color:var(--ink)}
+.x-sub{font-size:10px;color:var(--sl);margin-top:1px}
+.x-price{font-size:13px;font-weight:700;color:var(--am2);flex-shrink:0}
+.xstp{display:flex;align-items:center;gap:7px;padding:9px 15px;
+  background:var(--am0);border-top:0.5px solid var(--am1)}
+.xs-lbl{font-size:10px;font-weight:700;color:var(--am3);text-transform:uppercase;flex:1}
+.xs-btn{width:32px;height:32px;border-radius:9px;border:1.5px solid var(--am1);background:var(--wh);
+  font-size:18px;font-weight:700;cursor:pointer;color:var(--ink);
+  display:flex;align-items:center;justify-content:center;transition:all .12s}
+.xs-btn:hover{background:var(--am);border-color:var(--am)}
+.xs-val{font-size:22px;font-weight:700;color:var(--ink);width:44px;text-align:center;font-family:var(--ff-head)}
+.xs-tot{font-size:14px;font-weight:700;color:var(--am2)}
+.stock-mini{display:flex;align-items:center;gap:8px;padding:8px 15px;
+  background:var(--sur);border-top:0.5px solid var(--brd)}
+.sm-lbl{font-size:9px;font-weight:700;color:var(--sl);text-transform:uppercase;flex:1}
 
-/* PEDIDO COL */
-.pcl{font-size:8.5px;font-weight:700;color:var(--sl);text-transform:uppercase;margin-bottom:5px;line-height:1.4;}
-.pcard{background:#fff;border:0.5px solid var(--brd);border-radius:10px;padding:7px 9px;margin-bottom:6px;}
-.pname{font-size:10px;font-weight:700;color:var(--ink);}
-.pdet{font-size:8px;color:var(--sl);margin-top:1px;}
-.pgeo{font-size:7.5px;font-weight:700;color:var(--bl);margin-top:1px;}
-.pbdgs{display:flex;gap:3px;margin-top:3px;flex-wrap:wrap;}
-.phor{font-size:7.5px;font-weight:700;color:var(--am3);margin-top:2px;}
+/* ══ PAGO ══ */
+.popt{display:flex;align-items:center;gap:12px;padding:11px 15px;
+  border-bottom:0.5px solid var(--brd);cursor:pointer;transition:background .12s;user-select:none}
+.popt:last-child{border-bottom:none}
+.popt:hover{background:var(--sur)}
+.popt.on{background:var(--am0)}
+.p-radio{width:18px;height:18px;border-radius:50%;border:2px solid var(--brd);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:border-color .13s}
+.p-radio.on{border-color:var(--am)}
+.p-rdot{width:9px;height:9px;border-radius:50%;background:var(--am)}
+.p-lbl{font-size:13px;font-weight:600;color:var(--ink)}
+.p-sub{font-size:10px;color:var(--sl)}
 
-/* CONFIG HORARIOS */
-.hbloque{border-radius:11px;padding:10px 11px;margin:7px 11px;display:flex;align-items:center;gap:9px;}
-.hbloque.am{background:var(--am0);border:1.5px solid var(--am1);}
-.hbloque.bl{background:var(--bl0);border:1.5px solid var(--bl1);}
-.hbico{font-size:17px;flex-shrink:0;}
-.hbtitle{font-size:10px;font-weight:700;color:var(--am3);}
-.hbloque.bl .hbtitle{color:var(--bl);}
-.hbrange{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:var(--am2);margin-top:1px;}
-.hbloque.bl .hbrange{color:var(--bl);}
-.hbsub{font-size:7.5px;color:var(--sl);margin-top:1px;}
-.timeinps{display:flex;align-items:center;gap:7px;padding:0 11px 9px;}
-.tinp{flex:1;padding:7px 8px;background:var(--sur);border:1.5px solid var(--brd);border-radius:8px;font-size:10px;font-weight:700;color:var(--ink);text-align:center;}
-.tdash{font-size:13px;color:var(--sl);font-weight:700;}
-.sbtn{margin:0 11px 11px;padding:8px;background:var(--ink);color:var(--am);border-radius:9px;font-size:9px;font-weight:700;text-transform:uppercase;text-align:center;}
+/* ══ CTA ══ */
+.cta{background:var(--ink);border-radius:18px;padding:14px 16px;margin-top:4px;
+  display:flex;justify-content:space-between;align-items:center}
+.cta-l .clbl{font-size:9px;color:rgba(255,255,255,.35);text-transform:uppercase;margin-bottom:2px;letter-spacing:.04em}
+.cta-l .ctot{font-family:var(--ff-head);font-size:30px;font-weight:800;color:#fff;letter-spacing:-1px;line-height:1}
+.cta-l .csumm{font-size:9px;color:rgba(255,255,255,.28);text-transform:uppercase;margin-top:3px}
+.cta-arr{width:52px;height:52px;border-radius:15px;background:var(--am);color:var(--ink);
+  font-size:22px;font-weight:900;display:flex;align-items:center;justify-content:center;
+  cursor:pointer;transition:transform .15s,background .15s}
+.cta-arr:hover{background:#E8930A;transform:scale(1.06)}
+.cta-arr.off{background:#475569;color:rgba(255,255,255,.7);cursor:not-allowed}
+.cta-arr.off:hover{transform:none;background:#475569}
 
-/* ANALÍTICAS */
-.anh{background:var(--pu0);border:1px solid #DDD6FE;border-radius:12px;padding:11px 12px;margin-bottom:11px;display:flex;align-items:center;gap:10px;}
-.anico{width:36px;height:36px;border-radius:10px;background:var(--pu);color:#fff;font-size:17px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.antitle{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;color:var(--pu);}
-.ansub{font-size:8.5px;color:var(--sl);margin-top:1px;}
-.antabs{display:flex;gap:2px;padding:3px;background:#fff;border:0.5px solid var(--brd);border-radius:9px;margin-bottom:11px;}
-.antab{flex:1;padding:5px 3px;border-radius:6px;font-size:8.5px;font-weight:700;text-align:center;text-transform:uppercase;color:var(--sl);}
-.antab.on{background:var(--ink);color:var(--am);}
-.kpig{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:11px;}
-.kpi{background:#fff;border:0.5px solid var(--brd);border-radius:11px;padding:9px 10px;}
-.kpiico{font-size:15px;margin-bottom:2px;}
-.kpiv{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;color:var(--ink);letter-spacing:-.5px;}
-.kpil{font-size:7.5px;font-weight:700;color:var(--sl);text-transform:uppercase;margin-top:1px;}
-.tsel{display:flex;gap:3px;flex-wrap:wrap;margin-bottom:9px;}
-.ts{padding:3px 9px;border-radius:16px;border:1.5px solid var(--brd);background:#fff;font-size:8.5px;font-weight:700;color:var(--sl);}
-.ts.on{color:#fff;border-color:transparent;}
-.chart-area{background:#fff;border:0.5px solid var(--brd);border-radius:11px;padding:9px;margin-bottom:8px;overflow:hidden;}
-.clbl{font-size:8.5px;font-weight:700;color:var(--sl);text-transform:uppercase;margin-bottom:7px;}
+/* ══ CONFIRMACIÓN ══ */
+.conf-banner{background:var(--am0);border:1.5px solid var(--am1);border-radius:16px;
+  padding:22px;text-align:center;margin-bottom:12px}
+.conf-check{font-size:36px;margin-bottom:8px}
+.conf-title{font-family:var(--ff-head);font-size:16px;font-weight:700;color:var(--am3)}
+.conf-det{font-size:11px;color:var(--sl);margin-top:4px}
+.hconf{background:var(--ink);border-radius:13px;padding:13px 15px;margin-bottom:11px}
+.hc-lbl{font-size:9px;color:rgba(255,255,255,.3);text-transform:uppercase;margin-bottom:5px;letter-spacing:.04em}
+.hc-range{font-family:var(--ff-head);font-size:20px;font-weight:700;color:var(--am)}
+.hc-sub{font-size:10px;color:rgba(255,255,255,.35);margin-top:3px}
 
-/* HM */
-.hmw{padding:7px 11px 11px;}
-.hmsc{display:flex;align-items:center;gap:3px;margin-bottom:6px;}
-.hmsl{font-size:7.5px;color:var(--sl);}
-.hmb{width:14px;height:9px;border-radius:2px;}
-.hmg{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;}
-.hml{font-size:7.5px;font-weight:700;color:var(--sl);text-align:center;padding:1px 0;}
-.hmc{aspect-ratio:1;border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:7px;font-weight:700;}
+/* ══ SEGUIMIENTO ══ */
+.trkcard{background:var(--wh);border:0.5px solid var(--brd);border-radius:15px;overflow:hidden;margin-bottom:10px}
+.trkh{padding:12px 14px;display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
+.trk-tot{font-family:var(--ff-head);font-size:16px;font-weight:700;color:var(--ink)}
+.trk-det{font-size:10px;color:var(--sl);margin-top:2px}
+.trk-hor{display:inline-block;padding:3px 9px;border-radius:9px;font-size:9px;font-weight:700;
+  text-transform:uppercase;margin-top:5px}
+.trk-stat{padding:8px 14px;font-size:10px;font-weight:700;display:flex;align-items:center;gap:6px}
 
-/* INSIGHT */
-.insrow{display:flex;gap:8px;padding:8px 0;border-bottom:0.5px solid var(--brd);align-items:flex-start;}
-.insrow:last-child{border-bottom:none;}
-.insico{width:26px;height:26px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;}
-.instit{font-size:9.5px;font-weight:700;}
-.insbod{font-size:8px;color:var(--sl);margin-top:1px;line-height:1.4;}
-.insrec{font-size:8px;font-weight:700;margin-top:3px;padding:2px 6px;border-radius:5px;display:inline-block;}
+/* ══ EVENTO ══ */
+.ev-cot{background:var(--ink);border-radius:18px;padding:18px;margin-bottom:12px}
+.ev-tit{font-size:9px;font-weight:700;color:rgba(255,255,255,.3);text-transform:uppercase;margin-bottom:4px}
+.ev-tot{font-family:var(--ff-head);font-size:32px;font-weight:800;color:#fff;letter-spacing:-1.5px;line-height:1}
+.ev-det{font-size:11px;color:rgba(255,255,255,.4);margin-top:3px}
+.ev-ant{background:rgba(245,158,11,.15);border:1px solid rgba(245,158,11,.3);border-radius:12px;
+  padding:11px;margin-top:12px}
+.ev-ant .la{font-size:9px;font-weight:700;color:var(--am);text-transform:uppercase;margin-bottom:3px}
+.ev-ant .va{font-family:var(--ff-head);font-size:20px;font-weight:700;color:var(--am)}
+.ev-tgl{display:flex;align-items:center;justify-content:space-between;padding:11px 14px;
+  background:var(--sur);border:1.5px solid var(--brd);border-radius:12px;cursor:pointer;
+  margin-bottom:11px;transition:all .15s;user-select:none}
+.ev-tgl:hover{border-color:var(--am1)}
+.ev-tgl.on{border-color:var(--am);background:var(--am0)}
+.toggle-track{width:40px;height:22px;border-radius:11px;background:var(--brd);position:relative;
+  flex-shrink:0;transition:background .2s}
+.toggle-track.on{background:var(--am)}
+.toggle-thumb{position:absolute;top:2px;left:2px;width:18px;height:18px;border-radius:50%;
+  background:#fff;transition:left .2s;box-shadow:0 1px 4px rgba(0,0,0,.2)}
+.toggle-track.on .toggle-thumb{left:20px}
+.ev-hor-note{background:var(--am0);border:0.5px solid var(--am1);border-radius:11px;
+  padding:10px 13px;display:flex;gap:10px;align-items:flex-start;margin-bottom:11px}
+.stepper{display:flex;align-items:center;gap:6px;background:var(--sur);
+  border:1px solid var(--brd);border-radius:11px;padding:5px}
+.stp-btn{width:32px;height:32px;border-radius:8px;border:none;background:var(--wh);
+  font-size:18px;font-weight:700;cursor:pointer;color:var(--ink);transition:background .12s}
+.stp-btn:hover{background:var(--am0)}
+.stp-val{flex:1;text-align:center;font-size:18px;font-weight:700;color:var(--ink);
+  font-family:var(--ff-head)}
 
-/* PLAN */
-.fcrow{display:flex;align-items:center;gap:7px;padding:7px 11px;border-bottom:0.5px solid var(--brd);}
-.fcrow:last-child{border-bottom:none;}
-.fcmes{font-size:9.5px;font-weight:700;color:var(--ink);width:50px;flex-shrink:0;}
-.fcbw{flex:1;background:var(--sur);border-radius:3px;height:6px;overflow:hidden;}
-.fcbf{height:6px;border-radius:3px;background:#EF4444;}
-.fcval{font-size:9.5px;font-weight:700;color:var(--er);width:40px;text-align:right;flex-shrink:0;}
+/* ══ ADMIN ══ */
+.met-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:12px 16px 0}
+.met-c{background:var(--wh);border:0.5px solid var(--brd);border-radius:13px;padding:11px 12px}
+.met-l{font-size:8px;font-weight:700;color:var(--sl);text-transform:uppercase;margin-bottom:4px}
+.met-v{font-family:var(--ff-head);font-size:17px;font-weight:700;color:var(--ink);letter-spacing:-.5px}
 
-/* TOP/BAJO */
-.toprow{display:flex;align-items:center;gap:6px;padding:6px 10px;border-bottom:0.5px solid var(--brd);}
-.toprow:last-child{border-bottom:none;}
-.trk2{width:17px;height:17px;border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:8.5px;font-weight:700;flex-shrink:0;}
-.tbw{width:28px;height:5px;background:var(--brd);border-radius:2px;overflow:hidden;margin-left:auto;}
-.tbf{height:5px;border-radius:2px;}
-
-/* BTN */
-.wabtn{width:100%;padding:8px;background:#22C55E;color:#fff;border-radius:9px;font-size:9px;font-weight:700;text-align:center;text-transform:uppercase;margin-bottom:6px;}
-.navbtn{width:100%;padding:9px;background:var(--ink);color:var(--am);border-radius:9px;font-size:9px;font-weight:700;text-align:center;text-transform:uppercase;}
-.secbtn{width:100%;padding:7px;background:transparent;border:1.5px solid var(--brd);border-radius:9px;font-size:8.5px;font-weight:700;text-align:center;color:var(--sl);margin-top:5px;text-transform:uppercase;}
+.ped-col-lbl{font-size:10px;font-weight:700;color:var(--sl);text-transform:uppercase;
+  margin-bottom:7px;line-height:1.5}
+.ped-mini{background:var(--wh);border:0.5px solid var(--brd);border-radius:12px;
+  padding:9px 11px;margin-bottom:7px}
+.ped-name{font-size:12px;font-weight:700;color:var(--ink)}
+.ped-det{font-size:9px;color:var(--sl);margin-top:1px}
+.ped-badges{display:flex;gap:3px;flex-wrap:wrap;margin-top:4px}
+.ped-hor{font-size:9px;font-weight:700;margin-top:3px}
+.ped-geo{font-size:9px;font-weight:700;color:var(--bl);margin-top:2px}
 
 /* RUTA MAP */
-.rutamap{background:#FFFBEB;border-radius:9px;margin:0 11px 9px;padding:4px;overflow:hidden;}
+.ruta-map{background:#FFFBEB;border-radius:10px;margin:0 14px 10px;padding:6px;overflow:hidden}
 
-/* EVENTO GPS */
-.evserv{display:flex;align-items:center;justify-content:space-between;padding:9px 11px;background:var(--sur);border:1.5px solid var(--brd);border-radius:10px;margin:0 11px 9px;}
-.tgl{width:32px;height:18px;border-radius:9px;background:var(--am);position:relative;flex-shrink:0;}
-.tgl-t{position:absolute;top:2px;left:14px;width:14px;height:14px;border-radius:50%;background:#fff;}
-.evhor{margin:0 11px 11px;background:var(--am0);border:0.5px solid var(--am1);border-radius:9px;padding:8px 10px;display:flex;align-items:center;gap:7px;}
+/* EVENTO ADMIN */
+.ev-admin{background:var(--ink2);border-radius:14px;padding:13px;margin-bottom:9px;
+  border:0.5px solid var(--ink3)}
 
-/* MÉTRICAS ADMIN */
-.metg{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin-bottom:11px;}
-.metc{background:#fff;border:0.5px solid var(--brd);border-radius:10px;padding:8px 9px;}
-.metl{font-size:7px;font-weight:700;color:var(--sl);text-transform:uppercase;margin-bottom:1px;}
-.metv{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:var(--ink);}
+/* ══ CONFIG ══ */
+.cfg-inp{width:100%;padding:9px 11px;border-radius:10px;border:1.5px solid var(--brd);
+  background:var(--sur);color:var(--ink);font-size:12px;outline:none;
+  font-family:var(--ff-body);transition:border-color .15s}
+.cfg-inp:focus{border-color:var(--am)}
+.hor-bloque{border-radius:12px;padding:11px 13px;display:flex;align-items:center;gap:11px}
+.hor-bloque.am{background:var(--am0);border:1.5px solid var(--am1)}
+.hor-bloque.bl{background:var(--bl0);border:1.5px solid var(--bl1)}
+.hor-bloque .hl-ico{font-size:20px;flex-shrink:0}
+.hor-bloque .hl-tit{font-size:11px;font-weight:700}
+.hor-bloque.am .hl-tit{color:var(--am3)}
+.hor-bloque.bl .hl-tit{color:var(--bl)}
+.hor-bloque .hl-range{font-family:var(--ff-head);font-size:15px;font-weight:700;margin-top:2px}
+.hor-bloque.am .hl-range{color:var(--am2)}
+.hor-bloque.bl .hl-range{color:var(--bl)}
+.hor-bloque .hl-sub{font-size:8px;color:var(--sl);margin-top:2px}
+.time-row{display:flex;align-items:center;gap:8px}
+.time-inp{flex:1;padding:9px 10px;border-radius:10px;border:1.5px solid var(--brd);
+  background:var(--sur);color:var(--ink);font-size:12px;font-weight:700;outline:none;
+  text-align:center;font-family:var(--ff-body);transition:border-color .15s}
+.time-inp:focus{border-color:var(--am)}
+.prog{background:var(--brd);border-radius:4px;height:5px;margin-bottom:4px}
+.progf{background:var(--am);border-radius:4px;height:5px}
+.save-btn{width:100%;padding:10px;background:var(--ink);color:var(--am);border:none;
+  border-radius:11px;font-size:11px;font-weight:700;cursor:pointer;text-transform:uppercase;
+  font-family:var(--ff-body);transition:opacity .15s}
+.save-btn:hover{opacity:.88}
+.dias-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:10px}
+.dia-btn{display:flex;flex-direction:column;align-items:center;gap:3px;padding:9px 3px;
+  border-radius:11px;border:1.5px solid var(--brd);background:var(--sur);cursor:pointer;
+  transition:all .13s;user-select:none}
+.dia-btn.on{border-color:var(--am);background:var(--am0)}
+.dia-lbl{font-size:10px;font-weight:700;color:var(--ink);text-transform:uppercase}
+.dia-btn.on .dia-lbl{color:var(--am3)}
 
-/* LEGEND */
-.legend{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:7px;}
-.legit{display:flex;align-items:center;gap:3px;font-size:8px;font-weight:600;color:var(--sl);}
-.legdot{width:8px;height:8px;border-radius:2px;}
+/* ══ ANALÍTICAS ══ */
+.an-hdr{background:var(--pu0);border:1px solid #DDD6FE;border-radius:14px;
+  padding:13px 14px;display:flex;align-items:center;gap:12px}
+.an-ico{width:42px;height:42px;border-radius:12px;background:var(--pu);color:#fff;
+  font-size:20px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.an-tit{font-family:var(--ff-head);font-size:14px;font-weight:700;color:var(--pu)}
+.an-sub{font-size:10px;color:var(--sl);margin-top:2px}
+.an-tabs{display:flex;gap:2px;padding:3px;background:var(--wh);border:0.5px solid var(--brd);
+  border-radius:11px;margin:12px 0}
+.an-tab{flex:1;padding:8px 3px;border-radius:8px;font-size:10px;font-weight:700;color:var(--sl);
+  cursor:pointer;text-align:center;text-transform:uppercase;transition:all .15s;user-select:none}
+.an-tab.on{background:var(--ink);color:var(--am)}
+.kpi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:13px}
+.kpi-c{background:var(--wh);border:0.5px solid var(--brd);border-radius:14px;padding:12px 13px}
+.kpi-ico{font-size:18px;margin-bottom:4px}
+.kpi-val{font-family:var(--ff-head);font-size:21px;font-weight:700;color:var(--ink);letter-spacing:-.5px}
+.kpi-lbl{font-size:9px;font-weight:700;color:var(--sl);text-transform:uppercase;margin-top:3px}
+.tsel{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:13px}
+.ts{padding:6px 12px;border-radius:20px;border:1.5px solid var(--brd);background:var(--wh);
+  font-size:10px;font-weight:700;color:var(--sl);cursor:pointer;transition:all .13s;user-select:none}
+.ts:hover{border-color:var(--am1)}
+.ts.on{color:#fff;border-color:transparent}
+.chart-card{background:var(--wh);border:0.5px solid var(--brd);border-radius:14px;
+  overflow:hidden;margin-bottom:10px}
+.chart-head{padding:10px 14px;border-bottom:0.5px solid var(--brd);display:flex;
+  align-items:center;justify-content:space-between;background:var(--sur)}
+.chart-body{padding:11px 13px 8px}
+.legend{display:flex;gap:10px;flex-wrap:wrap;padding:5px 13px 10px;border-top:0.5px solid var(--brd)}
+.leg-it{display:flex;align-items:center;gap:5px;font-size:10px;font-weight:600;color:var(--sl);
+  cursor:pointer;user-select:none;transition:opacity .13s}
+.leg-dot{width:10px;height:10px;border-radius:3px;flex-shrink:0}
+/* heatmap */
+.hm-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;padding:8px 14px 12px}
+.hm-lbl{font-size:9px;font-weight:700;color:var(--sl);text-align:center;padding:2px 0}
+.hm-cell{aspect-ratio:1;border-radius:5px;display:flex;align-items:center;justify-content:center;
+  font-size:9px;font-weight:700;cursor:default;transition:transform .1s}
+.hm-cell:hover{transform:scale(1.15)}
+/* top/bajo */
+.rank-row{display:flex;align-items:center;gap:8px;padding:8px 13px;border-bottom:0.5px solid var(--brd)}
+.rank-row:last-child{border-bottom:none}
+.rank-n{width:22px;height:22px;border-radius:7px;display:flex;align-items:center;justify-content:center;
+  font-size:11px;font-weight:700;flex-shrink:0}
+.rbar-w{flex:1;background:var(--sur);border-radius:4px;height:6px;overflow:hidden}
+.rbar-f{height:6px;border-radius:4px}
+/* insight */
+.ins-row{display:flex;gap:10px;align-items:flex-start;padding:11px 14px;border-bottom:0.5px solid var(--brd)}
+.ins-row:last-child{border-bottom:none}
+.ins-ico{width:32px;height:32px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.ins-tit{font-size:12px;font-weight:700}
+.ins-bod{font-size:10px;color:var(--sl);margin-top:2px;line-height:1.5}
+.ins-rec{font-size:10px;font-weight:700;margin-top:4px;padding:4px 9px;border-radius:7px;display:inline-block}
+/* forecast */
+.fc-row{display:flex;align-items:center;gap:10px;padding:9px 14px;border-bottom:0.5px solid var(--brd)}
+.fc-row:last-child{border-bottom:none}
+.fc-mes{font-size:12px;font-weight:700;color:var(--ink);width:65px;flex-shrink:0}
+.fc-bw{flex:1;background:var(--sur);border-radius:4px;height:8px;overflow:hidden}
+.fc-bf{height:8px;border-radius:4px}
+.fc-val{font-size:11px;font-weight:700;flex-shrink:0;width:50px;text-align:right}
+
+/* ══ BUTTONS ══ */
+.wa-btn{width:100%;padding:11px;background:var(--wa);color:#fff;border:none;border-radius:12px;
+  font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:7px;
+  cursor:pointer;margin-top:8px;text-transform:uppercase;font-family:var(--ff-body)}
+.nav-btn{width:100%;padding:12px;background:var(--ink);color:var(--am);border:none;border-radius:12px;
+  font-size:12px;font-weight:700;cursor:pointer;margin-top:8px;text-transform:uppercase;font-family:var(--ff-body)}
+.sec-btn{width:100%;padding:9px;background:transparent;border:1.5px solid var(--brd);border-radius:11px;
+  font-size:10px;font-weight:700;color:var(--sl);cursor:pointer;margin-top:8px;text-transform:uppercase;
+  font-family:var(--ff-body)}
+
+/* ══ TOAST ══ */
+.toast{position:fixed;bottom:32px;left:50%;transform:translateX(-50%) translateY(20px);
+  background:var(--ink);color:#fff;font-size:12px;font-weight:700;padding:11px 20px;
+  border-radius:24px;pointer-events:none;opacity:0;transition:all .3s;z-index:9999;white-space:nowrap;
+  box-shadow:0 8px 24px rgba(0,0,0,.4)}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* ══ ANIMATIONS ══ */
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.svd{width:6px;height:6px;border-radius:50%;background:var(--am2);animation:pulse 1.1s infinite;display:inline-block}
+.page.on{animation:fadeIn .22s ease}
+
+/* notify badge */
+.notif-opt{display:flex;align-items:flex-start;gap:11px;padding:11px 13px;cursor:pointer;
+  border-bottom:0.5px solid rgba(255,255,255,.07);transition:background .12s}
+.notif-opt:last-child{border-bottom:none}
+.info-box{display:flex;align-items:flex-start;gap:8px;background:var(--am0);border:1px solid var(--am1);
+  border-radius:10px;padding:10px 12px;margin-bottom:9px}
+.warn{display:flex;align-items:flex-start;gap:8px;background:var(--wr0);border:1px solid var(--am1);
+  border-radius:10px;padding:9px 12px;margin-bottom:9px}
 </style>
 </head>
-<body>
+<body id="body">
 
-<!-- HEADER -->
-<div class="header">
-  <div class="hdr-logo">
-    <div class="logo-mark">M</div>
-    <h1>Mega<span>Logistics</span></h1>
+<!-- ══════════════════════════ LANDING HEADER ══════════════════════════ -->
+<div class="landing">
+  <div class="lmark">M</div>
+  <h1>Mega<em>Logistics</em></h1>
+  <div class="lsub">kilos.mx · Demo interactivo · v6 · CRUD v22</div>
+  <div class="lpill"><span class="dot"></span> Datos precargados · Totalmente funcional</div>
+  <div class="dev-sw" style="margin-top:24px">
+    <button class="dsw-btn on" onclick="setDevice('mobile')">📱 Móvil</button>
+    <button class="dsw-btn" onclick="setDevice('desktop')">🖥️ Desktop</button>
   </div>
-  <div class="hdr-sub">kilos.mx · Sistema de pedidos de carne al pastor · Mérida, Yucatán</div>
-  <div class="vpill">Mockup v6 · CRUD v22 · Abril 2026 · 15 pantallas</div>
 </div>
 
-<!-- ══════════════ SECCIÓN 1: EXPRESS ══════════════ -->
-<div class="sec-title">01 — Express: Modo de pedido + Tipo de entrega<span class="sec-pill">Cliente</span></div>
+<!-- ══════════════════════════ PHONE SHELL ══════════════════════════ -->
+<div class="phone-shell" id="shell">
+<div class="phone-screen" id="phoneScreen">
 
-<div class="phones-row">
-
-<!-- P1: Modo + entrega como lista -->
-<div class="phone-wrap">
-  <div class="phone-label">¿Qué pedir? + selector de entrega con horarios</div>
-  <div class="phone"><div class="screen">
-    <div class="nav">
-      <div class="nav-logo"><div class="nav-mark">M</div><div class="nav-name">Mega<em>Logistics</em></div></div>
-      <div class="nav-sw"><div class="sw on">Cliente</div><div class="sw">Admin</div></div>
-      <div class="nav-kg"><div class="kd"></div>72 kg</div>
-    </div>
-    <div class="tabs"><div class="tab on">Express</div><div class="tab">Evento</div><div class="tab">Seguim.</div></div>
-    <div class="sc">
-      <div class="hero">
-        <div class="hl"><div class="lbl">Carne disponible</div><div class="val">72 kg</div><div class="hbar"><div class="hbarf" style="width:40%"></div></div></div>
-        <div class="hr"><div class="lbl">Precio / kg</div><div class="val">$300</div><div class="tm">06:00–22:00</div></div>
-      </div>
-      <!-- Modo pedido -->
-      <div class="card">
-        <div class="ch"><span class="ct">¿Qué quieres pedir?</span></div>
-        <div class="modos">
-          <div class="modo on"><div class="ico">🍖</div><div class="lbl">Solo carne</div><div class="sub">Al pastor</div></div>
-          <div class="modo"><div class="ico">🍖🌮</div><div class="lbl">Mixto</div><div class="sub">Carne+tortas</div></div>
-          <div class="modo"><div class="ico">🌮</div><div class="lbl">Solo tortas</div><div class="sub">Sin carne/kg</div></div>
-        </div>
-      </div>
-      <!-- Entrega como lista -->
-      <div class="card">
-        <div class="ch"><span class="ct">Tipo de entrega</span><span class="new-pill">Nuevo v22</span></div>
-        <div class="ei on">
-          <div class="er2 on"><div class="erdot"></div></div>
-          <div class="eico">🚚</div>
-          <div class="einfo">
-            <div class="elbl">Envío a domicilio</div>
-            <div class="esub">Te llevamos a tu dirección</div>
-            <div class="ebdg" style="background:var(--am0);color:var(--am3)">⏰ Horario: 08:00 – 11:00</div>
-          </div>
-        </div>
-        <div class="ei">
-          <div class="er2"></div>
-          <div class="eico">🏪</div>
-          <div class="einfo">
-            <div class="elbl">Recoger en local</div>
-            <div class="esub">Pasa por tu pedido</div>
-            <div class="ebdg" style="background:var(--bl0);color:var(--bl)">⏰ Horario: 06:00 – 18:00</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div></div>
+<!-- NAV -->
+<div class="nav">
+  <div class="nav-logo">
+    <div class="nav-mark">M</div>
+    <div class="nav-name">Mega<em>Logistics</em></div>
+  </div>
+  <div class="nav-sw">
+    <button class="sw-btn on" onclick="setVista('c')">Cliente</button>
+    <button class="sw-btn" onclick="setVista('a')">Admin</button>
+  </div>
+  <div class="nav-kg"><div class="kd"></div><span id="kg-lbl">72.0 kg</span></div>
 </div>
 
-<!-- P2: Dirección + GPS real -->
-<div class="phone-wrap">
-  <div class="phone-label">Dirección de entrega + botón GPS real</div>
-  <div class="phone"><div class="screen">
-    <div class="nav">
-      <div class="nav-logo"><div class="nav-mark">M</div><div class="nav-name">Mega<em>Logistics</em></div></div>
-      <div class="nav-sw"><div class="sw on">Cliente</div><div class="sw">Admin</div></div>
-      <div class="nav-kg"><div class="kd"></div>72 kg</div>
-    </div>
-    <div class="sc" style="padding-top:11px">
-      <div class="card">
-        <div class="ei on" style="padding:10px 12px">
-          <div class="er2 on"><div class="erdot"></div></div>
-          <div class="eico">🚚</div>
-          <div class="einfo"><div class="elbl">Envío a domicilio</div><div class="ebdg" style="background:var(--am0);color:var(--am3)">⏰ 08:00 – 11:00</div></div>
-        </div>
-        <div class="addr-box">
-          <div class="addr-lbl">Dirección de entrega</div>
-          <div class="addr-inp">Calle 60 #312, Centro, Mérida…</div>
-          <div class="geo-btn ok">✓ Ubicación GPS capturada</div>
-          <div class="geo-res">
-            <span style="font-size:17px;flex-shrink:0">✅</span>
-            <div>
-              <div class="geo-coords">📍 20.967412, -89.592614</div>
-              <a class="geo-link">🗺️ Ver en Google Maps</a>
-            </div>
-          </div>
-          <div class="geo-hint">El GPS ayuda al repartidor a ubicarte con precisión</div>
-        </div>
-      </div>
-      <!-- Monto -->
-      <div class="card">
-        <div class="ch"><span class="ct">¿Cuánto de carne?</span></div>
-        <div class="chips"><div class="chip">$50</div><div class="chip">$100</div><div class="chip on">$150</div><div class="chip">$200</div><div class="chip">$300</div></div>
-        <div class="monto-wrap"><div class="mp">$</div><div class="mv">150</div></div>
-        <div class="mhint">✓ 500 g de carne · ${cfg.precioKg}/kg</div>
-      </div>
-    </div>
-  </div></div>
+<!-- CLIENTE TABS -->
+<div id="c-tabs" class="tabs">
+  <div class="tab on" onclick="setCTab('ex')">Express</div>
+  <div class="tab" onclick="setCTab('ev')">Evento</div>
+  <div class="tab" onclick="setCTab('sg')">Seguimiento</div>
 </div>
 
-<!-- P3: Extras + CTA con horario -->
-<div class="phone-wrap">
-  <div class="phone-label">Barras de leña + tortas + CTA con horario</div>
-  <div class="phone"><div class="screen">
-    <div class="nav">
-      <div class="nav-logo"><div class="nav-mark">M</div><div class="nav-name">Mega<em>Logistics</em></div></div>
-      <div class="nav-sw"><div class="sw on">Cliente</div><div class="sw">Admin</div></div>
-      <div class="nav-kg"><div class="kd"></div>72 kg</div>
-    </div>
-    <div class="sc" style="padding-top:11px">
-      <div class="card">
-        <div class="ch"><span class="ct">Extras</span><span class="bdg b-am">🥖 28 disp.</span></div>
-        <!-- Barras ON -->
-        <div class="xrow on">
-          <div class="ckbox">✓</div>
-          <div style="font-size:20px;flex-shrink:0">🥖</div>
-          <div style="flex:1"><div style="font-size:11px;font-weight:700;color:var(--ink)">Barra de leña</div><div style="font-size:8px;color:var(--sl)">Pan francés al horno · $8/u</div></div>
-          <div style="font-size:11px;font-weight:700;color:var(--am2)">$16</div>
-        </div>
-        <div class="xstep"><div class="xsl">Cantidad</div><div class="xsb">−</div><div class="xsv">2</div><div class="xsb">+</div><div class="xst">$16</div></div>
-        <!-- Stock mini -->
-        <div style="display:flex;align-items:center;gap:7px;padding:6px 11px;background:var(--ok0);border-top:0.5px solid var(--ok1)">
-          <span style="font-size:8px;font-weight:700;color:#065F46;text-transform:uppercase;flex:1">Stock tras este pedido</span>
-          <span style="font-size:9px;font-weight:700;color:var(--ok)">26 disponibles</span>
-        </div>
-      </div>
-      <!-- Pago -->
-      <div class="card">
-        <div class="ch"><span class="ct">Método de pago</span></div>
-        <div class="popt"><div class="rdo on"><div class="rdot2"></div></div><span style="font-size:14px">💵</span><div><div class="plbl">Efectivo</div><div class="psub">Pago al recibir</div></div></div>
-        <div class="popt"><div class="rdo"></div><span style="font-size:14px">🏦</span><div><div class="plbl">Transferencia</div><div class="psub">SPEI · banco</div></div></div>
-      </div>
-      <!-- CTA -->
-      <div class="cta">
-        <div class="cl">
-          <div class="clbl">Total a pagar</div>
-          <div class="ctot">$166</div>
-          <div class="csumm">500g · 🥖 2 · Efectivo · 🚚 08–11</div>
-        </div>
-        <div class="carr">→</div>
-      </div>
-    </div>
-  </div></div>
+<!-- ADMIN TABS -->
+<div id="a-tabs" class="atabs" style="display:none">
+  <div class="at on" onclick="setATab('p')">Pedidos</div>
+  <div class="at" onclick="setATab('r')">Ruta</div>
+  <div class="at" onclick="setATab('e')">Eventos</div>
+  <div class="at" onclick="setATab('cfg')">Config</div>
+  <div class="at" onclick="setATab('ct')" style="background:var(--bl0);color:var(--bl);border-color:var(--bl1)">👥 Contactos</div>
+  <div class="at" onclick="setATab('av')" style="background:#DCFCE7;color:#166634;border-color:#A7F3D0">📢 Avisos</div>
+  <div class="at" onclick="setATab('an')" style="background:var(--pu0);color:var(--pu);border-color:#DDD6FE">📊 Analíticas</div>
 </div>
 
-<!-- P4: Confirmación con horario estimado -->
-<div class="phone-wrap">
-  <div class="phone-label">Confirmación + horario estimado de entrega</div>
-  <div class="phone"><div class="screen">
-    <div class="nav">
-      <div class="nav-logo"><div class="nav-mark">M</div><div class="nav-name">Mega<em>Logistics</em></div></div>
-      <div class="nav-sw"><div class="sw on">Cliente</div><div class="sw">Admin</div></div>
-      <div class="nav-kg"><div class="kd"></div>71.5 kg</div>
-    </div>
-    <div class="sc" style="padding-top:11px">
-      <div class="conf-banner">
-        <div class="cc">✓</div>
-        <div class="ctitle">¡Pedido registrado!</div>
-        <div class="cdetail">500g carne · 🥖 2 barras · $166</div>
-        <div style="display:flex;align-items:center;justify-content:center;gap:5px;margin-top:7px"><div style="width:5px;height:5px;border-radius:50%;background:var(--am2)"></div><span style="font-size:8px;font-weight:700;color:var(--wr);text-transform:uppercase">Guardando…</span></div>
-      </div>
-      <!-- Horario estimado NUEVO -->
-      <div class="hconf">
-        <div class="hclbl">🚚 Hora estimada de entrega</div>
-        <div class="hcrange">08:00 – 11:00</div>
-        <div class="hcsub">Tu pedido llegará dentro de este rango horario</div>
-      </div>
-      <div class="card">
-        <div class="ch"><span class="ct">Pago en efectivo</span></div>
-        <div style="margin:8px 10px;background:var(--am0);border-radius:9px;padding:9px 11px;display:flex;align-items:center;gap:7px"><span style="font-size:15px">💵</span><span style="font-size:9px;font-weight:700;color:var(--am3);text-transform:uppercase">Pago de $166 al recibir</span></div>
-      </div>
-      <div class="wabtn">📱 Notificar al negocio</div>
-      <div class="navbtn">Ver seguimiento →</div>
-      <div class="secbtn">Hacer otro pedido</div>
-    </div>
-  </div></div>
-</div>
+<!-- SCROLL AREA -->
+<div class="scroll" id="mainScroll">
 
-</div><!-- /phones-row -->
+<!-- ════════════ CLIENTE — EXPRESS ════════════ -->
+<div class="page on" id="pg-ex"><div class="sc" style="padding-top:12px">
 
-<!-- ══════════════ SECCIÓN 2: SEGUIMIENTO ══════════════ -->
-<div class="sec-title">02 — Seguimiento cliente con horarios y GPS<span class="sec-pill">Badges horario</span></div>
-<div class="phones-row">
-
-<div class="phone-wrap">
-  <div class="phone-label">Seguimiento — pedidos con horario + link GPS</div>
-  <div class="phone"><div class="screen">
-    <div class="nav">
-      <div class="nav-logo"><div class="nav-mark">M</div><div class="nav-name">Mega<em>Logistics</em></div></div>
-      <div class="nav-sw"><div class="sw on">Cliente</div><div class="sw">Admin</div></div>
-      <div class="nav-kg"><div class="kd"></div>71.5 kg</div>
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-l">
+      <div class="lbl">Carne disponible</div>
+      <div class="val" id="hero-kg">72.0 kg</div>
+      <div class="hbar"><div class="hbarf" id="hero-bar" style="width:10%"></div></div>
     </div>
-    <div class="tabs"><div class="tab">Express</div><div class="tab">Evento</div><div class="tab on">Seguim.</div></div>
-    <div class="sc">
-      <!-- P1: En ruta domicilio + GPS -->
-      <div class="trkcard">
-        <div class="trkh">
-          <div>
-            <div class="trktot">$166</div>
-            <div class="trkd">500g · 🍖 Carne · 🥖 2 barras</div>
-            <div style="font-size:8.5px;color:var(--sl);margin-top:1px">📍 Calle 60 #312, Centro</div>
-            <div class="trkgeo">🗺️ Ver ubicación GPS</div>
-            <div class="trkhor" style="background:var(--am0);color:var(--am3)">⏰ 08:00 – 11:00</div>
-          </div>
-          <span class="bdg b-am">En ruta</span>
-        </div>
-        <div class="trkstat" style="background:var(--am0);border-top:0.5px solid var(--am1)">
-          <span>🚚</span><span style="font-size:8.5px;font-weight:700;color:var(--am3)">Llegará entre las 08:00 y 11:00</span>
-        </div>
+    <div class="hero-r">
+      <div class="lbl">Precio / kg</div>
+      <div class="val" id="hero-price">$300</div>
+      <div class="tm" id="hero-time">06:00–22:00</div>
+    </div>
+  </div>
+
+  <!-- MODO PEDIDO -->
+  <div class="card">
+    <div class="ch"><span class="ct">¿Qué quieres pedir?</span></div>
+    <div class="modos">
+      <div class="modo on" id="modo-carne" onclick="setModo('carne')">
+        <div class="ico">🍖</div><div class="lbl">Solo carne</div><div class="sub">Carne al pastor</div>
       </div>
-      <!-- P2: Recoger en local -->
-      <div class="trkcard">
-        <div class="trkh">
-          <div>
-            <div class="trktot">$45</div>
-            <div class="trkd">🌮 Solo tortas · 3 tortas</div>
-            <div class="trkhor" style="background:var(--bl0);color:var(--bl)">⏰ Recoger: 06:00 – 18:00</div>
-          </div>
-          <span class="bdg b-sl">Pendiente</span>
-        </div>
+      <div class="modo" id="modo-mixto" onclick="setModo('mixto')">
+        <div class="ico">🍖🌮</div><div class="lbl">Mixto</div><div class="sub">Carne + tortas</div>
       </div>
-      <!-- P3: Entregado -->
-      <div class="trkcard">
-        <div class="trkh">
-          <div>
-            <div class="trktot">$300</div>
-            <div class="trkd">1 kg · 🍖🌮 Mixto · 🥖 1</div>
-            <div class="trkhor" style="background:var(--am0);color:var(--am3)">⏰ 08:00 – 11:00</div>
-          </div>
-          <span class="bdg b-ok">Entregado ✓</span>
-        </div>
+      <div class="modo" id="modo-tortas" onclick="setModo('tortas')">
+        <div class="ico">🌮</div><div class="lbl">Solo tortas</div><div class="sub">Sin carne al kg</div>
       </div>
     </div>
-  </div></div>
-</div>
+  </div>
 
-</div>
-
-<!-- ══════════════ SECCIÓN 3: EVENTO GPS ══════════════ -->
-<div class="sec-title">03 — Cotizador de eventos con GPS y horario<span class="sec-pill">Nuevo v22</span></div>
-<div class="phones-row">
-
-<div class="phone-wrap">
-  <div class="phone-label">Evento — servicio a domicilio + GPS del lugar</div>
-  <div class="phone"><div class="screen">
-    <div class="nav">
-      <div class="nav-logo"><div class="nav-mark">M</div><div class="nav-name">Mega<em>Logistics</em></div></div>
-      <div class="nav-sw"><div class="sw on">Cliente</div><div class="sw">Admin</div></div>
-      <div class="nav-kg"><div class="kd"></div>72 kg</div>
-    </div>
-    <div class="tabs"><div class="tab">Express</div><div class="tab on">Evento</div><div class="tab">Seguim.</div></div>
-    <div class="sc">
-      <div style="background:var(--ink);border-radius:14px;padding:13px;margin-bottom:9px">
-        <div style="font-size:8px;color:rgba(255,255,255,.3);text-transform:uppercase;margin-bottom:3px">Cotizador de Eventos</div>
-        <div style="font-family:'Syne',sans-serif;font-size:24px;font-weight:800;color:#fff;letter-spacing:-1px">$2,500</div>
-        <div style="font-size:9px;color:rgba(255,255,255,.4);margin-top:2px">40 personas · 250g/p · 10 kg</div>
-        <div style="background:rgba(245,158,11,.15);border:1px solid rgba(245,158,11,.3);border-radius:9px;padding:8px;margin-top:9px">
-          <div style="font-size:7.5px;font-weight:700;color:var(--am);text-transform:uppercase">Anticipo (50%)</div>
-          <div style="font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:var(--am)">$1,250</div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="ch"><span class="ct">Configurar evento</span></div>
-        <!-- Servicio domicilio toggle ON -->
-        <div class="evserv">
-          <div><div style="font-size:10.5px;font-weight:600;color:var(--ink)">Servicio a domicilio</div><div style="font-size:8.5px;color:var(--am2);font-weight:700">+$1,500</div></div>
-          <div class="tgl"><div class="tgl-t"></div></div>
-        </div>
-        <!-- Dirección + GPS evento -->
-        <div class="addr-box">
-          <div class="addr-lbl">Ubicación del evento</div>
-          <div class="addr-inp">Salón Cristal, Calle 21 #300…</div>
-          <div class="geo-btn ok">✓ Ubicación GPS del evento capturada</div>
-          <div class="geo-res" style="margin-top:6px">
-            <span style="font-size:17px;flex-shrink:0">✅</span>
-            <div>
-              <div class="geo-coords">📍 20.982101, -89.618234</div>
-              <a class="geo-link">🗺️ Ver en Google Maps</a>
-            </div>
-          </div>
-        </div>
-        <!-- Horario nota -->
-        <div class="evhor">
-          <span style="font-size:15px">⏰</span>
-          <div>
-            <div style="font-size:9.5px;font-weight:700;color:var(--am3)">Horario de entrega estimado</div>
-            <div style="font-family:'Syne',sans-serif;font-size:12px;font-weight:700;color:var(--am2)">08:00 – 11:00</div>
-            <div style="font-size:7.5px;color:var(--sl)">Coordinaremos la hora exacta contigo</div>
-          </div>
-        </div>
+  <!-- TIPO DE ENTREGA -->
+  <div class="card">
+    <div class="ch"><span class="ct">Tipo de entrega</span></div>
+    <div class="ei on" id="ei-dom" onclick="setTipo('domicilio')">
+      <div class="ei-radio on"><div class="ei-rdot"></div></div>
+      <div class="ei-ico">🚚</div>
+      <div class="ei-info">
+        <div class="ei-lbl">Envío a domicilio</div>
+        <div class="ei-sub">Te llevamos a tu dirección</div>
+        <div class="ei-badge" id="badge-dom" style="background:var(--am0);color:var(--am3)">⏰ Horario: 08:00 – 11:00</div>
       </div>
     </div>
-  </div></div>
-</div>
-
-</div>
-
-<!-- ══════════════ SECCIÓN 4: ADMIN PEDIDOS ══════════════ -->
-<div class="sec-title">04 — Admin: pedidos con horarios y GPS<span class="sec-pill">Admin</span></div>
-<div class="phones-row">
-
-<!-- Columnas pedidos -->
-<div class="phone-wrap">
-  <div class="phone-label">Reparto 🚚 08–11 vs Recoger 🏪 06–18</div>
-  <div class="phone"><div class="screen">
-    <div class="nav">
-      <div class="nav-logo"><div class="nav-mark">M</div><div class="nav-name">Mega<em>Logistics</em></div></div>
-      <div class="nav-sw"><div class="sw">Cliente</div><div class="sw on">Admin</div></div>
-      <div class="nav-kg"><div class="kd"></div>0.7 kg</div>
+    <div class="ei" id="ei-loc" onclick="setTipo('local')">
+      <div class="ei-radio"><div class="ei-rdot" style="display:none"></div></div>
+      <div class="ei-ico">🏪</div>
+      <div class="ei-info">
+        <div class="ei-lbl">Recoger en local</div>
+        <div class="ei-sub">Pasa por tu pedido</div>
+        <div class="ei-badge" id="badge-rec" style="background:var(--bl0);color:var(--bl)">⏰ Horario: 06:00 – 18:00</div>
+      </div>
     </div>
-    <div class="sc" style="padding-top:11px">
-      <div class="metg">
-        <div class="metc"><div class="metl">Pedidos</div><div class="metv">3</div></div>
-        <div class="metc"><div class="metl">Activos</div><div class="metv">3</div></div>
-        <div class="metc"><div class="metl">Vendidos</div><div class="metv">0.7 kg</div></div>
-        <div class="metc"><div class="metl">Ingreso</div><div class="metv">$285</div></div>
-      </div>
-      <div class="atabs">
-        <div class="at on">Pedidos</div><div class="at">Ruta</div><div class="at">Eventos</div>
-        <div class="at">Config</div><div class="at" style="background:var(--bl0);color:var(--bl);border-color:var(--bl1)">👥</div>
-        <div class="at" style="background:#DCFCE7;color:#166634;border-color:#A7F3D0">📢</div>
-        <div class="at an">📊</div>
-      </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:7px">
+    <!-- DIRECCIÓN + GPS -->
+    <div id="dom-fields" class="addr-box">
+      <div class="addr-lbl">Dirección de entrega</div>
+      <textarea class="addr-inp" id="dir-inp" rows="2" placeholder="Calle, número, colonia, referencias…"></textarea>
+      <button class="geo-btn" id="geo-btn-ex" onclick="simGeo('ex')">📍 Obtener mi ubicación GPS</button>
+      <div id="geo-res-ex"></div>
+      <div class="geo-hint">Compartir tu GPS ayuda al repartidor a ubicarte con precisión</div>
+    </div>
+    <div id="loc-fields" style="display:none;padding:11px 15px 14px">
+      <div style="padding:11px 13px;background:var(--bl0);border-radius:11px;border:1px solid var(--bl1);display:flex;gap:10px;align-items:flex-start">
+        <span style="font-size:20px">🏪</span>
         <div>
-          <div class="pcl">Reparto 🚚<br><span style="color:var(--am3)">08:00–11:00</span> (2)</div>
-          <div class="pcard">
-            <div class="pname">María García</div>
-            <div class="pdet">200g · $60 · 🍖</div>
-            <div class="pgeo">🗺️ GPS capturado</div>
-            <div class="pbdgs"><span class="bdg b-ok">Efectivo</span></div>
-            <div class="phor">🚚 08:00–11:00</div>
-          </div>
-          <div class="pcard">
-            <div class="pname">Carlos Méndez</div>
-            <div class="pdet">500g · 🍖🌮 · 🥖1 🌮2</div>
-            <div class="pbdgs"><span class="bdg b-am">Revisión</span><span class="bdg b-bl">Transf.</span></div>
-            <div class="phor">🚚 08:00–11:00</div>
-          </div>
+          <div style="font-size:12px;font-weight:700;color:var(--bl)">Pasa a recoger en local</div>
+          <div id="loc-time-note" style="font-size:10px;color:var(--sl);margin-top:3px">Tu pedido estará listo de 06:00 a 18:00</div>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MONTO CARNE -->
+  <div class="card" id="monto-card">
+    <div class="ch"><span class="ct">¿Cuánto de carne?</span></div>
+    <div class="chips" id="chips-row">
+      <div class="chip" onclick="setChip(50)">$50</div>
+      <div class="chip" onclick="setChip(100)">$100</div>
+      <div class="chip" onclick="setChip(150)">$150</div>
+      <div class="chip" onclick="setChip(200)">$200</div>
+      <div class="chip" onclick="setChip(300)">$300</div>
+      <div class="chip" onclick="setChip(500)">$500</div>
+    </div>
+    <div class="monto-wrap" id="monto-wrap">
+      <div class="mp">$</div>
+      <input class="mv" id="monto-inp" type="number" inputmode="numeric" placeholder="0" min="30" oninput="onMontoInput()">
+    </div>
+    <div class="mhint" id="monto-hint">Escribe el monto · Mínimo $30</div>
+    <div class="equiv" id="equiv-box" style="display:none">
+      <div class="equiv-item"><div class="e-lbl">Equivale a</div><div class="e-val" id="equiv-g">—</div></div>
+      <div class="equiv-item" style="text-align:right"><div class="e-lbl">Precio / kg</div><div class="e-val" id="equiv-p">$300</div></div>
+    </div>
+  </div>
+
+  <!-- EXTRAS -->
+  <div class="card">
+    <div class="ch"><span class="ct">Extras</span><span class="bdg bam" id="barras-disp-badge">🥖 30 disp.</span></div>
+    <!-- Barras de leña -->
+    <div class="xrow" id="xrow-barras" onclick="toggleBarras()">
+      <div class="ckbox" id="ck-barras">✓</div>
+      <div class="x-ico">🥖</div>
+      <div class="x-info">
+        <div class="x-lbl">Barra de leña</div>
+        <div class="x-sub" id="barra-sub">Pan francés al horno · $8/u</div>
+      </div>
+      <div class="x-price" id="barra-price">$8/u</div>
+    </div>
+    <div id="barras-stp" style="display:none" class="xstp">
+      <div class="xs-lbl">Cantidad</div>
+      <div class="xs-btn" onclick="event.stopPropagation();adjBarras(-1)">−</div>
+      <div class="xs-val" id="barras-n">1</div>
+      <div class="xs-btn" onclick="event.stopPropagation();adjBarras(1)">+</div>
+      <div class="xs-tot" id="barras-tot">$8</div>
+    </div>
+    <!-- Tortas (solo mixto/tortas) -->
+    <div id="xrow-tortas-wrap" style="display:none">
+      <div style="display:flex;align-items:center;gap:11px;padding:12px 15px;background:var(--am0);border-top:0.5px solid var(--am1)">
+        <div class="x-ico">🌮</div>
+        <div class="x-info">
+          <div class="x-lbl">Tortas</div>
+          <div class="x-sub" id="torta-sub">$15/u · 2 tortas = 1 barra del stock</div>
+        </div>
+        <div class="x-price" id="torta-price">$15/u</div>
+      </div>
+      <div class="xstp">
+        <div class="xs-lbl">Cantidad tortas</div>
+        <div class="xs-btn" onclick="adjTortas(-1)">−</div>
+        <div class="xs-val" id="tortas-n">1</div>
+        <div class="xs-btn" onclick="adjTortas(1)">+</div>
+        <div class="xs-tot" id="tortas-tot">$15</div>
+      </div>
+      <div class="stock-mini"><span class="sm-lbl">Barras que se descuentan</span><span id="tortas-barras-equiv" style="font-size:11px;font-weight:700;color:var(--am2)">1 barra</span></div>
+    </div>
+    <!-- Stock mini total -->
+    <div id="stock-resumen" style="display:none" class="stock-mini">
+      <span class="sm-lbl" id="stock-lbl-txt">Stock tras este pedido</span>
+      <span id="stock-lbl-val" style="font-size:11px;font-weight:700;color:var(--ok)">—</span>
+    </div>
+  </div>
+
+  <!-- PAGO -->
+  <div class="card">
+    <div class="ch"><span class="ct">Método de pago</span></div>
+    <div class="popt on" id="popt-ef" onclick="setPago('efectivo')">
+      <div class="p-radio on"><div class="p-rdot"></div></div>
+      <span style="font-size:16px">💵</span>
+      <div><div class="p-lbl">Efectivo</div><div class="p-sub">Pago al recibir</div></div>
+    </div>
+    <div class="popt" id="popt-tr" onclick="setPago('transferencia')">
+      <div class="p-radio"></div>
+      <span style="font-size:16px">🏦</span>
+      <div><div class="p-lbl">Transferencia</div><div class="p-sub">SPEI · banco</div></div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div id="cta-ex"></div>
+
+</div></div><!-- /pg-ex -->
+
+<!-- ════════════ CLIENTE — EVENTO ════════════ -->
+<div class="page" id="pg-ev"><div class="sc" style="padding-top:12px">
+
+  <!-- Cotizador -->
+  <div class="ev-cot" id="ev-cot">
+    <div class="ev-tit">Cotizador de Eventos</div>
+    <div class="ev-tot" id="ev-tot">$0</div>
+    <div class="ev-det" id="ev-det">30 personas · 250g/p · 7.5 kg</div>
+    <div class="ev-ant">
+      <div class="la">Anticipo requerido (50%)</div>
+      <div class="va" id="ev-ant">$0</div>
+    </div>
+    <div onclick="solicitarEvento()" style="margin-top:12px;padding:13px;background:var(--am);color:var(--ink);border-radius:13px;font-size:13px;font-weight:700;cursor:pointer;text-align:center;font-family:var(--ff-head)">
+      Solicitar evento →
+    </div>
+  </div>
+
+  <!-- Config evento -->
+  <div class="card" id="ev-config">
+    <div class="ch"><span class="ct">Configurar evento</span></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:11px;padding:13px 15px 4px">
+      <div>
+        <div style="font-size:9px;font-weight:700;color:var(--sl);text-transform:uppercase;margin-bottom:5px">Invitados</div>
+        <div class="stepper">
+          <button class="stp-btn" onclick="adjEv('p',-5)">−</button>
+          <div class="stp-val" id="ev-p">30</div>
+          <button class="stp-btn" onclick="adjEv('p',5)">+</button>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:9px;font-weight:700;color:var(--sl);text-transform:uppercase;margin-bottom:5px">Porción</div>
+        <select onchange="cs.evGpp=+this.value;renderEv()" style="width:100%;padding:9px;border-radius:10px;border:1.5px solid var(--brd);font-size:11px;font-weight:600;background:var(--sur);color:var(--ink);outline:none;font-family:var(--ff-body)">
+          <option value="250">250 g — Normal</option>
+          <option value="350">350 g — Abundante</option>
+        </select>
+      </div>
+    </div>
+    <div style="padding:10px 15px 13px">
+      <div class="ev-tgl" id="ev-serv-tgl" onclick="toggleEvServ()">
         <div>
-          <div class="pcl">Recoger 🏪<br><span style="color:var(--bl)">06:00–18:00</span> (1)</div>
-          <div class="pcard">
-            <div class="pname">Ana Torres</div>
-            <div class="pdet">$45 · 🌮 x3 tortas</div>
-            <div class="pbdgs"><span class="bdg b-ok">Efectivo</span></div>
-            <div class="phor" style="color:var(--bl)">🏪 06:00–18:00</div>
-          </div>
+          <div style="font-size:12px;font-weight:600;color:var(--ink)">Servicio a domicilio</div>
+          <div style="font-size:10px;color:var(--am2);font-weight:700" id="ev-serv-price">+$1,500</div>
         </div>
+        <div class="toggle-track" id="ev-tgl-track"><div class="toggle-thumb"></div></div>
       </div>
-    </div>
-  </div></div>
-</div>
-
-<!-- Ruta con GPS markers -->
-<div class="phone-wrap">
-  <div class="phone-label">Ruta óptima · stops con GPS clickeables</div>
-  <div class="phone"><div class="screen">
-    <div class="nav">
-      <div class="nav-logo"><div class="nav-mark">M</div><div class="nav-name">Mega<em>Logistics</em></div></div>
-      <div class="nav-sw"><div class="sw">Cliente</div><div class="sw on">Admin</div></div>
-      <div class="nav-kg"><div class="kd"></div>0.7 kg</div>
-    </div>
-    <div class="sc" style="padding-top:11px">
-      <div class="atabs">
-        <div class="at">Pedidos</div><div class="at on">Ruta</div><div class="at">Eventos</div><div class="at">Config</div>
-      </div>
-      <div class="card">
-        <div class="ch"><span class="ct">Ruta · 🚚 08:00–11:00</span><span class="bdg b-am">2 paradas</span></div>
-        <div class="rutamap">
-          <svg viewBox="0 0 222 105" width="100%" style="display:block">
-            <line x1="18" y1="52" x2="85" y2="30" stroke="#F59E0B" stroke-width="2" stroke-dasharray="5,3" opacity=".8"/>
-            <line x1="85" y1="30" x2="158" y2="68" stroke="#F59E0B" stroke-width="2" stroke-dasharray="5,3" opacity=".8"/>
-            <circle cx="18" cy="52" r="11" fill="#0F172A"/>
-            <text x="18" y="56" text-anchor="middle" font-size="8" fill="#F59E0B" font-weight="bold" font-family="sans-serif">L</text>
-            <!-- Stop 1 con GPS -->
-            <circle cx="85" cy="30" r="10" fill="#F59E0B" stroke="#D97706" stroke-width="2"/>
-            <text x="85" y="34" text-anchor="middle" font-size="9" fill="#0F172A" font-weight="bold" font-family="sans-serif">1</text>
-            <text x="85" y="46" text-anchor="middle" font-size="6.5" fill="#2563EB" font-family="sans-serif">📍GPS</text>
-            <!-- Stop 2 -->
-            <circle cx="158" cy="68" r="10" fill="#fff" stroke="#94A3B8" stroke-width="2"/>
-            <text x="158" y="72" text-anchor="middle" font-size="9" fill="#64748B" font-weight="bold" font-family="sans-serif">2</text>
-            <text x="7" y="11" font-size="7" fill="#94A3B8" font-family="sans-serif">Mérida, Yucatán</text>
-          </svg>
-        </div>
-        <div style="display:flex;flex-wrap:wrap;gap:4px;padding:0 11px 10px">
-          <span style="font-size:7.5px;font-weight:700;padding:2px 7px;border-radius:4px;background:#0F172A;color:#F59E0B;text-transform:uppercase">L Local</span>
-          <span style="font-size:7.5px;font-weight:700;padding:2px 7px;border-radius:4px;background:var(--am0);color:var(--am3);text-transform:uppercase">1 María 📍</span>
-          <span style="font-size:7.5px;font-weight:700;padding:2px 7px;border-radius:4px;background:#F1F5F9;color:#475569;text-transform:uppercase">2 Carlos</span>
-        </div>
-      </div>
-      <!-- Evento con GPS -->
-      <div class="card">
-        <div class="ch"><span class="ct">Eventos</span><span class="bdg b-sl">2</span></div>
-        <div style="background:var(--ink2);border-radius:11px;padding:11px;margin:8px;">
-          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px">
-            <div>
-              <div style="font-size:11px;font-weight:700;color:#F1F5F9">Luis Peña</div>
-              <div style="font-size:8px;color:#94A3B8">40 inv · 8 kg</div>
-              <a style="font-size:8px;font-weight:700;color:#60A5FA;text-decoration:none;display:flex;align-items:center;gap:3px;margin-top:2px">🗺️ Ver ubicación GPS</a>
-            </div>
-            <div style="text-align:right">
-              <div style="font-size:7.5px;color:#94A3B8;text-transform:uppercase">Anticipo</div>
-              <div style="font-family:'Syne',sans-serif;font-size:16px;font-weight:700;color:#F59E0B">$1,050</div>
-            </div>
-          </div>
-          <div style="display:flex;gap:4px"><span class="bdg b-am">Revisión</span><span class="bdg b-sl">Esp. anticipo</span></div>
-        </div>
-      </div>
-    </div>
-  </div></div>
-</div>
-
-</div>
-
-<!-- ══════════════ SECCIÓN 5: CONFIG HORARIOS ══════════════ -->
-<div class="sec-title">05 — Admin · Config: horarios de entrega ajustables<span class="sec-pill">Nuevo v22</span></div>
-<div class="phones-row">
-
-<div class="phone-wrap">
-  <div class="phone-label">Config — Horarios domicilio y recoger configurables</div>
-  <div class="phone"><div class="screen">
-    <div class="nav">
-      <div class="nav-logo"><div class="nav-mark">M</div><div class="nav-name">Mega<em>Logistics</em></div></div>
-      <div class="nav-sw"><div class="sw">Cliente</div><div class="sw on">Admin</div></div>
-      <div class="nav-kg"><div class="kd"></div>0.7 kg</div>
-    </div>
-    <div class="sc" style="padding-top:11px">
-      <div class="atabs">
-        <div class="at">Pedidos</div><div class="at">Ruta</div><div class="at">Eventos</div><div class="at on">Config</div>
-      </div>
-      <!-- Precios breve -->
-      <div class="card" style="margin-bottom:8px">
-        <div class="ch"><span class="ct">Precios</span></div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:7px;padding:9px 11px">
-          <div><div style="font-size:7.5px;font-weight:700;color:var(--sl);text-transform:uppercase;margin-bottom:3px">Express $/kg</div><div style="background:var(--sur);border:1.5px solid var(--brd);border-radius:8px;padding:6px 9px;font-size:11px;font-weight:700;color:var(--ink)">$300</div></div>
-          <div><div style="font-size:7.5px;font-weight:700;color:var(--sl);text-transform:uppercase;margin-bottom:3px">Kilos del día</div><div style="background:var(--sur);border:1.5px solid var(--brd);border-radius:8px;padding:6px 9px;font-size:11px;font-weight:700;color:var(--ink)">80 kg</div></div>
-        </div>
-      </div>
-      <!-- HORARIOS DE ENTREGA — sección nueva -->
-      <div class="card">
-        <div class="ch"><span class="ct">Horarios de entrega</span><span class="bdg b-am">Visible al cliente</span></div>
-        <!-- Domicilio -->
-        <div class="hbloque am">
-          <div class="hbico">🚚</div>
+      <div id="ev-dom-fields" style="display:none">
+        <div class="addr-lbl">Ubicación del evento</div>
+        <textarea class="addr-inp" id="ev-dir-inp" rows="2" placeholder="Salón, calle, número, referencias…"></textarea>
+        <button class="geo-btn" id="geo-btn-ev" onclick="simGeo('ev')">📍 Obtener ubicación GPS del evento</button>
+        <div id="geo-res-ev"></div>
+        <div class="ev-hor-note" style="margin-top:9px">
+          <span style="font-size:18px">⏰</span>
           <div>
-            <div class="hbtitle">Entrega a domicilio</div>
-            <div class="hbrange">08:00 – 11:00</div>
-            <div class="hbsub">El cliente ve este rango en su formulario</div>
-          </div>
-        </div>
-        <div class="timeinps">
-          <div class="tinp">08:00</div>
-          <div class="tdash">–</div>
-          <div class="tinp">11:00</div>
-        </div>
-        <!-- Recoger -->
-        <div class="hbloque bl">
-          <div class="hbico">🏪</div>
-          <div>
-            <div class="hbtitle">Recoger en local</div>
-            <div class="hbrange">06:00 – 18:00</div>
-            <div class="hbsub">El cliente ve este rango al elegir recoger</div>
-          </div>
-        </div>
-        <div class="timeinps">
-          <div class="tinp">06:00</div>
-          <div class="tdash">–</div>
-          <div class="tinp">18:00</div>
-        </div>
-        <div class="sbtn">Guardar horarios de entrega</div>
-      </div>
-      <!-- Extras config -->
-      <div class="card">
-        <div class="ch"><span class="ct">Extras — Barras y Tortas</span></div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:7px;padding:9px 11px">
-          <div><div style="font-size:7.5px;font-weight:700;color:var(--sl);text-transform:uppercase;margin-bottom:3px">🥖 Barra $/u</div><div style="background:var(--sur);border:1.5px solid var(--brd);border-radius:8px;padding:6px 9px;font-size:11px;font-weight:700;color:var(--ink)">$8</div></div>
-          <div><div style="font-size:7.5px;font-weight:700;color:var(--sl);text-transform:uppercase;margin-bottom:3px">🌮 Torta $/u</div><div style="background:var(--sur);border:1.5px solid var(--brd);border-radius:8px;padding:6px 9px;font-size:11px;font-weight:700;color:var(--ink)">$15</div></div>
-        </div>
-        <div style="padding:0 11px 11px">
-          <div style="font-size:7.5px;font-weight:700;color:var(--sl);text-transform:uppercase;margin-bottom:3px">Stock de barras del día</div>
-          <div style="background:var(--sur);border:1.5px solid var(--brd);border-radius:8px;padding:6px 9px;font-size:11px;font-weight:700;color:var(--ink);margin-bottom:4px">30 barras</div>
-          <div style="background:var(--brd);border-radius:3px;height:4px;margin-bottom:2px"><div style="background:var(--am);border-radius:3px;height:4px;width:13%"></div></div>
-          <div style="font-size:7.5px;color:var(--sl)">Usadas: 4 · Disponibles: 26</div>
-        </div>
-      </div>
-    </div>
-  </div></div>
-</div>
-
-</div>
-
-<!-- ══════════════ SECCIÓN 6: ANALÍTICAS ══════════════ -->
-<div class="sec-title">06 — Admin · Analíticas: gráficas + insights + plan<span class="sec-pill">📊 Admin</span></div>
-<div class="phones-row">
-
-<!-- Gráfica de línea + KPIs -->
-<div class="phone-wrap">
-  <div class="phone-label">KPIs + gráfica de línea por mes + selector categoría</div>
-  <div class="phone"><div class="screen">
-    <div class="nav">
-      <div class="nav-logo"><div class="nav-mark">M</div><div class="nav-name">Mega<em>Logistics</em></div></div>
-      <div class="nav-sw"><div class="sw">Cliente</div><div class="sw on">Admin</div></div>
-      <div class="nav-kg"><div class="kd"></div>0.7 kg</div>
-    </div>
-    <div class="sc" style="padding-top:11px">
-      <div class="atabs">
-        <div class="at">Pedidos</div><div class="at">Ruta</div><div class="at">Eventos</div>
-        <div class="at">Config</div><div class="at" style="background:var(--bl0);color:var(--bl);border-color:var(--bl1)">👥</div>
-        <div class="at" style="background:#DCFCE7;color:#166634;border-color:#A7F3D0">📢</div>
-        <div class="at an on">📊 Analíticas</div>
-      </div>
-      <div class="anh">
-        <div class="anico">📊</div>
-        <div><div class="antitle">Analíticas</div><div class="ansub">Pedidos · Kg · Barras · Tortas</div></div>
-      </div>
-      <div class="antabs"><div class="antab">Día</div><div class="antab on">Mes</div><div class="antab">Año</div></div>
-      <div class="kpig">
-        <div class="kpi"><div class="kpiico">📦</div><div class="kpiv">558</div><div class="kpil">Pedidos</div></div>
-        <div class="kpi"><div class="kpiico">🥩</div><div class="kpiv">168 kg</div><div class="kpil">Carne</div></div>
-        <div class="kpi"><div class="kpiico">💰</div><div class="kpiv">$50,220</div><div class="kpil">Ingresos</div></div>
-        <div class="kpi"><div class="kpiico">🥖</div><div class="kpiv">701</div><div class="kpil">Barras</div></div>
-      </div>
-      <!-- Selector categoría -->
-      <div class="tsel">
-        <div class="ts on" style="background:#F59E0B;border-color:#F59E0B">Kg carne</div>
-        <div class="ts">Barras</div><div class="ts">Tortas</div><div class="ts">Mixto</div><div class="ts">Pedidos</div>
-      </div>
-      <!-- Gráfica línea Kg por mes -->
-      <div class="chart-area">
-        <div class="clbl">Kg carne por mes — 2025</div>
-        <svg viewBox="0 0 222 70" width="100%" style="display:block;overflow:visible">
-          <line x1="0" y1="0" x2="222" y2="0" stroke="#E2E8F0" stroke-width="0.5"/>
-          <line x1="0" y1="23" x2="222" y2="23" stroke="#E2E8F0" stroke-width="0.5"/>
-          <line x1="0" y1="46" x2="222" y2="46" stroke="#E2E8F0" stroke-width="0.5"/>
-          <polyline points="0,54 20,56 40,49 60,58 80,44 100,37 120,28 140,32 160,41 180,55 200,57 221,34"
-            fill="none" stroke="#F59E0B" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
-          <!-- Dots -->
-          <circle cx="0" cy="54" r="2.5" fill="#F59E0B" stroke="#fff" stroke-width="1.5"/>
-          <circle cx="120" cy="28" r="4" fill="#F59E0B" stroke="#fff" stroke-width="2"/>
-          <circle cx="200" cy="57" r="4" fill="#EF4444" stroke="#fff" stroke-width="2"/>
-          <!-- Labels -->
-          <text x="0" y="67" font-size="6" fill="#94A3B8" font-family="sans-serif" text-anchor="middle">E</text>
-          <text x="40" y="67" font-size="6" fill="#94A3B8" font-family="sans-serif" text-anchor="middle">M</text>
-          <text x="80" y="67" font-size="6" fill="#94A3B8" font-family="sans-serif" text-anchor="middle">M</text>
-          <text x="120" y="67" font-size="6" fill="#F59E0B" font-family="sans-serif" text-anchor="middle" font-weight="bold">Jul</text>
-          <text x="160" y="67" font-size="6" fill="#94A3B8" font-family="sans-serif" text-anchor="middle">S</text>
-          <text x="200" y="67" font-size="6" fill="#EF4444" font-family="sans-serif" text-anchor="middle" font-weight="bold">Nov</text>
-        </svg>
-      </div>
-    </div>
-  </div></div>
-</div>
-
-<!-- Gráfica barras + heatmap -->
-<div class="phone-wrap">
-  <div class="phone-label">Comparativa apilada + mapa de calor semanal</div>
-  <div class="phone"><div class="screen">
-    <div class="nav">
-      <div class="nav-logo"><div class="nav-mark">M</div><div class="nav-name">Mega<em>Logistics</em></div></div>
-      <div class="nav-sw"><div class="sw">Cliente</div><div class="sw on">Admin</div></div>
-      <div class="nav-kg"><div class="kd"></div>0.7 kg</div>
-    </div>
-    <div class="sc" style="padding-top:11px">
-      <!-- Barras apiladas -->
-      <div class="chart-area" style="margin-bottom:8px">
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px">
-          <div class="clbl" style="margin-bottom:0">Comparativa extras — todos los meses</div>
-          <span class="bdg b-sl">Apilado</span>
-        </div>
-        <div class="legend">
-          <div class="legit"><div class="legdot" style="background:#F59E0B"></div>Kg</div>
-          <div class="legit"><div class="legdot" style="background:#7C3AED"></div>Barras</div>
-          <div class="legit"><div class="legdot" style="background:#EA580C"></div>Tortas</div>
-          <div class="legit"><div class="legdot" style="background:#2563EB"></div>Mixto</div>
-        </div>
-        <svg viewBox="0 0 222 68" width="100%" style="display:block">
-          <!-- Barras por mes — 12 grupos -->
-          <!-- E --><rect x="2"   y="43" width="12" height="20" fill="#F59E0B" rx="2" opacity=".9"/><rect x="2"   y="30" width="12" height="13" fill="#7C3AED" rx="1" opacity=".9"/><rect x="2"   y="25" width="12" height="5"  fill="#EA580C" rx="1" opacity=".9"/><text x="8"   y="66" font-size="5.5" fill="#94A3B8" font-family="sans-serif" text-anchor="middle">E</text>
-          <!-- F --><rect x="19"  y="48" width="12" height="15" fill="#F59E0B" rx="2" opacity=".9"/><rect x="19"  y="37" width="12" height="11" fill="#7C3AED" rx="1" opacity=".9"/><text x="25"  y="66" font-size="5.5" fill="#EF4444" font-family="sans-serif" text-anchor="middle" font-weight="bold">F</text>
-          <!-- M --><rect x="36"  y="38" width="12" height="25" fill="#F59E0B" rx="2" opacity=".9"/><rect x="36"  y="24" width="12" height="14" fill="#7C3AED" rx="1" opacity=".9"/><rect x="36"  y="19" width="12" height="5"  fill="#EA580C" rx="1" opacity=".9"/><rect x="36"  y="14" width="12" height="5"  fill="#2563EB" rx="1" opacity=".9"/><text x="42"  y="66" font-size="5.5" fill="#94A3B8" font-family="sans-serif" text-anchor="middle">M</text>
-          <!-- A --><rect x="53"  y="51" width="12" height="12" fill="#F59E0B" rx="2" opacity=".9"/><rect x="53"  y="43" width="12" height="8"  fill="#7C3AED" rx="1" opacity=".9"/><text x="59"  y="66" font-size="5.5" fill="#EF4444" font-family="sans-serif" text-anchor="middle" font-weight="bold">A</text>
-          <!-- M2 --><rect x="70"  y="29" width="12" height="34" fill="#F59E0B" rx="2" opacity=".9"/><rect x="70"  y="16" width="12" height="13" fill="#7C3AED" rx="1" opacity=".9"/><rect x="70"  y="10" width="12" height="6"  fill="#EA580C" rx="1" opacity=".9"/><text x="76"  y="66" font-size="5.5" fill="#94A3B8" font-family="sans-serif" text-anchor="middle">M</text>
-          <!-- J --><rect x="87"  y="21" width="12" height="42" fill="#F59E0B" rx="2" opacity=".9"/><rect x="87"  y="7"  width="12" height="14" fill="#7C3AED" rx="1" opacity=".9"/><rect x="87"  y="2"  width="12" height="5"  fill="#EA580C" rx="1" opacity=".9"/><text x="93"  y="66" font-size="5.5" fill="#94A3B8" font-family="sans-serif" text-anchor="middle">J</text>
-          <!-- Jul PICO --><rect x="104" y="13" width="12" height="50" fill="#F59E0B" rx="2" opacity=".95"/><rect x="104" y="2"  width="12" height="11" fill="#7C3AED" rx="1" opacity=".9"/><text x="110" y="66" font-size="5.5" fill="#F59E0B" font-family="sans-serif" text-anchor="middle" font-weight="bold">J</text>
-          <!-- A --><rect x="121" y="18" width="12" height="45" fill="#F59E0B" rx="2" opacity=".9"/><rect x="121" y="6"  width="12" height="12" fill="#7C3AED" rx="1" opacity=".9"/><text x="127" y="66" font-size="5.5" fill="#94A3B8" font-family="sans-serif" text-anchor="middle">A</text>
-          <!-- S --><rect x="138" y="34" width="12" height="29" fill="#F59E0B" rx="2" opacity=".9"/><rect x="138" y="21" width="12" height="13" fill="#7C3AED" rx="1" opacity=".9"/><text x="144" y="66" font-size="5.5" fill="#94A3B8" font-family="sans-serif" text-anchor="middle">S</text>
-          <!-- O --><rect x="155" y="44" width="12" height="19" fill="#F59E0B" rx="2" opacity=".9"/><rect x="155" y="36" width="12" height="8"  fill="#7C3AED" rx="1" opacity=".9"/><text x="161" y="66" font-size="5.5" fill="#94A3B8" font-family="sans-serif" text-anchor="middle">O</text>
-          <!-- Nov BAJO --><rect x="172" y="53" width="12" height="10" fill="#EF4444" rx="2" opacity=".9"/><rect x="172" y="47" width="12" height="6"  fill="#7C3AED" rx="1" opacity=".9"/><text x="178" y="66" font-size="5.5" fill="#EF4444" font-family="sans-serif" text-anchor="middle" font-weight="bold">N</text>
-          <!-- D --><rect x="189" y="25" width="12" height="38" fill="#F59E0B" rx="2" opacity=".9"/><rect x="189" y="12" width="12" height="13" fill="#7C3AED" rx="1" opacity=".9"/><rect x="189" y="7"  width="12" height="5"  fill="#EA580C" rx="1" opacity=".9"/><text x="195" y="66" font-size="5.5" fill="#94A3B8" font-family="sans-serif" text-anchor="middle">D</text>
-        </svg>
-      </div>
-      <!-- Heatmap -->
-      <div class="card">
-        <div class="ch"><span class="ct">Mapa de calor — Kg por día</span><span class="bdg b-am">Intensidad</span></div>
-        <div class="hmw">
-          <div class="hmsc">
-            <span class="hmsl">Bajo</span>
-            <div class="hmb" style="background:#FEF9EE"></div><div class="hmb" style="background:#FDE68A"></div>
-            <div class="hmb" style="background:#FCD34D"></div><div class="hmb" style="background:#F59E0B"></div>
-            <div class="hmb" style="background:#D97706"></div><div class="hmb" style="background:#B45309"></div>
-            <div class="hmb" style="background:#92400E"></div>
-            <span class="hmsl">Alto</span>
-          </div>
-          <div class="hmg">
-            <div class="hml">Lun</div><div class="hml">Mar</div><div class="hml">Mié</div>
-            <div class="hml">Jue</div><div class="hml">Vie</div><div class="hml">Sáb</div>
-            <div class="hml" style="color:var(--er)">Dom</div>
-            <div class="hmc" style="background:#D97706;color:#fff">2.5</div>
-            <div class="hmc" style="background:#B45309;color:#fff">2.3</div>
-            <div class="hmc" style="background:#D97706;color:#fff">2.7</div>
-            <div class="hmc" style="background:#D97706;color:#fff">2.6</div>
-            <div class="hmc" style="background:#92400E;color:#fff">3.7</div>
-            <div class="hmc" style="background:#92400E;color:#fff">4.7</div>
-            <div class="hmc" style="background:#FDE68A;color:#92400E">1.3</div>
+            <div style="font-size:11px;font-weight:700;color:var(--am3)">Horario de entrega estimado</div>
+            <div id="ev-hor-range" style="font-family:var(--ff-head);font-size:14px;font-weight:700;color:var(--am2)">08:00 – 11:00</div>
+            <div style="font-size:9px;color:var(--sl)">Coordinaremos la hora exacta contigo</div>
           </div>
         </div>
       </div>
     </div>
-  </div></div>
-</div>
-
-<!-- Insights + plan de acción -->
-<div class="phone-wrap">
-  <div class="phone-label">Rankings mejores/bajos + Insights + Plan de acción</div>
-  <div class="phone"><div class="screen">
-    <div class="nav">
-      <div class="nav-logo"><div class="nav-mark">M</div><div class="nav-name">Mega<em>Logistics</em></div></div>
-      <div class="nav-sw"><div class="sw">Cliente</div><div class="sw on">Admin</div></div>
-      <div class="nav-kg"><div class="kd"></div>0.7 kg</div>
-    </div>
-    <div class="sc" style="padding-top:11px">
-      <!-- Top / Bajo -->
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:8px">
-        <div class="card">
-          <div class="ch"><span class="ct">🏆 Mejores</span></div>
-          <div class="toprow"><div class="trk2" style="background:#FEF3C7;color:#92400E">1</div><div style="flex:1;min-width:0"><div style="font-size:9.5px;font-weight:700;color:var(--ink)">Jul</div><div style="font-size:7.5px;color:var(--sl)">21 kg</div></div><div class="tbw"><div class="tbf" style="width:100%;background:#F59E0B"></div></div></div>
-          <div class="toprow"><div class="trk2" style="background:#F1F5F9;color:#475569">2</div><div style="flex:1;min-width:0"><div style="font-size:9.5px;font-weight:700;color:var(--ink)">Ago</div><div style="font-size:7.5px;color:var(--sl)">19.5 kg</div></div><div class="tbw"><div class="tbf" style="width:93%;background:#F59E0B"></div></div></div>
-          <div class="toprow" style="border:none"><div class="trk2" style="background:#FEF9EE;color:#B45309">3</div><div style="flex:1;min-width:0"><div style="font-size:9.5px;font-weight:700;color:var(--ink)">Jun</div><div style="font-size:7.5px;color:var(--sl)">18.3 kg</div></div><div class="tbw"><div class="tbf" style="width:87%;background:#F59E0B"></div></div></div>
-        </div>
-        <div class="card">
-          <div class="ch"><span class="ct">📉 Bajos</span></div>
-          <div class="toprow"><div class="trk2" style="background:var(--er0);color:var(--er)">1</div><div style="flex:1;min-width:0"><div style="font-size:9.5px;font-weight:700;color:var(--ink)">Nov</div><div style="font-size:7.5px;color:var(--sl)">8.1 kg</div></div><div class="tbw"><div class="tbf" style="width:38%;background:#EF4444"></div></div></div>
-          <div class="toprow"><div class="trk2" style="background:var(--er0);color:var(--er)">2</div><div style="flex:1;min-width:0"><div style="font-size:9.5px;font-weight:700;color:var(--ink)">Abr</div><div style="font-size:7.5px;color:var(--sl)">8.7 kg</div></div><div class="tbw"><div class="tbf" style="width:41%;background:#EF4444"></div></div></div>
-          <div class="toprow" style="border:none"><div class="trk2" style="background:var(--er0);color:var(--er)">3</div><div style="flex:1;min-width:0"><div style="font-size:9.5px;font-weight:700;color:var(--ink)">Feb</div><div style="font-size:7.5px;color:var(--sl)">9.3 kg</div></div><div class="tbw"><div class="tbf" style="width:44%;background:#EF4444"></div></div></div>
-        </div>
-      </div>
-      <!-- Insights -->
-      <div class="card" style="margin-bottom:8px">
-        <div class="ch"><span class="ct">💡 Insights</span><span class="bdg b-pu">4</span></div>
-        <div style="padding:4px 0">
-          <div class="insrow" style="padding:7px 11px">
-            <div class="insico" style="background:#FFF1F1">📉</div>
-            <div><div class="instit" style="color:var(--er)">Nov — mes más crítico</div><div class="insbod">8.1 kg, -61% bajo el promedio anual.</div><div class="insrec" style="background:#FFF1F1;color:var(--er)">→ Combos y descuentos Nov y Abr</div></div>
-          </div>
-          <div class="insrow" style="padding:7px 11px">
-            <div class="insico" style="background:#ECFDF5">🔥</div>
-            <div><div class="instit" style="color:var(--ok)">Jul–Ago meses estrella</div><div class="insbod">Jul 21 kg = +47% sobre promedio.</div><div class="insrec" style="background:#ECFDF5;color:var(--ok)">→ Maximizar stock Jun–Ago</div></div>
-          </div>
-          <div class="insrow" style="padding:7px 11px">
-            <div class="insico" style="background:#F5F3FF">🥖</div>
-            <div><div class="instit" style="color:var(--pu)">Barras crecen más rápido</div><div class="insbod">Barras +30% vs carne +17% en 3 años.</div><div class="insrec" style="background:#F5F3FF;color:var(--pu)">→ Evalúa subir precio barra</div></div>
-          </div>
-        </div>
-      </div>
-      <!-- Plan meses bajos -->
-      <div class="card">
-        <div class="ch"><span class="ct">🎯 Plan — Meses bajos</span><span class="bdg b-er">Prioridad</span></div>
-        <div class="fcrow"><div class="fcmes">Nov <span class="bdg b-er" style="font-size:7px;padding:1px 4px">-61%</span></div><div class="fcbw"><div class="fcbf" style="width:38%"></div></div><div class="fcval">8.1 kg</div></div>
-        <div class="fcrow"><div class="fcmes">Abr <span class="bdg b-er" style="font-size:7px;padding:1px 4px">-59%</span></div><div class="fcbw"><div class="fcbf" style="width:41%"></div></div><div class="fcval">8.7 kg</div></div>
-        <div class="fcrow"><div class="fcmes">Feb <span class="bdg b-er" style="font-size:7px;padding:1px 4px">-56%</span></div><div class="fcbw"><div class="fcbf" style="width:44%"></div></div><div class="fcval">9.3 kg</div></div>
-        <div class="fcrow" style="border:none"><div class="fcmes">Oct <span class="bdg b-er" style="font-size:7px;padding:1px 4px">-50%</span></div><div class="fcbw"><div class="fcbf" style="width:50%"></div></div><div class="fcval">10.5 kg</div></div>
-        <div style="padding:8px 11px;background:var(--am0);border-top:0.5px solid var(--am1)">
-          <div style="font-size:8.5px;font-weight:700;color:var(--am3)">📌 Meta: recuperar +20% en meses bajos</div>
-          <div style="font-size:7.5px;color:var(--wr);margin-top:2px">Ingreso adicional estimado: <strong>$1,800</strong></div>
-        </div>
-      </div>
-    </div>
-  </div></div>
-</div>
-
-</div><!-- /phones-row analíticas -->
-
-<!-- FOOTER -->
-<div style="text-align:center;margin-top:80px;padding-top:40px;border-top:1px solid rgba(255,255,255,.05)">
-  <div style="font-family:'Syne',sans-serif;font-size:10px;color:rgba(255,255,255,.14);letter-spacing:.15em;text-transform:uppercase;margin-bottom:6px">
-    MegaLogistics · kilos.mx · Mockup v6 · CRUD v22 · Abril 2026
   </div>
-  <div style="font-size:10px;color:rgba(255,255,255,.07)">
-    15 pantallas · 6 secciones · Horarios configurables · GPS real · Analíticas + insights · Plan de acción
-  </div>
-</div>
 
+  <!-- Confirmación evento -->
+  <div id="ev-conf" style="display:none">
+    <div class="conf-banner">
+      <div class="conf-check">📋</div>
+      <div class="conf-title">¡Evento registrado!</div>
+      <div class="conf-det" id="ev-conf-det">—</div>
+    </div>
+    <div class="hconf" id="ev-hor-conf" style="display:none">
+      <div class="hc-lbl">🚚 Horario de entrega estimado</div>
+      <div class="hc-range" id="ev-conf-hor">08:00 – 11:00</div>
+      <div class="hc-sub">Coordinaremos la hora exacta contigo</div>
+    </div>
+    <div class="warn"><span style="font-size:16px">⚠</span><span style="font-size:10px;font-weight:700;color:var(--wr);text-transform:uppercase">Sube el comprobante del anticipo para confirmar.</span></div>
+    <button class="wa-btn">📱 Notificar al negocio</button>
+    <button class="nav-btn" onclick="setCTab('sg')">Ver seguimiento →</button>
+    <button class="sec-btn" onclick="resetEv()">Nuevo cotizador</button>
+  </div>
+
+</div></div><!-- /pg-ev -->
+
+<!-- ════════════ CLIENTE — SEGUIMIENTO ════════════ -->
+<div class="page" id="pg-sg"><div class="sc" style="padding-top:12px" id="sg-list"></div></div>
+
+<!-- ════════════ ADMIN — PEDIDOS ════════════ -->
+<div class="page" id="pg-p"><div style="padding:12px 16px 20px" id="ap-root"></div></div>
+
+<!-- ════════════ ADMIN — RUTA ════════════ -->
+<div class="page" id="pg-r"><div style="padding:12px 16px 20px" id="ar-root"></div></div>
+
+<!-- ════════════ ADMIN — EVENTOS ════════════ -->
+<div class="page" id="pg-e"><div style="padding:12px 16px 20px" id="ae-root"></div></div>
+
+<!-- ════════════ ADMIN — CONFIG ════════════ -->
+<div class="page" id="pg-cfg"><div style="padding:12px 16px 20px" id="acfg-root"></div></div>
+
+<!-- ════════════ ADMIN — CONTACTOS ════════════ -->
+<div class="page" id="pg-ct"><div style="padding:12px 16px 20px" id="act-root"></div></div>
+
+<!-- ════════════ ADMIN — AVISOS ════════════ -->
+<div class="page" id="pg-av"><div style="padding:12px 16px 20px" id="aav-root"></div></div>
+
+<!-- ════════════ ADMIN — ANALÍTICAS ════════════ -->
+<div class="page" id="pg-an"><div style="padding:12px 16px 20px" id="aan-root"></div></div>
+
+</div><!-- /scroll -->
+</div><!-- /screen -->
+</div><!-- /phone-shell -->
+
+<div class="toast" id="toast"></div>
+
+<!-- ══════════════════════ JAVASCRIPT ══════════════════════ -->
+<script>
+/* ══ DATOS PRECARGADOS ══ */
+const f$=n=>`$${Number(n).toLocaleString('es-MX')}`;
+const fG=g=>g>=1000?`${(g/1000).toFixed(2)} kg`:`${Math.round(g)} g`;
+
+let cfg={
+  precioKg:300, precioEvento:200, kilosDia:80, precioServicio:1500,
+  precioBarra:8, stockBarras:30, precioTorta:15,
+  whatsapp:'5219991234567', banco:'BBVA | CLABE: 012345678901234567',
+  domicilioIni:'08:00', domicilioFin:'11:00',
+  recogerIni:'06:00', recogerFin:'18:00',
+};
+
+let diasH=[
+  {id:'dom',lbl:'Do',activo:false},{id:'lun',lbl:'Lu',activo:true},
+  {id:'mar',lbl:'Ma',activo:true},{id:'mie',lbl:'Mi',activo:true},
+  {id:'jue',lbl:'Ju',activo:true},{id:'vie',lbl:'Vi',activo:true},
+  {id:'sab',lbl:'Sa',activo:true},
+];
+
+let pedidos=[
+  {id:'001',cliente:'María García',   gramos:500, kilos:0.5, total:150,metodo:'efectivo',    tipo:'domicilio',dir:'Calle 60 #312, Centro',lat:'20.9674',lng:'-89.5926',pagoEst:'Efectivo', estado:'En ruta',  fuente:'express',numBarras:2,numTortas:0,modo:'carne'},
+  {id:'002',cliente:'Carlos Méndez',  gramos:333, kilos:.333,total:165,metodo:'transferencia',tipo:'domicilio',dir:'Av. Colón #45, García Ginerés',lat:null,lng:null,pagoEst:'Pendiente',estado:'Pendiente',fuente:'express',numBarras:1,numTortas:2,modo:'mixto'},
+  {id:'003',cliente:'Ana Torres',     gramos:0,   kilos:0,   total:45, metodo:'efectivo',    tipo:'local',    dir:'',lat:null,lng:null,pagoEst:'Efectivo', estado:'Pendiente',fuente:'express',numBarras:0,numTortas:3,modo:'tortas'},
+  {id:'004',cliente:'Roberto Ibarra', gramos:667, kilos:.667,total:200,metodo:'transferencia',tipo:'domicilio',dir:'Paseo Montejo 450',lat:'20.9820',lng:'-89.6180',pagoEst:'Pendiente',estado:'Pendiente',fuente:'express',numBarras:0,numTortas:0,modo:'carne'},
+];
+
+let eventos=[
+  {id:'e01',cliente:'Luis Peña',   invitados:40,kilos:'8.0',total:2100,anticipo:1050,pagoEst:'Pendiente',estado:'Esperando anticipo',lat:'20.9821',lng:'-89.6182'},
+  {id:'e02',cliente:'Sofía Ruiz',  invitados:20,kilos:'4.0',total:1100,anticipo:550, pagoEst:'Pendiente',estado:'Esperando anticipo',lat:null,lng:null},
+];
+
+let contactos=[
+  {uid:'u1',nombre:'María García', tel:'5219991112233',tipo:'reg'},{uid:'u2',nombre:'Carlos Méndez',tel:'5219994455667',tipo:'reg'},
+  {uid:'u3',nombre:'Ana Torres',   tel:'5219997788990',tipo:'reg'},{uid:'u4',nombre:'Roberto Ibarra',tel:'5219998811223',tipo:'reg'},
+  {id:'m1',nombre:'Luis Peña',     tel:'5219993344556',tipo:'man',notas:'Evento quinceañera'},
+  {id:'m2',nombre:'Sofía Ruiz',    tel:'5219996677889',tipo:'man',notas:''},
+  {id:'m3',nombre:'Beatriz Ku',    tel:'5219995544332',tipo:'man',notas:'Referida por Carlos'},
+  {id:'m4',nombre:'María Dup',     tel:'5219991112233',tipo:'man',notas:''},// duplicado
+];
+
+/* Estado formulario */
+let cs={
+  modo:'carne', tipo:'domicilio', metodo:'efectivo', pesos:'',
+  addBarras:false, numBarras:1, numTortas:1,
+  lat:null, lng:null,
+  evP:30, evGpp:250, evServ:false, evLat:null, evLng:null,
+};
+
+/* ══ ANALÍTICAS ══ */
+const DATA_MES=[
+  {m:'Ene',ped:38,kg:11.4,barras:42,tortas:18,mixto:12,ing:3420},{m:'Feb',ped:31,kg:9.3,barras:28,tortas:12,mixto:8,ing:2790},
+  {m:'Mar',ped:44,kg:13.2,barras:55,tortas:24,mixto:16,ing:3960},{m:'Abr',ped:29,kg:8.7,barras:22,tortas:9,mixto:6,ing:2610},
+  {m:'May',ped:52,kg:15.6,barras:68,tortas:30,mixto:20,ing:4680},{m:'Jun',ped:61,kg:18.3,barras:82,tortas:38,mixto:25,ing:5490},
+  {m:'Jul',ped:70,kg:21.0,barras:95,tortas:45,mixto:30,ing:6300},{m:'Ago',ped:65,kg:19.5,barras:88,tortas:40,mixto:27,ing:5850},
+  {m:'Sep',ped:48,kg:14.4,barras:60,tortas:26,mixto:18,ing:4320},{m:'Oct',ped:35,kg:10.5,barras:38,tortas:16,mixto:10,ing:3150},
+  {m:'Nov',ped:27,kg:8.1,barras:20,tortas:8,mixto:5,ing:2430},{m:'Dic',ped:58,kg:17.4,barras:76,tortas:34,mixto:22,ing:5220},
+];
+const DATA_DIA=[
+  {d:'Lun',ped:8.2,kg:2.46,barras:11,tortas:5,mixto:3,ing:738},{d:'Mar',ped:7.5,kg:2.25,barras:9,tortas:4,mixto:2,ing:675},
+  {d:'Mié',ped:9.1,kg:2.73,barras:13,tortas:6,mixto:4,ing:819},{d:'Jue',ped:8.8,kg:2.64,barras:12,tortas:5,mixto:3,ing:792},
+  {d:'Vie',ped:12.4,kg:3.72,barras:18,tortas:8,mixto:6,ing:1116},{d:'Sáb',ped:15.6,kg:4.68,barras:24,tortas:11,mixto:8,ing:1404},
+  {d:'Dom',ped:4.2,kg:1.26,barras:5,tortas:2,mixto:1,ing:378},
+];
+const DATA_ANIO=[
+  {a:'2023',ped:482,kg:144.6,barras:580,tortas:250,mixto:165,ing:43380},
+  {a:'2024',ped:558,kg:167.4,barras:701,tortas:309,mixto:202,ing:50220},
+  {a:'2025',ped:563,kg:168.9,barras:753,tortas:319,mixto:213,ing:50670},
+];
+let anPeriod='mes', anMetrica='kg', anHidden=new Set();
+
+/* ══ HELPERS ══ */
+const kgUsados=()=>pedidos.filter(p=>p.fuente==='express'&&p.estado!=='Cancelado').reduce((a,p)=>a+Number(p.kilos||0),0);
+const kgDisp=()=>Math.max(0,cfg.kilosDia-kgUsados());
+const barrasUsadas=()=>pedidos.filter(p=>p.estado!=='Cancelado').reduce((a,p)=>a+Number(p.numBarras||0)+Math.ceil(Number(p.numTortas||0)/2),0);
+const barrasDisp=()=>Math.max(0,cfg.stockBarras-barrasUsadas());
+
+function updGlobal(){
+  const av=kgDisp();
+  document.getElementById('kg-lbl').textContent=av.toFixed(1)+' kg';
+  document.getElementById('hero-kg').textContent=av.toFixed(1)+' kg';
+  document.getElementById('hero-price').textContent=f$(cfg.precioKg);
+  const pct=Math.round(kgUsados()/cfg.kilosDia*100);
+  document.getElementById('hero-bar').style.width=pct+'%';
+  document.getElementById('barras-disp-badge').textContent='🥖 '+barrasDisp()+' disp.';
+  document.getElementById('badge-dom').textContent=`⏰ Horario: ${cfg.domicilioIni} – ${cfg.domicilioFin}`;
+  document.getElementById('badge-rec').textContent=`⏰ Horario: ${cfg.recogerIni} – ${cfg.recogerFin}`;
+  document.getElementById('loc-time-note').textContent=`Tu pedido estará listo de ${cfg.recogerIni} a ${cfg.recogerFin}`;
+  document.getElementById('barra-sub').textContent=`Pan francés al horno · ${f$(cfg.precioBarra)}/u`;
+  document.getElementById('torta-sub').textContent=`${f$(cfg.precioTorta)}/u · 2 tortas = 1 barra del stock`;
+  document.getElementById('ev-hor-range').textContent=`${cfg.domicilioIni} – ${cfg.domicilioFin}`;
+  document.getElementById('equiv-p').textContent=f$(cfg.precioKg);
+  if(document.getElementById('ev-serv-price'))
+    document.getElementById('ev-serv-price').textContent=`+${f$(cfg.precioServicio)}`;
+}
+
+function toast(msg,dur=2200){
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),dur);
+}
+
+/* ══ NAVEGACIÓN ══ */
+let curVista='c', curCTab='ex', curATab='p';
+
+function setVista(v){
+  curVista=v;
+  const isC=v==='c';
+  document.getElementById('c-tabs').style.display=isC?'flex':'none';
+  document.getElementById('a-tabs').style.display=isC?'none':'flex';
+  document.getElementById('sw-btn-c').classList.toggle('on',isC);
+  document.getElementById('sw-btn-a').classList.toggle('on',!isC);
+  // hide all pages
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('on'));
+  if(isC){
+    document.getElementById('pg-'+curCTab).classList.add('on');
+    document.getElementById('mainScroll').scrollTop=0;
+  }else{
+    setATab(curATab);
+  }
+}
+
+// Fix: nav buttons reference
+document.querySelector('.sw-btn:first-child').id='sw-btn-c';
+document.querySelector('.sw-btn:last-child').id='sw-btn-a';
+
+function setCTab(t){
+  curCTab=t;
+  document.querySelectorAll('#c-tabs .tab').forEach((b,i)=>b.classList.toggle('on',['ex','ev','sg'][i]===t));
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('on'));
+  document.getElementById('pg-'+t).classList.add('on');
+  document.getElementById('mainScroll').scrollTop=0;
+  if(t==='sg')renderSg();
+}
+function setATab(t){
+  curATab=t;
+  const keys=['p','r','e','cfg','ct','av','an'];
+  document.querySelectorAll('#a-tabs .at').forEach((b,i)=>b.classList.toggle('on',keys[i]===t));
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('on'));
+  document.getElementById('pg-'+t).classList.add('on');
+  document.getElementById('mainScroll').scrollTop=0;
+  const fns={p:renderAp,r:renderAr,e:renderAe,cfg:renderAcfg,ct:renderCt,av:renderAv,an:renderAn};
+  fns[t]&&fns[t]();
+}
+
+/* ══ EXPRESS ══ */
+function setModo(m){
+  cs.modo=m;
+  ['carne','mixto','tortas'].forEach(x=>document.getElementById('modo-'+x).classList.toggle('on',x===m));
+  document.getElementById('monto-card').style.display=m==='tortas'?'none':'block';
+  document.getElementById('xrow-tortas-wrap').style.display=(m==='mixto'||m==='tortas')?'block':'none';
+  if(m==='tortas'){cs.pesos='';document.getElementById('monto-inp').value='';}
+  updExtrasUI();renderCTA();
+}
+
+function setTipo(t){
+  cs.tipo=t;
+  const isD=t==='domicilio';
+  document.getElementById('ei-dom').classList.toggle('on',isD);
+  document.getElementById('ei-loc').classList.toggle('on',!isD);
+  const drd=document.querySelector('#ei-dom .ei-radio');
+  const lrd=document.querySelector('#ei-loc .ei-radio');
+  drd.classList.toggle('on',isD);
+  lrd.classList.toggle('on',!isD);
+  drd.querySelector('.ei-rdot').style.display=isD?'':'none';
+  lrd.querySelector('.ei-rdot').style.display=!isD?'':'none';
+  document.getElementById('dom-fields').style.display=isD?'block':'none';
+  document.getElementById('loc-fields').style.display=!isD?'block':'none';
+  renderCTA();
+}
+
+function setChip(v){
+  cs.pesos=v;
+  document.getElementById('monto-inp').value=v;
+  document.querySelectorAll('.chip').forEach(c=>{
+    const cv=parseInt(c.textContent.replace(/[$,]/g,''));
+    c.classList.toggle('on',cv===v);
+  });
+  updMontoUI(v);renderCTA();
+}
+
+function onMontoInput(){
+  const v=parseInt(document.getElementById('monto-inp').value)||0;
+  cs.pesos=v||'';
+  document.querySelectorAll('.chip').forEach(c=>{
+    const cv=parseInt(c.textContent.replace(/[$,]/g,''));
+    c.classList.toggle('on',cv===v);
+  });
+  updMontoUI(v);renderCTA();
+}
+
+function updMontoUI(v){
+  const maxP=Math.floor(kgDisp()*cfg.precioKg);
+  const w=document.getElementById('monto-wrap'),h=document.getElementById('monto-hint'),eq=document.getElementById('equiv-box');
+  if(!v){
+    w.className='monto-wrap';h.className='monto-hint';h.textContent=`Escribe el monto · Mínimo $30`;eq.style.display='none';return;
+  }
+  if(v<30){w.className='monto-wrap merr';h.className='monto-hint merr';h.textContent=`⚠ Mínimo $30`;eq.style.display='none';}
+  else if(v>maxP){w.className='monto-wrap merr';h.className='monto-hint merr';h.textContent=`⚠ Stock insuficiente. Máx ${f$(maxP)}`;eq.style.display='none';}
+  else{
+    const g=Math.round(v/cfg.precioKg*1000);
+    w.className='monto-wrap mok';h.className='monto-hint mok';h.textContent=`✓ ${fG(g)} de carne`;
+    document.getElementById('equiv-g').textContent=fG(g);
+    eq.style.display='flex';
+  }
+}
+
+function setPago(m){
+  cs.metodo=m;
+  document.getElementById('popt-ef').classList.toggle('on',m==='efectivo');
+  document.getElementById('popt-tr').classList.toggle('on',m==='transferencia');
+  const re=document.querySelector('#popt-ef .p-radio');const rt=document.querySelector('#popt-tr .p-radio');
+  re.classList.toggle('on',m==='efectivo');rt.classList.toggle('on',m==='transferencia');
+  re.querySelector('.p-rdot').style.display=m==='efectivo'?'':'none';
+  rt.querySelector('.p-rdot').style.display=m==='transferencia'?'':'none';
+  renderCTA();
+}
+
+function toggleBarras(){
+  cs.addBarras=!cs.addBarras;
+  if(!cs.addBarras)cs.numBarras=1;
+  document.getElementById('ck-barras').classList.toggle('on',cs.addBarras);
+  document.getElementById('xrow-barras').classList.toggle('on',cs.addBarras);
+  document.getElementById('barras-stp').style.display=cs.addBarras?'flex':'none';
+  updExtrasUI();renderCTA();
+}
+function adjBarras(d){
+  cs.numBarras=Math.max(1,cs.numBarras+d);
+  document.getElementById('barras-n').textContent=cs.numBarras;
+  document.getElementById('barras-tot').textContent=f$(cs.numBarras*cfg.precioBarra);
+  document.getElementById('barra-price').textContent=cs.addBarras?f$(cs.numBarras*cfg.precioBarra):f$(cfg.precioBarra)+'/u';
+  updExtrasUI();renderCTA();
+}
+function adjTortas(d){
+  cs.numTortas=Math.max(1,cs.numTortas+d);
+  document.getElementById('tortas-n').textContent=cs.numTortas;
+  document.getElementById('tortas-tot').textContent=f$(cs.numTortas*cfg.precioTorta);
+  document.getElementById('tortas-barras-equiv').textContent=Math.ceil(cs.numTortas/2)+' barra'+(Math.ceil(cs.numTortas/2)!==1?'s':'');
+  document.getElementById('torta-price').textContent=f$(cs.numTortas*cfg.precioTorta);
+  updExtrasUI();renderCTA();
+}
+function updExtrasUI(){
+  const bD=barrasDisp();
+  const tActivas=(cs.modo==='tortas'||cs.modo==='mixto')?cs.numTortas:0;
+  const bConsumo=(cs.addBarras?cs.numBarras:0)+Math.ceil(tActivas/2);
+  const bTras=bD-bConsumo;
+  const showResumen=cs.addBarras||(cs.modo==='mixto'||cs.modo==='tortas');
+  document.getElementById('stock-resumen').style.display=showResumen?'flex':'none';
+  if(showResumen){
+    const ok=bTras>=0;
+    document.getElementById('stock-lbl-txt').textContent='Stock tras este pedido';
+    document.getElementById('stock-lbl-val').textContent=ok?(bTras+' disponible'+(bTras!==1?'s':'')):'⚠ Sin stock suficiente';
+    document.getElementById('stock-lbl-val').style.color=ok?'var(--ok)':'var(--er)';
+    document.getElementById('stock-resumen').style.background=ok?'var(--ok0)':'var(--er0)';
+  }
+}
+
+function calcTotal(){
+  const p=parseInt(cs.pesos)||0;
+  const bCost=cs.addBarras?cs.numBarras*cfg.precioBarra:0;
+  const tActivas=(cs.modo==='tortas'||cs.modo==='mixto')?cs.numTortas:0;
+  const tCost=tActivas*cfg.precioTorta;
+  return p+bCost+tCost;
+}
+
+function canSubmit(){
+  const maxP=Math.floor(kgDisp()*cfg.precioKg);
+  const p=parseInt(cs.pesos)||0;
+  const pOk=cs.modo==='tortas'||(p>=30&&p<=maxP);
+  const tActivas=(cs.modo==='tortas'||cs.modo==='mixto')?cs.numTortas:0;
+  const bConsumo=(cs.addBarras?cs.numBarras:0)+Math.ceil(tActivas/2);
+  const stockOk=bConsumo<=barrasDisp();
+  const dirOk=cs.tipo==='local'||(document.getElementById('dir-inp').value.trim().length>0||cs.lat);
+  return pOk&&stockOk&&dirOk;
+}
+
+function renderCTA(){
+  const total=calcTotal();
+  const p=parseInt(cs.pesos)||0;
+  const gramos=p>0?Math.round(p/cfg.precioKg*1000):0;
+  const tActivas=(cs.modo==='tortas'||cs.modo==='mixto')?cs.numTortas:0;
+  const partes=[];
+  if(cs.modo!=='tortas'&&p>0)partes.push(fG(gramos)+' carne');
+  if(tActivas>0)partes.push(`🌮 ${tActivas}`);
+  if(cs.addBarras)partes.push(`🥖 ${cs.numBarras}`);
+  partes.push(cs.tipo==='domicilio'?`🚚 ${cfg.domicilioIni}–${cfg.domicilioFin}`:`🏪 ${cfg.recogerIni}–${cfg.recogerFin}`);
+  partes.push(cs.metodo==='efectivo'?'Efectivo':'Transf.');
+  const ok=canSubmit();
+  document.getElementById('cta-ex').innerHTML=`
+  <div style="background:var(--ink);border-radius:18px;padding:14px 16px;margin-top:4px;display:flex;justify-content:space-between;align-items:center">
+    <div class="cta-l">
+      <div class="clbl">Total a pagar</div>
+      <div class="ctot">${f$(total)}</div>
+      <div class="csumm">${partes.join(' · ')}</div>
+    </div>
+    <div class="cta-arr ${ok?'':'off'}" onclick="${ok?'confirmarEx()':''}">→</div>
+  </div>`;
+}
+
+function confirmarEx(){
+  const dir=document.getElementById('dir-inp').value.trim();
+  const p=parseInt(cs.pesos)||0;
+  const tActivas=(cs.modo==='tortas'||cs.modo==='mixto')?cs.numTortas:0;
+  const gramos=cs.modo!=='tortas'?Math.round(p/cfg.precioKg*1000):0;
+  const total=calcTotal();
+  pedidos.push({
+    id:String(pedidos.length+1).padStart(3,'0'),cliente:'Mi Pedido',gramos,kilos:+(gramos/1000).toFixed(4),
+    total,metodo:cs.metodo,tipo:cs.tipo,dir:cs.tipo==='domicilio'?dir:'Recoger en local',
+    lat:cs.lat,lng:cs.lng,pagoEst:cs.metodo==='efectivo'?'Efectivo':'Pendiente',
+    estado:'Pendiente',fuente:'express',numBarras:cs.addBarras?cs.numBarras:0,numTortas:tActivas,modo:cs.modo
+  });
+  updGlobal();
+  // Mostrar confirmación
+  const sc=document.getElementById('pg-ex').querySelector('.sc');
+  const partes=[];
+  if(cs.modo!=='tortas'&&p>0)partes.push(fG(gramos)+' carne');
+  if(tActivas>0)partes.push(`🌮 ${tActivas} torta${tActivas!==1?'s':''}`);
+  if(cs.addBarras)partes.push(`🥖 ${cs.numBarras} barra${cs.numBarras!==1?'s':''}`);
+  partes.push(f$(total));
+  const horTxt=cs.tipo==='domicilio'?
+    `<div class="hconf"><div class="hc-lbl">🚚 Hora estimada de entrega</div><div class="hc-range">${cfg.domicilioIni} – ${cfg.domicilioFin}</div><div class="hc-sub">Tu pedido llegará dentro de este rango horario</div></div>`:
+    `<div class="hconf" style="background:var(--bl)"><div class="hc-lbl">🏪 Horario de recoger</div><div class="hc-range">${cfg.recogerIni} – ${cfg.recogerFin}</div><div class="hc-sub">Pasa a recoger en este horario</div></div>`;
+  const pagBlock=cs.metodo==='efectivo'?
+    `<div class="card"><div class="ch"><span class="ct">Pago en efectivo</span></div><div style="padding:11px 14px"><div class="info-box"><span style="font-size:16px">💵</span><span style="font-size:10px;font-weight:700;color:var(--am3);text-transform:uppercase">Pago de ${f$(total)} al recibir</span></div></div></div>`:
+    `<div class="card"><div class="ch"><span class="ct">Transferencia bancaria</span></div><div style="padding:11px 14px"><div class="warn"><span>⚠</span><span style="font-size:10px;font-weight:700;color:var(--wr);text-transform:uppercase">Sube tu comprobante para completar.</span></div><div style="background:var(--am0);border:0.5px solid var(--am1);border-radius:11px;padding:11px 13px;font-size:11px;color:var(--am3);font-weight:600">BBVA · CLABE: 012345678901234567</div></div></div>`;
+  sc.innerHTML=`
+  <div class="conf-banner"><div class="conf-check">✓</div><div class="conf-title">¡Pedido registrado!</div><div class="conf-det">${partes.join(' · ')}</div><div style="display:flex;align-items:center;justify-content:center;gap:5px;margin-top:8px"><div class="svd"></div><span style="font-size:9px;color:var(--wr);font-weight:700;text-transform:uppercase">Guardando…</span></div></div>
+  ${horTxt}${pagBlock}
+  <button class="wa-btn">📱 Notificar al negocio</button>
+  <button class="nav-btn" onclick="setCTab('sg')">Ver seguimiento →</button>
+  <button class="sec-btn" onclick="resetEx()">Hacer otro pedido</button>`;
+  document.getElementById('mainScroll').scrollTop=0;
+  setTimeout(()=>{const s=sc.querySelector('.svd');if(s)s.parentElement.innerHTML=`<span style="font-size:9px;color:#059669;font-weight:700;text-transform:uppercase">✓ Guardado</span>`;},900);
+}
+
+function resetEx(){
+  cs={...cs,modo:'carne',tipo:'domicilio',metodo:'efectivo',pesos:'',addBarras:false,numBarras:1,numTortas:1,lat:null,lng:null};
+  const sc=document.getElementById('pg-ex').querySelector('.sc');
+  // rebuild ex
+  location.reload();
+}
+
+/* ══ GPS SIMULADO ══ */
+function simGeo(target){
+  const btn=document.getElementById(`geo-btn-${target}`);
+  const res=document.getElementById(`geo-res-${target}`);
+  btn.className='geo-btn loading';
+  btn.textContent='⌛ Obteniendo ubicación…';
+  setTimeout(()=>{
+    const lat=(20.967+Math.random()*.02).toFixed(6);
+    const lng=(-89.591-Math.random()*.02).toFixed(6);
+    if(target==='ex'){cs.lat=lat;cs.lng=lng;}
+    else{cs.evLat=lat;cs.evLng=lng;}
+    btn.className='geo-btn ok';
+    btn.textContent='✓ Ubicación GPS capturada — toca para actualizar';
+    res.innerHTML=`<div class="geo-res"><span style="font-size:20px;flex-shrink:0">✅</span><div><div class="geo-coords">📍 ${lat}, ${lng}</div><a href="https://maps.google.com?q=${lat},${lng}" target="_blank" class="geo-link">🗺️ Ver en Google Maps</a></div></div>`;
+    toast('📍 Ubicación capturada correctamente');
+    renderCTA();
+  },1400);
+}
+
+/* ══ SEGUIMIENTO ══ */
+function renderSg(){
+  const el=document.getElementById('sg-list');
+  if(!pedidos.length){el.innerHTML=`<div style="text-align:center;padding:40px 20px"><div style="font-size:36px;margin-bottom:10px">📦</div><div style="font-size:14px;font-weight:700;color:var(--ink)">Sin pedidos aún</div></div>`;return;}
+  el.innerHTML=pedidos.map(p=>{
+    const extras=[];
+    if(p.numBarras>0)extras.push(`🥖 ${p.numBarras} barra${p.numBarras!==1?'s':''}`);
+    if(p.numTortas>0)extras.push(`🌮 ${p.numTortas} torta${p.numTortas!==1?'s':''}`);
+    const horStyle=p.tipo==='domicilio'?'background:var(--am0);color:var(--am3)':'background:var(--bl0);color:var(--bl)';
+    const horTxt=p.tipo==='domicilio'?`⏰ ${cfg.domicilioIni}–${cfg.domicilioFin}`:`⏰ Recoger ${cfg.recogerIni}–${cfg.recogerFin}`;
+    const statBg=p.estado==='En ruta'?'var(--am0)':p.estado==='Entregado'?'var(--ok0)':'';
+    const statCol=p.estado==='En ruta'?'var(--am3)':p.estado==='Entregado'?'#065F46':'';
+    const statTxt=p.estado==='En ruta'?`🚚 Llegará entre las ${cfg.domicilioIni} y ${cfg.domicilioFin}`:p.estado==='Entregado'?'✓ Entregado':'';
+    return`<div class="trkcard">
+    <div class="trkh"><div>
+      <div class="trk-tot">${f$(p.total)}</div>
+      <div class="trk-det">${p.gramos>0?fG(p.gramos)+' · ':''}<span class="bdg bsl" style="font-size:8px;padding:1px 6px">${p.modo==='tortas'?'🌮':p.modo==='mixto'?'🍖🌮':'🍖'}</span>${extras.length?' · '+extras.join(' · '):''}</div>
+      ${p.dir&&p.tipo==='domicilio'?`<div style="font-size:10px;color:var(--sl);margin-top:2px">📍 ${p.dir}</div>`:''}
+      ${p.lat?`<a href="https://maps.google.com?q=${p.lat},${p.lng}" target="_blank" style="font-size:10px;font-weight:700;color:var(--bl);text-decoration:none;display:inline-flex;align-items:center;gap:3px;margin-top:2px">🗺️ Ver GPS</a>`:''}
+      <div class="trk-hor" style="${horStyle}">${horTxt}</div>
+    </div>
+    <span class="bdg ${p.estado==='Entregado'?'bok':p.estado==='En ruta'?'bam':'bsl'}">${p.estado}</span></div>
+    ${statTxt?`<div class="trk-stat" style="background:${statBg};border-top:0.5px solid var(--brd)"><span>${p.estado==='En ruta'?'🚚':'✓'}</span><span style="color:${statCol}">${statTxt}</span></div>`:''}
+    </div>`;
+  }).join('');
+}
+
+/* ══ EVENTO ══ */
+function renderEv(){
+  const kg=cs.evP*cs.evGpp/1000;
+  const tot=kg*cfg.precioEvento+(cs.evServ?cfg.precioServicio:0);
+  const ant=tot*0.5;
+  document.getElementById('ev-tot').textContent=f$(Math.round(tot));
+  document.getElementById('ev-det').textContent=`${cs.evP} personas · ${cs.evGpp}g/p · ${kg.toFixed(1)} kg`;
+  document.getElementById('ev-ant').textContent=f$(Math.round(ant));
+  document.getElementById('ev-p').textContent=cs.evP;
+}
+
+function adjEv(k,d){
+  if(k==='p')cs.evP=Math.max(5,cs.evP+d);
+  renderEv();
+}
+
+function toggleEvServ(){
+  cs.evServ=!cs.evServ;
+  document.getElementById('ev-tgl-track').classList.toggle('on',cs.evServ);
+  document.getElementById('ev-tgl').classList.toggle('on',cs.evServ);
+  document.getElementById('ev-dom-fields').style.display=cs.evServ?'block':'none';
+  document.getElementById('ev-conf-hor').style.display=cs.evServ?'block':'none';
+  renderEv();
+}
+
+function solicitarEvento(){
+  const kg=cs.evP*cs.evGpp/1000;
+  const tot=kg*cfg.precioEvento+(cs.evServ?cfg.precioServicio:0);
+  const ant=tot*0.5;
+  eventos.push({id:'e'+Date.now(),cliente:'Mi Evento',invitados:cs.evP,kilos:kg.toFixed(1),total:Math.round(tot),anticipo:Math.round(ant),pagoEst:'Pendiente',estado:'Esperando anticipo',lat:cs.evLat,lng:cs.evLng});
+  document.getElementById('ev-cot').style.display='none';
+  document.getElementById('ev-config').style.display='none';
+  document.getElementById('ev-conf').style.display='block';
+  document.getElementById('ev-conf-det').textContent=`${cs.evP} personas · ${kg.toFixed(1)} kg · ${f$(Math.round(tot))}`;
+  document.getElementById('ev-conf-hor').style.display=cs.evServ?'block':'none';
+  document.getElementById('ev-conf-hor').querySelector('.hc-range').textContent=`${cfg.domicilioIni} – ${cfg.domicilioFin}`;
+  document.getElementById('mainScroll').scrollTop=0;
+}
+
+function resetEv(){
+  cs.evServ=false;cs.evLat=null;cs.evLng=null;cs.evP=30;cs.evGpp=250;
+  document.getElementById('ev-cot').style.display='block';
+  document.getElementById('ev-config').style.display='block';
+  document.getElementById('ev-conf').style.display='none';
+  document.getElementById('ev-tgl-track').classList.remove('on');
+  document.getElementById('ev-dom-fields').style.display='none';
+  document.getElementById('geo-res-ev').innerHTML='';
+  document.getElementById('geo-btn-ev').className='geo-btn';
+  document.getElementById('geo-btn-ev').textContent='📍 Obtener ubicación GPS del evento';
+  renderEv();
+}
+
+/* ══ ADMIN — PEDIDOS ══ */
+function renderAp(){
+  const D=pedidos.filter(p=>p.tipo==='domicilio'),L=pedidos.filter(p=>p.tipo==='local');
+  const act=pedidos.filter(p=>p.estado!=='Cancelado');
+  const pCard=p=>`<div class="ped-mini">
+    <div class="ped-name">${p.cliente}</div>
+    <div class="ped-det">${p.gramos>0?fG(p.gramos)+' · ':''}<span class="bdg bsl" style="font-size:8px;padding:1px 6px">${p.modo==='tortas'?'🌮':p.modo==='mixto'?'🍖🌮':'🍖'}</span> · ${f$(p.total)}${p.numBarras>0?` · 🥖${p.numBarras}`:''}${p.numTortas>0?` · 🌮${p.numTortas}`:''}</div>
+    ${p.lat?`<div class="ped-geo">🗺️ GPS capturado</div>`:''}
+    <div class="ped-badges"><span class="bdg ${p.pagoEst==='Validado'||p.pagoEst==='Efectivo'?'bok':p.pagoEst==='Pendiente'?'ber':'bam'}">${p.pagoEst}</span><span class="bdg ${p.metodo==='transferencia'?'bbl':'bsl'}">${p.metodo==='transferencia'?'Transf.':'Efectivo'}</span></div>
+    <div class="ped-hor" style="color:${p.tipo==='domicilio'?'var(--am3)':'var(--bl)'}">${p.tipo==='domicilio'?`🚚 ${cfg.domicilioIni}–${cfg.domicilioFin}`:`🏪 ${cfg.recogerIni}–${cfg.recogerFin}`}</div>
+    <div style="display:flex;gap:5px;margin-top:6px">
+      <select style="flex:1;font-size:9px;font-weight:700;padding:4px 7px;border-radius:7px;border:none;outline:none;background:${p.estado==='En ruta'?'var(--am0)':p.estado==='Entregado'?'var(--ok0)':'#F1F5F9'};color:${p.estado==='En ruta'?'var(--am3)':p.estado==='Entregado'?'#065F46':'#475569'};cursor:pointer" onchange="setEst('${p.id}',this.value)">${['Pendiente','En ruta','Entregado'].map(e=>`<option${p.estado===e?' selected':''}>${e}</option>`).join('')}</select>
+    </div>
+  </div>`;
+  document.getElementById('ap-root').innerHTML=`
+  <div class="met-grid" style="padding:0 0 12px">
+    ${[['Pedidos',pedidos.length],['Activos',act.length],[kgUsados().toFixed(1)+' kg','Vendidos'],[f$(act.reduce((a,p)=>a+p.total,0)),'Ingresos']].map(([v,l])=>`<div class="met-c"><div class="met-l">${l}</div><div class="met-v">${v}</div></div>`).join('')}
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+    <div>
+      <div class="ped-col-lbl">Reparto 🚚<br><span style="color:var(--am3)">${cfg.domicilioIni}–${cfg.domicilioFin}</span> (${D.length})</div>
+      ${D.map(pCard).join('')||'<div style="font-size:11px;color:var(--sl);padding:8px">Sin pedidos</div>'}
+    </div>
+    <div>
+      <div class="ped-col-lbl">Recoger 🏪<br><span style="color:var(--bl)">${cfg.recogerIni}–${cfg.recogerFin}</span> (${L.length})</div>
+      ${L.map(pCard).join('')||'<div style="font-size:11px;color:var(--sl);padding:8px">Sin pedidos</div>'}
+    </div>
+  </div>`;
+}
+
+function setEst(id,v){const p=pedidos.find(x=>x.id===id);if(p){p.estado=v;if(v==='Entregado')p.pagoEst='Validado';}updGlobal();renderAp();toast(`📦 Pedido ${id} → ${v}`);}
+
+/* ══ ADMIN — RUTA ══ */
+function renderAr(){
+  const active=pedidos.filter(p=>p.tipo==='domicilio'&&p.estado!=='Entregado');
+  const W=320,H=140,P=22,ori={x:P,y:H/2};
+  const lats=[20.975,20.982,20.968,20.971],lngs=[-89.622,-89.618,-89.631,-89.610];
+  const stops=active.map((p,i)=>({x:Math.max(P,Math.min(W-P,P+((lngs[i%4]+89.645)/0.04)*(W-P*2))),y:Math.max(P,Math.min(H-P,P+((20.985-lats[i%4])/0.035)*(H-P*2))),n:i+1,lbl:p.cliente.split(' ')[0],est:p.estado,lat:p.lat,lng:p.lng}));
+  document.getElementById('ar-root').innerHTML=`<div class="card"><div class="ch"><span class="ct">Ruta óptima · 🚚 ${cfg.domicilioIni}–${cfg.domicilioFin}</span><span class="bdg bam">${active.length} paradas</span></div>
+  <div style="padding:11px 13px">
+  <div class="ruta-map"><svg viewBox="0 0 ${W} ${H}" style="width:100%;display:block">
+  ${stops.length?`<polyline points="${[ori,...stops].map(s=>`${s.x},${s.y}`).join(' ')}" fill="none" stroke="#F59E0B" stroke-width="2" stroke-dasharray="6,3" opacity=".8"/>`:''}
+  <circle cx="${ori.x}" cy="${ori.y}" r="12" fill="#0F172A"/>
+  <text x="${ori.x}" y="${ori.y+4}" text-anchor="middle" font-size="9" fill="#F59E0B" font-weight="bold" font-family="sans-serif">L</text>
+  ${stops.map(s=>`<circle cx="${s.x}" cy="${s.y}" r="11" fill="${s.est==='En ruta'?'#F59E0B':'#fff'}" stroke="${s.est==='En ruta'?'#D97706':'#94A3B8'}" stroke-width="2"/>
+  <text x="${s.x}" y="${s.y+4}" text-anchor="middle" font-size="9" fill="${s.est==='En ruta'?'#0F172A':'#64748B'}" font-weight="bold" font-family="sans-serif">${s.n}</text>
+  ${s.lat?`<text x="${s.x}" y="${s.y+20}" text-anchor="middle" font-size="7" fill="#2563EB" font-family="sans-serif">📍</text>`:''}`).join('')}
+  <text x="8" y="13" font-size="8" fill="#94A3B8" font-family="sans-serif">Mérida, Yucatán</text>
+  </svg></div>
+  <div style="display:flex;flex-wrap:wrap;gap:5px">
+  <span style="font-size:9px;font-weight:700;padding:3px 9px;border-radius:5px;background:#0F172A;color:#F59E0B;text-transform:uppercase">L Local</span>
+  ${stops.map(s=>s.lat?`<a href="https://maps.google.com?q=${s.lat},${s.lng}" target="_blank" style="font-size:9px;font-weight:700;padding:3px 9px;border-radius:5px;background:${s.est==='En ruta'?'var(--am0)':'#F1F5F9'};color:${s.est==='En ruta'?'var(--am3)':'#475569'};text-decoration:none">${s.n} ${s.lbl} 📍</a>`:`<span style="font-size:9px;font-weight:700;padding:3px 9px;border-radius:5px;background:#F1F5F9;color:#475569">${s.n} ${s.lbl}</span>`).join('')}
+  </div></div></div>`;
+}
+
+/* ══ ADMIN — EVENTOS ══ */
+function renderAe(){
+  document.getElementById('ae-root').innerHTML=eventos.map(e=>`<div class="ev-admin">
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px">
+    <div>
+      <div style="font-size:14px;font-weight:700;color:#F1F5F9">${e.cliente}</div>
+      <div style="font-size:10px;color:#94A3B8;margin-top:2px">${e.invitados} inv · ${e.kilos} kg</div>
+      ${e.lat?`<a href="https://maps.google.com?q=${e.lat},${e.lng}" target="_blank" style="font-size:9px;font-weight:700;color:#60A5FA;text-decoration:none;display:flex;align-items:center;gap:3px;margin-top:3px">🗺️ Ver ubicación GPS del evento</a>`:'<div style="font-size:9px;color:rgba(255,255,255,.25);margin-top:2px">Sin ubicación GPS</div>'}
+    </div>
+    <div style="text-align:right">
+      <div style="font-size:9px;color:#94A3B8;text-transform:uppercase">Anticipo</div>
+      <div style="font-family:var(--ff-head);font-size:22px;font-weight:700;color:#F59E0B">${f$(e.anticipo)}</div>
+    </div>
+  </div>
+  <div style="display:flex;gap:5px">
+    <span class="bdg ${e.pagoEst==='Validado'?'bok':'bam'}">${e.pagoEst}</span>
+    <span class="bdg bsl">${e.estado}</span>
+  </div>
+  ${e.pagoEst!=='Validado'?`<button onclick="valE('${e.id}')" style="width:100%;margin-top:8px;padding:9px;background:var(--am);color:var(--ink);border:none;border-radius:10px;font-size:10px;font-weight:700;cursor:pointer;font-family:var(--ff-body);text-transform:uppercase">✓ Confirmar anticipo</button>`:`<div style="margin-top:8px;padding:8px 11px;background:rgba(5,150,105,.15);border:1px solid rgba(5,150,105,.3);border-radius:9px;font-size:10px;font-weight:700;color:#6EE7B7">Anticipo confirmado ✓</div>`}
+  </div>`).join('');
+}
+function valE(id){const e=eventos.find(x=>x.id===id);if(e)e.pagoEst='Validado';renderAe();toast('✓ Anticipo validado');}
+
+/* ══ ADMIN — CONFIG ══ */
+function renderAcfg(){
+  const bUsed=barrasUsadas(),bDisp=barrasDisp(),bPct=Math.min(100,Math.round(bUsed/cfg.stockBarras*100));
+  document.getElementById('acfg-root').innerHTML=`
+  <!-- PRECIOS -->
+  <div class="card"><div class="ch"><span class="ct">Precios — Carne</span></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:12px 15px">
+    <div><div style="font-size:9px;font-weight:700;color:var(--sl);text-transform:uppercase;margin-bottom:4px">Express $/kg</div><input class="cfg-inp" type="number" id="cfg-pk" value="${cfg.precioKg}"></div>
+    <div><div style="font-size:9px;font-weight:700;color:var(--sl);text-transform:uppercase;margin-bottom:4px">Evento $/kg</div><input class="cfg-inp" type="number" id="cfg-pe" value="${cfg.precioEvento}"></div>
+    <div style="grid-column:span 2"><div style="font-size:9px;font-weight:700;color:var(--sl);text-transform:uppercase;margin-bottom:4px">Kilos del día</div>
+    <input class="cfg-inp" type="number" id="cfg-k" value="${cfg.kilosDia}" style="margin-bottom:6px">
+    <div class="prog"><div class="progf" style="width:${Math.round(kgUsados()/cfg.kilosDia*100)}%"></div></div>
+    <div style="font-size:9px;color:var(--sl)">Vendidos: ${kgUsados().toFixed(2)} kg · Disponibles: ${kgDisp().toFixed(2)} kg</div></div>
+  </div>
+  <div style="padding:0 15px 12px"><button class="save-btn" onclick="savePrecio()">Guardar precios</button></div></div>
+
+  <!-- HORARIOS DE ENTREGA -->
+  <div class="card"><div class="ch"><span class="ct">Horarios de entrega</span><span class="bdg bam">Visible al cliente</span></div>
+  <div style="padding:12px 15px">
+    <div class="hor-bloque am" style="margin-bottom:10px"><div class="hl-ico">🚚</div><div><div class="hl-tit">Entrega a domicilio</div><div class="hl-range" id="dom-range-preview">${cfg.domicilioIni} – ${cfg.domicilioFin}</div><div class="hl-sub">El cliente ve este rango en su formulario</div></div></div>
+    <div class="time-row" style="margin-bottom:14px">
+      <input type="time" class="time-inp" id="dom-ini" value="${cfg.domicilioIni}" oninput="document.getElementById('dom-range-preview').textContent=this.value+' – '+document.getElementById('dom-fin').value">
+      <span style="font-size:16px;color:var(--sl);font-weight:700">–</span>
+      <input type="time" class="time-inp" id="dom-fin" value="${cfg.domicilioFin}" oninput="document.getElementById('dom-range-preview').textContent=document.getElementById('dom-ini').value+' – '+this.value">
+    </div>
+    <div class="hor-bloque bl" style="margin-bottom:10px"><div class="hl-ico">🏪</div><div><div class="hl-tit">Recoger en local</div><div class="hl-range" id="rec-range-preview">${cfg.recogerIni} – ${cfg.recogerFin}</div><div class="hl-sub">El cliente ve este rango al elegir recoger</div></div></div>
+    <div class="time-row">
+      <input type="time" class="time-inp" id="rec-ini" value="${cfg.recogerIni}" oninput="document.getElementById('rec-range-preview').textContent=this.value+' – '+document.getElementById('rec-fin').value">
+      <span style="font-size:16px;color:var(--sl);font-weight:700">–</span>
+      <input type="time" class="time-inp" id="rec-fin" value="${cfg.recogerFin}" oninput="document.getElementById('rec-range-preview').textContent=document.getElementById('rec-ini').value+' – '+this.value">
+    </div>
+  </div>
+  <div style="padding:0 15px 12px"><button class="save-btn" onclick="saveHorarios()">Guardar horarios de entrega</button></div></div>
+
+  <!-- EXTRAS -->
+  <div class="card"><div class="ch"><span class="ct">Extras — Barras y Tortas</span></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:12px 15px">
+    <div><div style="font-size:9px;font-weight:700;color:var(--sl);text-transform:uppercase;margin-bottom:4px">🥖 Barra $/u</div><input class="cfg-inp" type="number" id="cfg-bar" value="${cfg.precioBarra}" style="margin-bottom:2px"><div style="font-size:9px;color:var(--sl)">Pan francés al horno</div></div>
+    <div><div style="font-size:9px;font-weight:700;color:var(--sl);text-transform:uppercase;margin-bottom:4px">🌮 Torta $/u</div><input class="cfg-inp" type="number" id="cfg-tor" value="${cfg.precioTorta}" style="margin-bottom:2px"><div style="font-size:9px;color:var(--sl)">1 torta = ½ barra</div></div>
+    <div style="grid-column:span 2"><div style="font-size:9px;font-weight:700;color:var(--sl);text-transform:uppercase;margin-bottom:4px">Stock de barras del día</div>
+    <input class="cfg-inp" type="number" id="cfg-sb" value="${cfg.stockBarras}" style="margin-bottom:6px">
+    <div class="prog"><div class="progf" style="width:${bPct}%"></div></div>
+    <div style="font-size:9px;color:var(--sl)">Usadas: ${bUsed} · Disponibles: ${bDisp}</div></div>
+  </div>
+  <div style="padding:0 15px 12px"><button class="save-btn" onclick="saveExtras()">Guardar extras</button></div></div>
+
+  <!-- DÍAS -->
+  <div class="card"><div class="ch"><span class="ct">Días laborales</span><span class="bdg bam">${diasH.filter(d=>d.activo).length} activos</span></div>
+  <div style="padding:12px 15px">
+  <div class="dias-grid">${diasH.map(d=>`<div class="dia-btn ${d.activo?'on':'off'}" onclick="toggleDia('${d.id}')"><div style="font-size:10px">${d.activo?'✓':'—'}</div><div class="dia-lbl">${d.lbl}</div></div>`).join('')}</div>
+  <div style="display:flex;gap:8px"><button onclick="todosD(true)" style="font-size:9px;font-weight:700;padding:4px 11px;background:var(--am0);color:var(--am3);border:0.5px solid var(--am1);border-radius:7px;cursor:pointer">Todos</button><button onclick="todosD(false)" style="font-size:9px;font-weight:700;padding:4px 11px;background:#F1F5F9;color:#475569;border:0.5px solid var(--brd);border-radius:7px;cursor:pointer">Ninguno</button></div>
+  </div></div>
+
+  <!-- WA -->
+  <div class="card"><div class="ch"><span class="ct">WhatsApp del negocio</span></div>
+  <div style="padding:10px 15px;display:flex;gap:8px"><input class="cfg-inp" id="cfg-wa" value="${cfg.whatsapp}" style="margin-bottom:0;flex:1"><button onclick="cfg.whatsapp=document.getElementById('cfg-wa').value;toast('✓ WhatsApp guardado')" style="padding:9px 13px;background:var(--ink);color:var(--am);border:none;border-radius:10px;font-size:11px;font-weight:700;cursor:pointer;font-family:var(--ff-body)">Guardar</button></div></div>
+  <div id="cfg-toast2" style="display:none;background:var(--ok0);border:1px solid var(--ok1);border-radius:10px;padding:9px;font-size:11px;font-weight:700;color:#065F46;text-align:center"></div>`;
+}
+
+function savePrecio(){
+  cfg.precioKg=+document.getElementById('cfg-pk').value||300;
+  cfg.precioEvento=+document.getElementById('cfg-pe').value||200;
+  cfg.kilosDia=+document.getElementById('cfg-k').value||80;
+  updGlobal();toast('✓ Precios guardados');
+}
+function saveHorarios(){
+  cfg.domicilioIni=document.getElementById('dom-ini').value;
+  cfg.domicilioFin=document.getElementById('dom-fin').value;
+  cfg.recogerIni=document.getElementById('rec-ini').value;
+  cfg.recogerFin=document.getElementById('rec-fin').value;
+  updGlobal();toast('✓ Horarios guardados — ya visibles al cliente');
+}
+function saveExtras(){
+  cfg.precioBarra=+document.getElementById('cfg-bar').value||8;
+  cfg.precioTorta=+document.getElementById('cfg-tor').value||15;
+  cfg.stockBarras=+document.getElementById('cfg-sb').value||30;
+  updGlobal();toast('✓ Extras guardados');
+}
+function toggleDia(id){diasH.find(d=>d.id===id).activo^=true;renderAcfg();}
+function todosD(v){diasH.forEach(d=>d.activo=v);renderAcfg();}
+
+/* ══ ADMIN — CONTACTOS ══ */
+function renderCt(){
+  const regs=contactos.filter(c=>c.tipo==='reg');
+  const mans=contactos.filter(c=>c.tipo==='man');
+  const regTels=new Set(regs.map(c=>c.tel.replace(/\D/g,'')));
+  const dups=mans.filter(m=>regTels.has(m.tel.replace(/\D/g,'')));
+  const uniq=mans.filter(m=>!regTels.has(m.tel.replace(/\D/g,'')));
+  document.getElementById('act-root').innerHTML=`
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px">
+    <div style="background:var(--bl0);border-radius:13px;padding:11px;text-align:center"><div style="font-size:16px">👤</div><div style="font-family:var(--ff-head);font-size:20px;font-weight:700;color:var(--bl)">${regs.length}</div><div style="font-size:8px;font-weight:700;color:var(--bl);text-transform:uppercase;margin-top:1px">Registrados</div></div>
+    <div style="background:var(--am0);border-radius:13px;padding:11px;text-align:center"><div style="font-size:16px">📋</div><div style="font-family:var(--ff-head);font-size:20px;font-weight:700;color:var(--am3)">${uniq.length}</div><div style="font-size:8px;font-weight:700;color:var(--am3);text-transform:uppercase;margin-top:1px">Manuales únicos</div></div>
+    <div style="background:${dups.length?'var(--er0)':'var(--ok0)'};border-radius:13px;padding:11px;text-align:center"><div style="font-size:16px">⚠️</div><div style="font-family:var(--ff-head);font-size:20px;font-weight:700;color:${dups.length?'var(--er)':'var(--ok)'}">${dups.length}</div><div style="font-size:8px;font-weight:700;color:${dups.length?'var(--er)':'var(--ok)'};text-transform:uppercase;margin-top:1px">Duplicados</div></div>
+  </div>
+  <div class="card">
+    <div class="ch"><span class="ct">Todos los contactos</span><span class="bdg bam">${regs.length+uniq.length} sin duplicados</span></div>
+    ${[...regs.map(c=>({...c,fuente:'reg'})),...uniq.map(c=>({...c,fuente:'man'})),...dups.map(c=>({...c,fuente:'dup'}))].map(c=>`
+    <div style="display:flex;align-items:center;gap:9px;padding:9px 14px;border-bottom:0.5px solid var(--brd);${c.fuente==='dup'?'opacity:.5':''}">
+      <div style="width:22px;height:22px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:11px;background:${c.fuente==='reg'?'var(--bl0)':c.fuente==='man'?'var(--am0)':'var(--er0)'}">${c.fuente==='reg'?'👤':c.fuente==='man'?'📋':'⚠️'}</div>
+      <div style="flex:1;min-width:0">
+        <div style="font-size:12px;font-weight:700;color:var(--ink)">${c.nombre}${c.fuente==='dup'?'<span class="bdg ber" style="margin-left:5px;font-size:7px">Dup</span>':''}</div>
+        <div style="font-size:9px;color:var(--sl)">${c.tel}</div>
+        ${c.notas?`<div style="font-size:9px;color:var(--sl);font-style:italic">${c.notas}</div>`:''}
+      </div>
+      ${c.fuente!=='dup'?`<span class="bdg ${c.fuente==='reg'?'bbl':'bam'}">${c.fuente==='reg'?'App':'Manual'}</span>`:''}
+    </div>`).join('')}
+  </div>
+  <div style="background:var(--ok0);border:1px solid var(--ok1);border-radius:12px;padding:12px 14px">
+    <div style="font-size:11px;font-weight:700;color:#065F46;margin-bottom:3px">✓ Lista efectiva para avisos</div>
+    <div style="font-size:10px;color:var(--ok)"><strong>${regs.length}</strong> registrados + <strong>${uniq.length}</strong> manuales = <strong>${regs.length+uniq.length}</strong> sin duplicados</div>
+  </div>`;
+}
+
+/* ══ ADMIN — AVISOS ══ */
+function renderAv(){
+  const msg=`🔥 *MegaLogistics — Promo especial*\n\n¡Este fin de semana: compra de $200 o más y llévate 2 barras de leña de regalo! 🥖🥖\n\nPide por WhatsApp. ¡Solo sábado y domingo!`;
+  document.getElementById('aav-root').innerHTML=`
+  <div style="background:var(--ink);border-radius:16px;padding:14px;margin-bottom:12px;display:flex;align-items:center;gap:12px">
+    <div style="width:42px;height:42px;border-radius:12px;background:var(--wa);display:flex;align-items:center;justify-content:center;font-size:20px">📢</div>
+    <div><div style="font-family:var(--ff-head);font-size:14px;font-weight:700;color:#fff">Avisos a clientes</div><div style="font-size:10px;color:rgba(255,255,255,.4)">Sin duplicados · ${contactos.filter(c=>c.tipo==='reg').length+contactos.filter((c,i,a)=>c.tipo==='man'&&!new Set(contactos.filter(x=>x.tipo==='reg').map(x=>x.tel.replace(/\D/g,''))).has(c.tel.replace(/\D/g,''))).length} contactos efectivos</div></div>
+  </div>
+  <div class="card">
+    <div class="ch"><span class="ct">Plantilla activa</span><span class="bdg bok">🔥 Promoción</span></div>
+    <div style="padding:11px 14px">
+      <textarea style="width:100%;padding:10px 12px;border-radius:10px;border:1.5px solid var(--brd);background:var(--sur);color:var(--ink);font-size:12px;resize:vertical;outline:none;min-height:90px;line-height:1.6;font-family:var(--ff-body)">${msg}</textarea>
+    </div>
+  </div>
+  <!-- Preview WhatsApp -->
+  <div style="background:var(--ink2);border-radius:11px;padding:11px 13px;margin-bottom:12px">
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+      <div style="width:26px;height:26px;border-radius:50%;background:var(--wa);display:flex;align-items:center;justify-content:center;font-size:13px">📱</div>
+      <div style="font-size:11px;font-weight:700;color:#fff">MegaLogistics</div>
+    </div>
+    <div style="background:#1E3A2F;border-radius:0 10px 10px 10px;padding:9px 11px">
+      <div style="font-size:11px;color:#E2E8F0;line-height:1.6;white-space:pre-wrap">${msg.replace(/\*(.*?)\*/g,'<strong style="color:#FDE68A">$1</strong>')}</div>
+    </div>
+  </div>
+  <div class="card" style="margin-bottom:12px">
+    <div class="ch"><span class="ct">Destinatarios</span></div>
+    ${[...contactos.filter(c=>c.tipo==='reg'),...contactos.filter(c=>c.tipo==='man')].slice(0,5).map(c=>`
+    <div style="display:flex;align-items:center;gap:9px;padding:8px 14px;border-bottom:0.5px solid var(--brd)">
+      <div style="width:20px;height:20px;border-radius:5px;background:${c.tipo==='reg'?'var(--bl0)':'var(--am0)'};display:flex;align-items:center;justify-content:center;font-size:10px">${c.tipo==='reg'?'👤':'📋'}</div>
+      <div style="flex:1"><div style="font-size:11px;font-weight:600;color:var(--ink)">${c.nombre}</div></div>
+      <a href="https://wa.me/${c.tel}?text=${encodeURIComponent(msg)}" target="_blank" style="font-size:9px;font-weight:700;padding:3px 8px;background:#DCFCE7;color:#166634;border-radius:6px;text-decoration:none">Enviar</a>
+    </div>`).join('')}
+  </div>
+  <div style="background:var(--wa);border-radius:18px;padding:13px 16px;display:flex;justify-content:space-between;align-items:center">
+    <div><div style="font-size:9px;color:rgba(255,255,255,.7);text-transform:uppercase;margin-bottom:2px">Enviar a todos</div><div style="font-family:var(--ff-head);font-size:18px;font-weight:700;color:#fff">8 contactos</div></div>
+    <div onclick="toast('📢 Aviso enviado a 8 contactos')" style="width:50px;height:50px;border-radius:15px;background:#fff;color:var(--wa);font-size:22px;font-weight:900;display:flex;align-items:center;justify-content:center;cursor:pointer">→</div>
+  </div>`;
+}
+
+/* ══ ANALÍTICAS ══ */
+function renderAn(){
+  document.getElementById('aan-root').innerHTML=`
+  <div class="an-hdr" style="margin-bottom:12px">
+    <div class="an-ico">📊</div>
+    <div><div class="an-tit">Analíticas MegaLogistics</div><div class="an-sub">Pedidos · Kg carne · Barras · Tortas · Ingresos</div></div>
+  </div>
+  <div class="an-tabs" id="an-tabs-el">
+    <div class="an-tab" data-p="dia" onclick="setAnP('dia')">Día</div>
+    <div class="an-tab on" data-p="mes" onclick="setAnP('mes')">Mes</div>
+    <div class="an-tab" data-p="anio" onclick="setAnP('anio')">Año</div>
+  </div>
+  <div id="an-content"></div>`;
+  renderAnContent();
+}
+
+function setAnP(p){
+  anPeriod=p;
+  document.querySelectorAll('#an-tabs-el .an-tab').forEach(b=>b.classList.toggle('on',b.dataset.p===p));
+  renderAnContent();
+}
+function setAnM(m){anMetrica=m;renderAnContent();}
+function togAnSerie(k){if(anHidden.has(k))anHidden.delete(k);else anHidden.add(k);renderAnContent();}
+
+function buildLine(data,key,col,labelKey){
+  const W=430,H=130,pad={t:8,r:8,b:22,l:34};
+  const cW=W-pad.l-pad.r,cH=H-pad.t-pad.b;
+  const vals=data.map(d=>d[key]||0);
+  const maxV=Math.max(...vals,1);
+  let s=`<svg viewBox="0 0 ${W} ${H}" style="width:100%;display:block;overflow:visible">`;
+  for(let i=0;i<=4;i++){const y=pad.t+cH*(1-i/4);const v=maxV*i/4;s+=`<line x1="${pad.l}" y1="${y}" x2="${W-pad.r}" y2="${y}" stroke="#E2E8F0" stroke-width="0.5"/><text x="${pad.l-4}" y="${y+3}" text-anchor="end" font-size="8" fill="#94A3B8" font-family="sans-serif">${v>=1000?(v/1000).toFixed(0)+'k':v.toFixed(v<2?1:0)}</text>`;}
+  const xS=cW/(data.length-1||1);
+  const pts=data.map((d,i)=>`${(pad.l+i*xS).toFixed(1)},${(pad.t+cH*(1-vals[i]/maxV)).toFixed(1)}`);
+  s+=`<polyline points="${pts.join(' ')}" fill="none" stroke="${col}" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>`;
+  data.forEach((d,i)=>{const x=pad.l+i*xS,y=pad.t+cH*(1-vals[i]/maxV);s+=`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="3.5" fill="${col}" stroke="#fff" stroke-width="1.5"/>`;});
+  data.forEach((d,i)=>{s+=`<text x="${(pad.l+i*xS).toFixed(1)}" y="${H-3}" text-anchor="middle" font-size="8" fill="#94A3B8" font-family="sans-serif">${d[labelKey]}</text>`;});
+  s+=`</svg>`;return s;
+}
+
+function buildBars(data,keys,cols,labelKey){
+  const W=430,H=150,pad={t:8,r:8,b:24,l:34};
+  const cW=W-pad.l-pad.r,cH=H-pad.t-pad.b;
+  const vis=keys.filter(k=>!anHidden.has(k));
+  const maxV=Math.max(...data.map(d=>vis.reduce((a,k)=>a+(d[k]||0),0)),1);
+  const bW=Math.max(4,(cW/data.length)*0.65),gap=(cW/data.length)-bW;
+  let s=`<svg viewBox="0 0 ${W} ${H}" style="width:100%;display:block">`;
+  for(let i=0;i<=4;i++){const y=pad.t+cH*(1-i/4);const v=maxV*i/4;s+=`<line x1="${pad.l}" y1="${y}" x2="${W-pad.r}" y2="${y}" stroke="#E2E8F0" stroke-width="0.5"/><text x="${pad.l-4}" y="${y+3}" text-anchor="end" font-size="8" fill="#94A3B8" font-family="sans-serif">${v>=1000?(v/1000).toFixed(0)+'k':v.toFixed(v<2?1:0)}</text>`;}
+  data.forEach((d,i)=>{const x=pad.l+i*(bW+gap)+gap/2;let yB=pad.t+cH;vis.forEach(k=>{const val=d[k]||0,bH=(val/maxV)*cH,fill=cols[keys.indexOf(k)];s+=`<rect x="${x.toFixed(1)}" y="${(yB-bH).toFixed(1)}" width="${bW.toFixed(1)}" height="${Math.max(0.5,bH).toFixed(1)}" fill="${fill}" rx="2" opacity="0.9"/>`;yB-=bH;});s+=`<text x="${(x+bW/2).toFixed(1)}" y="${H-5}" text-anchor="middle" font-size="8" fill="#94A3B8" font-family="sans-serif">${d[labelKey]}</text>`;});
+  s+=`</svg>`;return s;
+}
+
+function buildHeatmap(){
+  const maxKg=Math.max(...DATA_DIA.map(d=>d.kg));
+  const cols=['#FEF9EE','#FDE68A','#FCD34D','#F59E0B','#D97706','#B45309','#92400E'];
+  let h=`<div class="hm-grid">`;
+  DATA_DIA.forEach(d=>{h+=`<div class="hm-lbl">${d.d}</div>`;});
+  DATA_DIA.forEach(d=>{const ci=Math.min(6,Math.floor((d.kg/maxKg)*7));const tc=ci>3?'#fff':'#92400E';h+=`<div class="hm-cell" style="background:${cols[ci]};color:${tc}">${d.kg}</div>`;});
+  return h+`</div>`;
+}
+
+function renderAnContent(){
+  const el=document.getElementById('an-content');if(!el)return;
+  const data=anPeriod==='dia'?DATA_DIA:anPeriod==='mes'?DATA_MES:DATA_ANIO;
+  const lk=anPeriod==='dia'?'d':anPeriod==='mes'?'m':'a';
+  const sconf=[{k:'kg',lbl:'Kg carne',col:'#F59E0B'},{k:'barras',lbl:'Barras 🥖',col:'#7C3AED'},{k:'tortas',lbl:'Tortas 🌮',col:'#EA580C'},{k:'mixto',lbl:'Mixto 🍖🌮',col:'#2563EB'}];
+  const keys=sconf.map(s=>s.k),cols=sconf.map(s=>s.col);
+  const tot=data.reduce((a,d)=>a+d.ped,0);
+  const totKg=data.reduce((a,d)=>a+d.kg,0).toFixed(1);
+  const totIng=data.reduce((a,d)=>a+d.ing,0);
+  const totB=data.reduce((a,d)=>a+d.barras,0);
+  const avg=data.reduce((a,d)=>a+d.kg,0)/data.length;
+  const byKg=[...data].sort((a,b)=>b.kg-a.kg);
+  const top3=byKg.slice(0,3),low3=byKg.slice(-3).reverse(),maxKgAll=Math.max(...data.map(d=>d.kg));
+  const mLbl={kg:'Kg carne',barras:'Barras 🥖',tortas:'Tortas 🌮',mixto:'Mixto',ped:'Pedidos'};
+  const mCol={kg:'#F59E0B',barras:'#7C3AED',tortas:'#EA580C',mixto:'#2563EB',ped:'#059669'};
+  const promos=[...DATA_MES].sort((a,b)=>a.kg-b.kg).slice(0,4),maxFc=Math.max(...promos.map(d=>d.kg));
+  const insBulk=anPeriod==='dia'?[
+    {ico:'📉',bg:'#FFF1F1',col:'var(--er)',title:'Domingo — día más bajo',body:`1.26 kg promedio. Solo el 6% del volumen semanal.`,rec:'Considera cerrar domingos para evitar merma.'},
+    {ico:'🏆',bg:'#ECFDF5',col:'var(--ok)',title:'Sábado — día pico',body:`4.68 kg. El doble del promedio entre semana.`,rec:'Maximizar stock y barras disponibles los sábados.'},
+  ]:anPeriod==='mes'?[
+    {ico:'📉',bg:'#FFF1F1',col:'var(--er)',title:'Noviembre — mes más crítico',body:`8.1 kg, -61% bajo el promedio anual.`,rec:'Combos y descuentos en Nov y Abr.'},
+    {ico:'🔥',bg:'#ECFDF5',col:'var(--ok)',title:'Jul–Ago meses estrella',body:`21 kg en julio = +47% sobre el promedio.`,rec:'Maximizar stock y personal en Jun–Ago.'},
+    {ico:'🥖',bg:'#F5F3FF',col:'var(--pu)',title:'Barras correlacionan con temporada alta',body:`Meses altos de carne también venden más barras.`,rec:'Barras de regalo en pedidos >$200 en meses bajos.'},
+  ]:[
+    {ico:'📈',bg:'#ECFDF5',col:'var(--ok)',title:'Crecimiento del 17% en 3 años',body:`De 144.6 kg (2023) a 168.9 kg (2025).`,rec:'Proyectar 2026 con +12%. Invertir en capacidad.'},
+    {ico:'🥖',bg:'#F5F3FF',col:'var(--pu)',title:'Barras crecen más rápido que la carne',body:`Barras +30% vs carne +17% en 3 años.`,rec:'Evalúa subir el precio de barra $1–2.'},
+  ];
+
+  el.innerHTML=`
+  <div class="kpi-grid">${[['📦',tot,'Pedidos'],['🥩',totKg+' kg','Carne'],['💰',f$(totIng),'Ingresos'],['🥖',totB,'Barras']].map(([ico,v,l])=>`<div class="kpi-c"><div class="kpi-ico">${ico}</div><div class="kpi-val">${v}</div><div class="kpi-lbl">${l}</div></div>`).join('')}</div>
+  <div style="font-size:11px;font-weight:700;color:var(--ink);margin-bottom:8px">Gráfica por categoría</div>
+  <div class="tsel">${[['kg','Kg carne','#F59E0B'],['barras','Barras','#7C3AED'],['tortas','Tortas','#EA580C'],['mixto','Mixto','#2563EB'],['ped','Pedidos','#059669']].map(([k,l,c])=>`<div class="ts ${anMetrica===k?'on':''}" style="${anMetrica===k?'background:'+c+';border-color:'+c:''}" onclick="setAnM('${k}')">${l}</div>`).join('')}</div>
+  <div class="chart-card"><div class="chart-head"><span class="ct">${anPeriod==='dia'?'Por día de semana':anPeriod==='mes'?'Por mes':'Por año'}</span><span class="bdg bpu">${mLbl[anMetrica]}</span></div><div class="chart-body">${buildLine(data,[anMetrica],[mCol[anMetrica]],lk)}</div></div>
+  <div class="chart-card"><div class="chart-head"><span class="ct">Comparativa — todos los extras</span><span class="bdg bsl">Apilado</span></div>
+  <div class="legend">${sconf.map(s=>`<div class="leg-it" onclick="togAnSerie('${s.k}')"><div class="leg-dot" style="background:${s.col};opacity:${anHidden.has(s.k)?0.2:1}"></div><span style="opacity:${anHidden.has(s.k)?0.4:1}">${s.lbl}</span></div>`).join('')}</div>
+  <div class="chart-body">${buildBars(data,keys,cols,lk)}</div></div>
+  ${anPeriod!=='anio'?`<div class="chart-card"><div class="chart-head"><span class="ct">Mapa de calor — Kg por día</span><span class="bdg bam">Intensidad</span></div>
+  <div style="display:flex;gap:3px;padding:8px 14px 0;align-items:center"><span style="font-size:9px;color:var(--sl)">Bajo</span>${['#FEF9EE','#FDE68A','#FCD34D','#F59E0B','#D97706','#B45309','#92400E'].map(c=>`<div style="width:18px;height:11px;border-radius:2px;background:${c}"></div>`).join('')}<span style="font-size:9px;color:var(--sl)">Alto</span></div>
+  ${buildHeatmap()}</div>`:''}
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:10px">
+    <div class="chart-card"><div class="chart-head" style="padding:8px 11px"><span class="ct">🏆 Mejores</span></div>${top3.map((d,i)=>`<div class="rank-row"><div class="rank-n" style="background:${i===0?'#FEF3C7':i===1?'#F1F5F9':'#FEF9EE'};color:${i===0?'#92400E':i===1?'#475569':'#B45309'}">${i+1}</div><div style="flex:1;min-width:0"><div style="font-size:11px;font-weight:700;color:var(--ink)">${d[lk]}</div><div style="font-size:9px;color:var(--sl)">${d.kg} kg</div></div><div class="rbar-w"><div class="rbar-f" style="width:${Math.round(d.kg/maxKgAll*100)}%;background:#F59E0B"></div></div></div>`).join('')}</div>
+    <div class="chart-card"><div class="chart-head" style="padding:8px 11px"><span class="ct">📉 Menores</span></div>${low3.map((d,i)=>`<div class="rank-row"><div class="rank-n" style="background:var(--er0);color:var(--er)">${i+1}</div><div style="flex:1;min-width:0"><div style="font-size:11px;font-weight:700;color:var(--ink)">${d[lk]}</div><div style="font-size:9px;color:var(--sl)">${d.kg} kg</div></div><div class="rbar-w"><div class="rbar-f" style="width:${Math.round(d.kg/maxKgAll*100)}%;background:#EF4444"></div></div></div>`).join('')}</div>
+  </div>
+  <div class="chart-card"><div class="chart-head"><span class="ct">💡 Insights & Recomendaciones</span><span class="bdg bpu">${insBulk.length}</span></div>${insBulk.map(ins=>`<div class="ins-row"><div class="ins-ico" style="background:${ins.bg}">${ins.ico}</div><div><div class="ins-tit" style="color:${ins.col}">${ins.title}</div><div class="ins-bod">${ins.body}</div><div class="ins-rec" style="background:${ins.bg};color:${ins.col}">→ ${ins.rec}</div></div></div>`).join('')}</div>
+  ${anPeriod!=='dia'?`<div class="chart-card"><div class="chart-head"><span class="ct">🎯 Plan — Meses bajos</span><span class="bdg ber">Prioridad</span></div>
+  ${promos.map((d,i)=>{const pct=Math.round((avg-d.kg)/avg*100);const acc=['Promo combo: carne + 2 barras gratis','Descuento 10% en pedidos mayores a $200','Pack familiar 500g + 4 barras','Tortas 2×1 en horario bajo'];return`<div class="fc-row"><div class="fc-mes">${d.m} <span class="bdg ber" style="font-size:7px;padding:1px 5px">-${pct}%</span></div><div style="flex:1;min-width:0"><div class="fc-bw"><div class="fc-bf" style="width:${Math.round(d.kg/maxFc*100)}%;background:#EF4444"></div></div><div style="font-size:9px;color:var(--sl);margin-top:3px">${acc[i]}</div></div><div class="fc-val" style="color:var(--er)">${d.kg} kg</div></div>`;}).join('')}
+  <div style="padding:10px 14px;background:var(--am0);border-top:0.5px solid var(--am1)"><div style="font-size:10px;font-weight:700;color:var(--am3)">📌 Meta: recuperar +20% en meses bajos</div><div style="font-size:9px;color:var(--wr);margin-top:3px">Ingreso adicional estimado: <strong>${f$(Math.round(promos.reduce((a,d)=>a+d.ing,0)*0.2))}</strong></div></div></div>`:''}`;
+}
+
+/* ══ DEVICE SWITCHER ══ */
+function setDevice(d){
+  document.querySelectorAll('.dsw-btn').forEach(b=>b.classList.toggle('on',b.textContent.includes(d==='mobile'?'📱':'🖥️')));
+  const body=document.getElementById('body');
+  if(d==='desktop'){body.classList.add('desktop');}
+  else{body.classList.remove('desktop');}
+}
+
+/* ══ INIT ══ */
+updGlobal();
+renderCTA();
+renderEv();
+// inicializar barras check state
+document.getElementById('ck-barras').classList.add('on');
+cs.addBarras=true;
+document.getElementById('xrow-barras').classList.add('on');
+document.getElementById('barras-stp').style.display='flex';
+</script>
 </body>
 </html>
